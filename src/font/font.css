@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Vazir-Medium-FD-WOL' ;
+    src: url(./Farsi-Digits-Without-Latin/Vazir-Medium-FD-WOL.woff);
+}
+
+.fontv {
+    font-family: Vazir-Medium-FD-WOL ;
+}
