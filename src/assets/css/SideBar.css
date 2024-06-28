@@ -1,58 +1,30 @@
-/* src/Sidebar.css */
+/* src/index.css */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 250px;
-    background-color: #343a40;
-    color: #fff;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(-100%);
-  }
-  
-  .sidebar.open {
-    transform: translateX(0);
-  }
-  
-  .toggle-btn {
-    position: absolute;
-    top: 10px;
-    right: -50px;
-    background-color: #343a40;
-    border: none;
-    color: #fff;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .toggle-btn:focus {
-    outline: none;
-  }
-  
-  .sidebar-content {
-    padding: 20px;
-  }
-  
-  .sidebar-content h2 {
-    margin-bottom: 20px;
-  }
-  
-  .sidebar-content ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar-content ul li {
-    margin: 10px 0;
-  }
-  
-  .sidebar-content ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .sidebar-content ul li a:hover {
-    text-decoration: underline;
-  }
-  
+  width: 250px;
+  height: 100vh;
+  position:fixed;
+  top: 0;
+  right: 0;
+  background-color: #efebeb !important; /* Bootstrap light background color */
+  padding-top: 20px;
+  border-left: 5px solid #4aba0e  !important;
+}
+
+.sidebar .nav-link {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.sidebar .nav-link.active {
+  font-weight: bold;
+  color: #26ff00 !important; /* Bootstrap primary color */
+}
+
+.sidebar .nav-link:hover {
+  color: #00b31e !important ;
+}
+
+body {
+  margin-right: 250px; /* Space for the sidebar */
+  overflow-x: hidden;
+}

@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import './font/font.css';
 import ProductList from './components/ProductList';
 import ProductInfo from './components/Products';
 import Cart from './components/Cart';
@@ -14,6 +15,8 @@ import Nav from './components/Nav';
 import MenuButton from './components/NanMenue';
 import ShoppingCartPage from './components/KharidSabad';
 import ShoppingNavbar from './components/Nav';
+import Sidebar from './components/SideBarM';
+
 function App() {
   const menuItems = ['Item 1', 'Item 2', 'Item 3'];
   return (
@@ -21,12 +24,17 @@ function App() {
     <><Router>
     <div className="App">
       <ShoppingNavbar />
-      <div style={{ paddingTop: '120px', padding: '100px' }}>
-      
-        <h1>Welcome to ShopMate</h1>
-        <p>Your favorite place to shop online for all your needs.</p>
+    </div>
+
+    <div className="App">
+      <Sidebar />
+      <div className="content p-4" style={{ paddingTop: '120px', padding: '100px' }}>
+        <h1>خوش آمدید دنبال چه هستید</h1>
+        <p>به جدید ترین تخفیف ها و جشنواره های ما سر بزنید</p>
+        {/* Add more content here */}
       </div>
     </div>
+
       <Routes>
         <Route path='home' element={<ProductList />} />
         <Route path='/detail' element={<ProductInfo />} />
