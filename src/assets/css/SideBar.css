@@ -1,0 +1,30 @@
+/* src/index.css */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position:fixed;
+  top: 0;
+  right: 0;
+  background-color: #efebeb !important; /* Bootstrap light background color */
+  padding-top: 20px;
+  border-left: 5px solid #4aba0e  !important;
+}
+
+.sidebar .nav-link {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.sidebar .nav-link.active {
+  font-weight: bold;
+  color: #26ff00 !important; /* Bootstrap primary color */
+}
+
+.sidebar .nav-link:hover {
+  color: #00b31e !important ;
+}
+
+body {
+  margin-right: 250px; /* Space for the sidebar */
+  overflow-x: hidden;
+}
