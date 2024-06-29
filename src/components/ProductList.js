@@ -1,229 +1,69 @@
-import img1 from '../assets/media/products/1.png'
-import img2 from '../assets/media/products/2.png'
-import img3 from '../assets/media/products/3.png'
-import img4 from '../assets/media/products/4.png'
-import img5 from '../assets/media/products/5.png'
-import img6 from '../assets/media/products/6.png'
-import img7 from '../assets/media/products/7.png'
-import img8 from '../assets/media/products/8.png'
-import img9 from '../assets/media/products/9.png'
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../assets/css/ProductList.css';
+import img1 from '../assets/media/products/1.png';
+import img2 from '../assets/media/products/2.png';
+import img3 from '../assets/media/products/3.png';
+import img4 from '../assets/media/products/4.png';
+import img5 from '../assets/media/products/5.png';
+import img6 from '../assets/media/products/6.png';
+import img7 from '../assets/media/products/7.png';
+import img8 from '../assets/media/products/8.png';
+import img9 from '../assets/media/products/9.png';
+import Filter from './Filter';
 
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.css';
-import '../assets/plugins/global/plugins.bundle.css'
-import '../assets/plugins/custom/prismjs/prismjs.bundle.css'
-import '../assets/css/style.bundle.css'
-import '../assets/css/pages/login/login-1.css'
+const products = [
+  { id: 1, name: 'Product 1', price: 10, image: img1 },
+  { id: 2, name: 'Product 2', price: 20, image: img2 },
+  { id: 3, name: 'Product 3', price: 30, image: img3 },
+  { id: 4, name: 'Product 4', price: 40, image: img4 },
+  { id: 5, name: 'Product 5', price: 50, image: img5 },
+  { id: 6, name: 'Product 6', price: 60, image: img6 },
+  { id: 7, name: 'Product 7', price: 70, image: img7 },
+  { id: 8, name: 'Product 8', price: 80, image: img8 },
+  { id: 9, name: 'Product 9', price: 90, image: img9 },
+];
 
+const ProductList = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
+  const [category, setCategory] = useState('');
 
+  const handleFilterChange = (filters) => {
+    setSearchTerm(filters.searchTerm);
+    setMinPrice(filters.minPrice);
+    setMaxPrice(filters.maxPrice);
+    setCategory(filters.category);
+  };
 
-function ProductList() {
-    return (
-        <div class="flex-row-fluid ml-lg-8">
-        <div class="card card-custom card-stretch gutter-b">
-            <div class="card-body">
-                <div class="mb-11">
-                    <div class="d-flex justify-content-between align-items-center mb-7">
-                        <h2 class="font-weight-bolder text-dark font-size-h3 mb-0">Smart Devices</h2>
-                        <a href="#" class="btn btn-light-primary btn-sm font-weight-bolder">View All</a>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 col-xxl-4 col-lg-12">
-                            <div class="card card-custom card-shadowless">
-                                <div class="card-body p-0">
-                                    <div class="overlay">
-                                        <div class="overlay-wrapper rounded bg-light text-center">
-                                            <img src={img1} alt="" class="mw-100 w-200px" />
-                                        </div>
-                                        <div class="overlay-layer">
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-primary mr-2">Quick View</a>
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-light-primary">Purchase</a>
-                                        </div>
-                                    </div>
-                                    <div class="text-center mt-5 mb-md-0 mb-lg-5 mb-md-0 mb-lg-5 mb-lg-0 mb-5 d-flex flex-column">
-                                        <a href="#" class="font-size-h5 font-weight-bolder text-dark-75 text-hover-primary mb-1">Smart Watches</a>
-                                        <span class="font-size-lg">Outlines keep poorly thought</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-12 col-xxl-4">
-                            <div class="card card-custom card-shadowless">
-                                <div class="card-body p-0">
-                                    <div class="overlay">
-                                        <div class="overlay-wrapper rounded bg-light text-center">
-                                            <img src={img2} alt="" class="mw-100 w-200px" />
-                                        </div>
-                                        <div class="overlay-layer">
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-primary mr-2">Quick View</a>
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-light-primary">Purchase</a>
-                                        </div>
-                                    </div>
-                                    <div class="text-center mt-5 mb-md-0 mb-lg-5 mb-md-0 mb-lg-5 mb-lg-0 mb-5 d-flex flex-column">
-                                        <a href="#" class="font-size-h5 font-weight-bolder text-dark-75 text-hover-primary mb-1">Headphones</a>
-                                        <span class="font-size-lg">Outlines keep poorly thought</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-12 col-xxl-4">
-                            <div class="card card-custom card-shadowless">
-                                <div class="card-body p-0">
-                                    <div class="overlay">
-                                        <div class="overlay-wrapper rounded bg-light text-center">
-                                            <img src={img3} alt="" class="mw-100 w-200px" />
-                                        </div>
-                                        <div class="overlay-layer">
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-primary mr-2">Quick View</a>
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-light-primary">Purchase</a>
-                                        </div>
-                                    </div>
-                                    <div class="text-center mt-5 mb-md-0 mb-lg-5 mb-md-0 mb-lg-5 mb-lg-0 mb-5 d-flex flex-column">
-                                        <a href="#" class="font-size-h5 font-weight-bolder text-dark-75 text-hover-primary mb-1">Smart Drones</a>
-                                        <span class="font-size-lg">Outlines keep poorly thought</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-11">
-                    <div class="d-flex justify-content-between align-items-center mb-7">
-                        <h2 class="font-weight-bolder text-dark font-size-h3 mb-0">Best Wines</h2>
-                        <a href="#" class="btn btn-light-primary btn-sm font-weight-bolder">View All</a>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 col-xxl-4 col-lg-12">
-                            <div class="card card-custom card-shadowless">
-                                <div class="card-body p-0">
-                                    <div class="overlay">
-                                        <div class="overlay-wrapper rounded bg-light text-center">
-                                            <img src={img4} alt="" class="mw-100 w-200px" />
-                                        </div>
-                                        <div class="overlay-layer">
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-primary mr-2">Quick View</a>
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-light-primary">Purchase</a>
-                                        </div>
-                                    </div>
+  const filteredProducts = products.filter((product) => {
+    const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesMinPrice = minPrice === '' || product.price >= parseFloat(minPrice);
+    const matchesMaxPrice = maxPrice === '' || product.price <= parseFloat(maxPrice);
+    const matchesCategory = category === '' || product.category === category;
 
-                                    <div class="text-center mt-5 mb-md-0 mb-lg-5 mb-md-0 mb-lg-5 mb-lg-0 mb-5 d-flex flex-column">
-                                        <a href="#" class="font-size-h5 font-weight-bolder text-dark-75 text-hover-primary mb-1">Jerry Kane</a>
-                                        <span class="font-size-lg">Outlines keep poorly thought</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-12 col-xxl-4">
-                            <div class="card card-custom card-shadowless">
-                                <div class="card-body p-0">
-                                    <div class="overlay">
-                                        <div class="overlay-wrapper rounded bg-light text-center">
-                                            <img src={img5} alt="" class="mw-100 w-200px" />
-                                        </div>
-                                        <div class="overlay-layer">
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-primary mr-2">Quick View</a>
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-light-primary">Purchase</a>
-                                        </div>
-                                    </div>
+    return matchesSearchTerm && matchesMinPrice && matchesMaxPrice && matchesCategory;
+  });
 
-                                    <div class="text-center mt-5 mb-md-0 mb-lg-5 mb-md-0 mb-lg-5 mb-lg-0 mb-5 d-flex flex-column">
-                                        <a href="#" class="font-size-h5 font-weight-bolder text-dark-75 text-hover-primary mb-1">Shiraz</a>
-                                        <span class="font-size-lg">Outlines keep poorly thought</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-lg-12 col-xxl-4">
-                            <div class="card card-custom card-shadowless">
-                                <div class="card-body p-0">
-                                    <div class="overlay">
-                                        <div class="overlay-wrapper rounded bg-light text-center">
-                                            <img src={img6} alt="" class="mw-100 w-200px" />
-                                        </div>
-                                        <div class="overlay-layer">
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-primary mr-2">Quick View</a>
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-light-primary">Purchase</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="text-center mt-5 mb-md-0 mb-lg-5 mb-md-0 mb-lg-5 mb-lg-0 mb-5 d-flex flex-column">
-                                        <a href="#" class="font-size-h5 font-weight-bolder text-dark-75 text-hover-primary mb-1">Chardonnay</a>
-                                        <span class="font-size-lg">Outlines keep poorly thought</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="d-flex justify-content-between align-items-center mb-7">
-                        <h2 class="font-weight-bolder text-dark font-size-h3 mb-0">Popular Jackets</h2>
-                        <a href="#" class="btn btn-light-primary btn-sm font-weight-bolder">View All</a>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 col-xxl-4 col-lg-12">
-                            <div class="card card-custom card-shadowless">
-                                <div class="card-body p-0">
-                                    <div class="overlay">
-                                        <div class="overlay-wrapper rounded bg-light text-center">
-                                            <img src={img7} alt="" class="mw-100 w-200px" />
-                                        </div>
-                                        <div class="overlay-layer">
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-primary mr-2">Tommy Hilfiger</a>
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-light-primary">Purchase</a>
-                                        </div>
-                                    </div>
-                                    <div class="text-center mt-5 mb-md-0 mb-lg-5 mb-md-0 mb-lg-5 mb-lg-0 mb-5 d-flex flex-column">
-                                        <a href="#" class="font-size-h5 font-weight-bolder text-dark-75 text-hover-primary mb-1">Smart Watches</a>
-                                        <span class="font-size-lg">Outlines keep poorly thought</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-12 col-xxl-4">
-                            <div class="card card-custom card-shadowless">
-                                <div class="card-body p-0">
-                                    <div class="overlay">
-                                        <div class="overlay-wrapper rounded bg-light text-center">
-                                            <img src={img8} alt="" class="mw-100 w-200px" />
-                                        </div>
-                                        <div class="overlay-layer">
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-primary mr-2">Quick View</a>
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-light-primary">Purchase</a>
-                                        </div>
-                                    </div>
-                                    <div class="text-center mt-5 mb-md-0 mb-lg-5 mb-md-0 mb-lg-5 mb-lg-0 mb-5 d-flex flex-column">
-                                        <a href="#" class="font-size-h5 font-weight-bolder text-dark-75 text-hover-primary mb-1">Hugo Boss</a>
-                                        <span class="font-size-lg">Outlines keep poorly thought</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-12 col-xxl-4">
-                            <div class="card card-custom card-shadowless">
-                                <div class="card-body p-0">
-                                    <div class="overlay">
-                                        <div class="overlay-wrapper rounded bg-light text-center">
-                                            <img src={img9} alt="" class="mw-100 w-200px" />
-                                        </div>
-                                        <div class="overlay-layer">
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-primary mr-2">Quick View</a>
-                                            <a href="#" class="btn font-weight-bolder btn-sm btn-light-primary">Purchase</a>
-                                        </div>
-                                    </div>
-                                    <div class="text-center mt-5 mb-md-0 mb-lg-5 mb-md-0 mb-lg-5 mb-lg-0 mb-5 d-flex flex-column">
-                                        <a href="#" class="font-size-h5 font-weight-bolder text-dark-75 text-hover-primary mb-1">Armani</a>
-                                        <span class="font-size-lg">Outlines keep poorly thought</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <div className="row">
+      <div className="col-lg-9 col-md-9 col-sm-12" style={{ marginRight: '340px' }}>
+        <div className="product-list">
+          {filteredProducts.map((product) => (
+            <div key={product.id} className="product-item">
+              <img src={product.image} alt={product.name} className="product-image" />
+              <h2 className="product-name">{product.name}</h2>
+              <p className="product-price">${product.price.toFixed(2)}</p>
             </div>
+          ))}
         </div>
+      </div>
+      <div className="col-lg-3 col-md-3 col-sm-12">
+        <Filter onFilterChange={handleFilterChange} />
+      </div>
     </div>
-    )
-}
+  );
+};
+
 export default ProductList;

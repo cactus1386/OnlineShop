@@ -1,0 +1,59 @@
+/* src/assets/css/Filter.css */
+
+.filter-container {
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 120px;
+    /* تنظیم فاصله از بالا */
+    right: 20px;
+    /* تنظیم فاصله از سمت راست */
+    width: 300px;
+    /* عرض ثابت برای بخش فیلتر */
+    z-index: 1000;
+    /* برای اطمینان از اینکه بالاتر از سایر عناصر نمایش داده شود */
+}
+
+.filter-header {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filter-input {
+    margin-bottom: 20px;
+}
+
+.filter-label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.btn {
+    font-size: 1rem;
+    padding: 10px;
+}
+
+.btn-primary {
+    background-color: rgb(0, 126, 0) !important;
+    /* رنگ سبز برای دکمه */
+    border-color: rgb(0, 126, 0) !important;
+}
+
+.btn-primary:hover {
+    background-color: darkgreen !important;
+    /* تغییر رنگ دکمه در حالت هاور */
+    border-color: darkgreen !important;
+}
+
+.btn-danger {
+    background-color: rgb(200, 0, 0) !important;
+    border-color: rgb(200, 0, 0) !important;
+}
+
+.btn-danger:hover {
+    background-color: darkred !important;
+    border-color: darkred !important;
+}

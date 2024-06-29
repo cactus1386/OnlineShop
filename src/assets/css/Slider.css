@@ -1,0 +1,29 @@
+/* src/assets/css/Slider.css */
+
+.full-height-carousel {
+    height: 100vh;
+    /* ارتفاع کامل صفحه */
+}
+
+.carousel-item img {
+    height: 100vh;
+    /* ارتفاع کامل صفحه */
+    object-fit: cover;
+    /* پوشش کامل تصویر */
+    width: auto;
+    /* عرض خودکار */
+    max-width: 75%;
+    /* محدودیت عرض */
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* پس‌زمینه نیمه‌شفاف برای کپشن‌ها */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carousel-caption h5,
+.carousel-caption p {
+    color: white;
+}
