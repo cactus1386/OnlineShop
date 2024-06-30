@@ -47,16 +47,18 @@ const ProductList = () => {
   });
 
   return (
-    <div className="row">
-      <div className="col-lg-9 col-md-9 col-sm-12" style={{ marginRight: '340px' }}>
-        <div className="product-list">
-          {filteredProducts.map((product) => (
-            <div key={product.id} className="product-item">
-              <img src={product.image} alt={product.name} className="product-image" />
-              <h2 className="product-name">{product.name}</h2>
-              <p className="product-price">${product.price.toFixed(2)}</p>
-            </div>
-          ))}
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-lg-9 col-md-9 col-sm-12">
+          <div className="product-list">
+            {filteredProducts.map((product) => (
+              <div key={product.id} className="product-item">
+                <img src={product.image} alt={product.name} className="product-image" />
+                <h2 className="product-name">{product.name}</h2>
+                <p className="product-price">${product.price.toFixed(2)}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className="col-lg-3 col-md-3 col-sm-12">

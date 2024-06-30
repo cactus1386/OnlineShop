@@ -1,0 +1,99 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.login-container {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    height: 95vh;
+    /* Adjusted to move the form higher */
+    width: 100vw;
+    background: #f1f1f1;
+}
+
+.login-box {
+    display: flex;
+    width: 80%;
+    height: 80%;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.login-left,
+.login-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-left {
+    background: #fff;
+    padding: 20px;
+}
+
+.login-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login-subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-facebook {
+    background-color: #3b5998;
+    color: #fff;
+}
+
+.btn-google {
+    background-color: #db4437;
+    color: #fff;
+}
+
+.btn-linkedin {
+    background-color: #0077b5;
+    color: #fff;
+}
+
+.or-text {
+    margin: 20px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.login-right {
+    background: linear-gradient(135deg, #1de9b6, #1dc4e9);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.signup-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.signup-subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.btn-outline-light {
+    border: 2px solid #fff;
+    color: #fff;
+}
