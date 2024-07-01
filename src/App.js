@@ -14,7 +14,20 @@ import AboutUs from './components/AboutUs';
 function App() {
   return (
     <Router>
-      <ShoppingNavbar />
+
+// <div className="App">
+// <ShoppingNavbar />
+// </div>
+
+// <div className="App">
+// <Sidebar />
+// <div className="content p-4" style={{ paddingTop: '120px', padding: '100px' }}>
+//   <h1>خوش آمدید دنبال چه هستید</h1>
+//   <p>به جدید ترین تخفیف ها و جشنواره های ما سر بزنید</p>
+//  
+// </div>
+// </div>
+      
       <div className="main-content">
         <Routes>
           <Route path='/product' element={<ProductList />} />
