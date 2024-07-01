@@ -44,7 +44,7 @@ const ShoppingNavbar = () => {
 							<a href="#sale">تخفیف ها</a>
 						</div>
 					</div>
-					<a href="contact" className="icon-link"><i className="icon"></i>تماس با ما</a>
+					<a href="contact" className="icon-link">تماس با ما</a>
 				</div>
 				<div className="navbar-search">
 					<button>جستجو</button>
