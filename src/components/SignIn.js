@@ -40,13 +40,15 @@ function SignIn() {
 
 
   }
-
+// ..
   return (
     <>
-      <div class='split right' style={{ backgroundColor: '#79c77e' }}></div>
+      <div class='split right' style={{ backgroundColor: '#79c77e' }}>
+        <img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" class='img'/>
+      </div>
       <div class=" py-40 split leftl">
         <div className="d-flex justify-content-center ">
-          <div dir="rtl" className="col-md-11  fontv">
+          <div dir="rtl" className="col-md-11 col-sm-11 col-11  fontv">
             <div class="card card-custom">
               <form>
                 <div class="card-body">
@@ -56,28 +58,28 @@ function SignIn() {
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="example-search-input" class="col-3 col-form-label">ایمیل:</label>
-                    <div class="col-8">
+                    <label for="example-search-input" class="col-md-3 col-sm-3 col-3 col-form-label">ایمیل:</label>
+                    <div class="col-md-8 col-sm-8 col-8">
                       <input class="form-control " onChange={e => setEmail(e.target.value)} type="name" id="example-email-input" />
                     </div>
                   </div>
-                  <div class="form-group row ">
-                    <label for="example-email-input" class="col-3 col-form-label ">گذرواژه:</label>
-                    <div class="col-8">
+                  <div class="form-group row pt-4">
+                    <label for="example-email-input" class="col-md-3 col-sm-3 col-3 col-form-label ">گذرواژه:</label>
+                    <div class="col-md-8 col-sm-8 col-8">
                       <input class="form-control" onChange={e => setPassword(e.target.value)} type="pass" id="example-email-input" />
                     </div>
-                    <div className="col-2"></div>
-                    <div id="passwordHelpBlock" class="form-text col-8 blockquote-footer">پسورد شما باید بین ۸ تا ۲۰ کاراکتر یاشد و دارای اعداد و حروف باشد و نباید دارای فاصله و حروف خاص باشد.
+                    <div className="col-md-2 col-2 col-sm-2"></div>
+                    <div id="passwordHelpBlock" class="form-text col-md-8 col-sm-8 col-8 blockquote-footer pt-2">پسورد شما باید بین ۸ تا ۲۰ کاراکتر یاشد و دارای اعداد و حروف باشد و نباید دارای فاصله و حروف خاص باشد.
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="example-tel-input" class="col-3 col-form-label">تکرار گذرواژه:</label>
-                    <div class="col-8">
+                    <label for="example-tel-input" class="col-md-3 col-sm-3 col-3 col-form-label">تکرار گذرواژه:</label>
+                    <div class=" col-md-8 col-sm-8 col-8">
                       <input class="form-control" onChange={e => setPassword1(e.target.value)} type="pass2" id="example-tel-input" />
                     </div>
                   </div>
-                  <div class="col-12 d-flex justify-content-center pt-2">
-                    <button onClick={sts} class="btn btn-success col-md-10" >ثبت</button>
+                  <div class="col-md-12 col-sm-12 col-12 d-flex justify-content-center pt-2">
+                    <button onClick={sts} class="btn btn-success col-10 col-sm-10 col-md-10" >ثبت</button>
                   </div>
                   {/* <div class="form-group row d-flex justify-content-end">
                               <div className="col-md-5 ">

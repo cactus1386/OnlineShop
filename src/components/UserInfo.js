@@ -1,9 +1,6 @@
 import React from "react";
 import { useState, useEffect } from 'react'
-import '../../src/assets/css/Comment.css';
-import '../assets/font/font.css'
-import '../../src/assets/css/backgrounds.css';
-
+import Cart from './Cart'
 const UserInfo  = () => {
   const [Infos, setInfos] = useState([]);
   const [isLoading, setLoading] = useState(true)
@@ -30,10 +27,9 @@ const UserInfo  = () => {
   };
 
     return (<>
-    
-        <div className="d-flex justify-content-center fontv " dir="rtl">
-                <div className="col-md-12 bg-light border rounded border">
-                    <div class="card-body pt-4">
+                <div class="d-flex justify-content-center col-md-12">
+                <div className="col-md-8 bg-light border rounded border fontv" dir= "rtl">
+                    <div class="card-body pt-4 ">
                         <div class=" justify-content-end">
                             <div class="d-flex align-items-end">
                                 <div class="d-flex align-items-left">
@@ -48,7 +44,7 @@ const UserInfo  = () => {
                                 </div>
                             </div>
                             <div class="mb-7 ">
-                                <div class="d-flex justify-content-between align-items-center my-1">
+                                <div class="d-flex justify-content-between align-items-center pt-2">
                                     <span class="text-dark-75 font-weight-bolder mr-2">شماره همراه:</span>
                                     <a href="#" class="text-muted text-hover-primary">{Infos.phone}</a>
                                 </div>
@@ -57,7 +53,7 @@ const UserInfo  = () => {
                                     <span class="text-dark-75 font-weight-bolder mr-2">ایمیل:</span>
                                     <a href="#" class="text-muted text-hover-primary">{Infos.phone}</a>
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center pt-3">
+                                <div class="d-flex justify-content-between align-items-center pt-3 pb-3">
                                     <span class="text-dark-75 font-weight-bolder mr-2">آدرس:</span>
                                     <span class="text-muted font-weight-bold">{Infos.description}</span>
                                 </div>
@@ -65,7 +61,9 @@ const UserInfo  = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-                </>
+                </div>
+                
+     {/* .. */}
+         </>
   )}
 export default UserInfo;

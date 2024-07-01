@@ -28,7 +28,7 @@ function SignIn() {
       body: raw,
       redirect: 'follow'
     };
-
+// ..
     fetch("http://94.183.74.154:1234/account/api/v1/registration/", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
@@ -41,36 +41,38 @@ function SignIn() {
 
   return (
     <>
-      <div class='split right' style={{ backgroundColor: '#79c77e' }}></div>
+      <div class='split right' style={{ backgroundColor: '#79c77e' }}>
+        <img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" class='img'/>
+      </div>
       <div class=" py-40 split leftl">
         <div className="d-flex justify-content-center ">
-          <div dir="rtl" className="col-md-11  fontv">
+          <div dir="rtl" className="col-md-11  col-sm-11 col-11 fontv">
             <div class="card card-custom">
               <form>
                 <div class="card-body">
                   <div class="form-group row">
                     <div className="pb-3 pt-lg-0 pt-5">
-                      <h3 className="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">خوش آمدید</h3>
+                      <h3 className="font-weight-bolder text-dark font-size-h4 font-size-h1-lg"dhugd>خوش آمدید</h3>
                       <span className="text-muted font-weight-bold font-size-h4">اکانت ندارید؟
-                        <a href="signin" id="kt_login_signup" className="text-primary font-weight-bolder">یک اکانت بسازید </a></span>
+                        <a href="register" id="kt_login_signup" className="text-primary font-weight-bolder">یک اکانت بسازید </a></span>
                     </div>
                   </div>
                   <div class="form-group row pt-3">
-                    <label for="example-search-input" class="col-3 col-form-label">ایمیل:</label>
-                    <div class="col-8">
+                    <label for="example-search-input" class="col-md-3 col-sm-3 col-3 col-form-label">ایمیل:</label>
+                    <div class=" col-md-8 col-sm-8 col-8">
                       <input class="form-control" onChange={e => setEmail(e.target.value)} type="name" id="example-search-input" />
                     </div>
                   </div>
                   <div class="form-group row pt-3">
-                    <label for="example-email-input" class="col-3 col-form-label ">گذرواژه:</label>
-                    <div class="col-8">
+                    <label for="example-email-input" class="col-md-3 col-sm-3 col-3 col-form-label ">گذرواژه:</label>
+                    <div class=" col-md-8 col-sm-8 col-8">
                       <input class="form-control" onChange={e => setPassword(e.target.value)} type="pass" id="example-email-input" />
                     </div>
                   </div>
 
-                  <div class="col-12 d-flex justify-content-center pt-4">
+                  <div class="col-md-12 col-sm-12 col-12 d-flex justify-content-center pt-4">
 
-                    <button onClick={sts} class="btn btn-success col-md-10 ">ورود</button>
+                    <button onClick={sts} class="btn btn-success col-10 col-sm-10 col-md-10 ">ورود</button>
                   </div>
                   {/* <div class="form-group row d-flex justify-content-end">
                               <div className="col-md-5 ">
@@ -83,7 +85,9 @@ function SignIn() {
           </div>
         </div>
       </div>
+      
     </>
+
   )
 }
 export default SignIn
