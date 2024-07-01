@@ -10,7 +10,7 @@ import img6 from '../assets/media/products/6.png';
 import img7 from '../assets/media/products/7.png';
 import img8 from '../assets/media/products/8.png';
 import img9 from '../assets/media/products/9.png';
-import Filter from './Filter';
+import Filter from './filter';
 
 const products = [
   { id: 1, name: 'Product 1', price: 10, image: img1 },
