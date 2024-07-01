@@ -29,7 +29,7 @@ const ShoppingNavbar = () => {
 					<a href="product">محصولات</a>
 
 					<a href="login">وارد شوید</a>
-					<a href="#contact" className="icon-link"><i className="icon "></i>تماس با ما</a>
+					<a href="/about-us" className="icon-link"><i className="icon "></i>درباره ما</a>
 				</div>
 				<div className="navbar-search">
 					<button>جستجو</button>

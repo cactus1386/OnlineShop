@@ -21,7 +21,7 @@ function MenuButton() {
 
   return (
     <div className='' dir='rtl'>
-      
+
       <Button> اتالت
         <IconButton
           edge="start"
@@ -51,8 +51,8 @@ function MenuButton() {
           <MenuItem onClick={handleMenuClose}>Option 3</MenuItem>
         </Menu>
       </Button>
-   </div>
-  ); 
+    </div>
+  );
 }
 
 export default MenuButton;

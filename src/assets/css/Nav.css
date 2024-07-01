@@ -1,27 +1,23 @@
 .shopping-navbar {
   background-color: #ffffff;
-  color: #3e3e3e; /* رنگ متن برای مقابله با رنگ سفید */
+  color: #fff;
   padding: 15px 0;
-  position: relative;
+  position: fixed;
   width: 100%;
   top: 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  height: auto; /* ارتفاع اتوماتیک */
+  height: 100px;
 }
-
 
 .navbar-container {
   display: flex;
-  justify-content: space-between; /* به جای center */
+  justify-content: space-between;
   align-items: center;
-  padding: 15px 20px; /* به جای 0 20px */
+  padding: 0 20px;
   max-width: 1200px;
-  margin: auto; /* این خط را اضافه کنید */
+  margin: auto;
 }
-
-
-
 
 .navbar-logo {
   display: flex;
@@ -41,11 +37,10 @@
 }
 
 .navbar-links a, .dropdown .dropbtn {
-  /* margin: 0 15px; */
+  margin: 0 15px;
   color: #3e3e3e;
   text-decoration: none;
   font-size: 1.1rem;
-  text-align: center;
 }
 
 .navbar-links a:hover, .dropdown:hover .dropbtn {
@@ -84,7 +79,7 @@
 .navbar-search {
   display: flex;
   align-items: center;
-  margin-right: 30px;
+  margin-right: 50px;
 }
 
 .navbar-search input {
