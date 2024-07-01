@@ -3,6 +3,7 @@ import '../../src/assets/css/backgrounds.css';
 import '../assets/font/font.css'
 import {useState} from 'react';
 import "../../src/assets/css/loginsignin.css"
+import { useHref } from "react-router-dom";
 function SignIn() {
 
     const [email, setEmail] = useState('');
@@ -51,28 +52,33 @@ function SignIn() {
                         <form>
                           <div class="card-body">
                             <div class="form-group row">
-                                <div className="pb-3 pt-lg-0 pt-5">
-                                    <h3 className="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">خوش آمدید</h3>
-                                    <span className="text-muted font-weight-bold font-size-h4">اکانت ندارید؟
-                                    <a href="signin" id="kt_login_signup" className="text-primary font-weight-bolder">یک اکانت بسازید </a></span>
-                                </div>
-                            </div>  
-                            <div class="form-group row pt-3">
-                              <label for="example-search-input" class="col-3 col-form-label">ایمیل:</label>
-                              <div class="col-8">
-                                <input class="form-control"  onChange={e => setEmail(e.target.value)} type="name" id="example-search-input" />
+                              <div className="pb-1 pt-lg-0 pt-5">
+                                <h3 className="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">ثبت نام</h3>
                               </div>
                             </div>
-                            <div class="form-group row pt-3">
+                            <div class="form-group row">
+                              <label for="example-search-input" class="col-3 col-form-label">ایمیل:</label>
+                              <div class="col-8">
+                                <input class="form-control "  onChange={e => setEmail(e.target.value)} type="name" id="example-email-input" />
+                              </div>
+                            </div>
+                            <div class="form-group row ">
                               <label for="example-email-input" class="col-3 col-form-label ">گذرواژه:</label>
                               <div class="col-8">
                                 <input class="form-control"  onChange={e => setPassword(e.target.value)} type="pass" id="example-email-input" />
                               </div>
+                              <div className="col-2"></div>
+                              <div id="passwordHelpBlock" class="form-text col-8 blockquote-footer">پسورد شما باید بین ۸ تا ۲۰ کاراکتر یاشد و دارای اعداد و حروف باشد و نباید دارای فاصله و حروف خاص باشد.
+                      </div>
                             </div>
-
-                            <div class="col-12 d-flex justify-content-center pt-4">
-                            
-                            <button onClick={sts} class="btn btn-success col-md-10 ">ورود</button>
+                            <div class="form-group row">
+                              <label for="example-tel-input" class="col-3 col-form-label">تکرار گذرواژه:</label>
+                              <div class="col-8">
+                                <input class="form-control" onChange={e => setPassword1(e.target.value)}  type="pass2" id="example-tel-input" />
+                              </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center pt-2">
+                              <button onClick={sts} class="btn btn-success col-md-10" >ثبت</button>
                           </div>
                             {/* <div class="form-group row d-flex justify-content-end">
                               <div className="col-md-5 ">
