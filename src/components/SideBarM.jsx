@@ -72,17 +72,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-
-// {/* <div className="App">
-// <ShoppingNavbar />
-// </div>
-
-// <div className="App">
-// <Sidebar />
-// <div className="content p-4" style={{ paddingTop: '120px', padding: '100px' }}>
-//   <h1>خوش آمدید دنبال چه هستید</h1>
-//   <p>به جدید ترین تخفیف ها و جشنواره های ما سر بزنید</p>
-//   {/* Add more content here */}
-// </div>
-// </div> */}
