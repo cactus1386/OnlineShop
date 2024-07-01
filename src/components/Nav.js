@@ -24,7 +24,7 @@ const ShoppingNavbar = () => {
 				<div className={`navbar-links ${expanded ? 'expanded' : ''}`}>
 					<a href="home" onClick={closeNav}>خانه</a>
 					<div className="dropdown">
-						<button className="btnn">محصولات</button>
+						<a className="btnn" href='product'>محصولات</a>
 						<div className="dropdown-content">
 							<a href="#electronics" onClick={closeNav}>الکترونیک</a>
 							<a href="#clothing" onClick={closeNav}>لباس</a>
