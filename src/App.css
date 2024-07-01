@@ -45,3 +45,36 @@
   /* Adjust as needed */
   padding: 20px;
 }
+
+/* src/assets/css/global.css */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .shopping-navbar {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark-mode .navbar-links a {
+  color: #ffffff;
+}
+
+body.dark-mode .dropdown-content {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+body.dark-mode .navbar-search input {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+body.dark-mode .navbar-search button {
+  background-color: #444444;
+  color: #ffffff;
+}
+
+/* Add more dark mode styles as needed... */
