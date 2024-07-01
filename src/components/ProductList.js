@@ -49,7 +49,7 @@ const ProductList = () => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-lg-9 col-md-9 col-sm-12">
+        <div className="col-lg-9 col-md-9 col-sm-12 order-sm-2 order-md-1">
           <div className="product-list">
             {filteredProducts.map((product) => (
               <div key={product.id} className="product-item">
@@ -60,9 +60,9 @@ const ProductList = () => {
             ))}
           </div>
         </div>
-      </div>
-      <div className="col-lg-3 col-md-3 col-sm-12">
-        <Filter onFilterChange={handleFilterChange} />
+        <div className="col-lg-3 col-md-3 col-sm-12 order-sm-1 order-md-2">
+          <Filter onFilterChange={handleFilterChange} />
+        </div>
       </div>
     </div>
   );

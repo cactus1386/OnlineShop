@@ -1,13 +1,14 @@
 .shopping-navbar {
   background-color: #ffffff;
-  color: #fff;
+  color: #3e3e3e;
   padding: 15px 0;
   position: fixed;
   width: 100%;
   top: 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  height: 100px;
+  height: auto;
+  transition: height 0.3s ease;
 }
 
 .navbar-container {
@@ -23,7 +24,6 @@
   display: flex;
   align-items: center;
   color: #3e3e3e;
-  text-shadow: 0 0 11px #00ff0d;
 }
 
 .logo-image {
@@ -34,22 +34,31 @@
 .brand-name {
   font-size: 1.8rem;
   font-weight: bold;
+  margin-left: 10px;
 }
 
-.navbar-links a, .dropdown .dropbtn {
+.navbar-links {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.navbar-links a,
+.dropdown .btnn {
   margin: 0 15px;
   color: #3e3e3e;
   text-decoration: none;
   font-size: 1.1rem;
+  display: block;
 }
 
-.navbar-links a:hover, .dropdown:hover .dropbtn {
+.navbar-links a:hover,
+.dropdown:hover .btnn {
   color: #4ba000;
 }
 
 .dropdown {
   position: relative;
-  display: inline-block;
 }
 
 .dropdown-content {
@@ -88,7 +97,6 @@
   border: none;
   border-radius: 4px;
   margin-right: 10px;
-  margin-left: 50px;
   border-bottom: 2px solid rgb(145, 145, 145);
 }
 
@@ -100,11 +108,6 @@
   border-radius: 4px;
   cursor: pointer;
   color: #fff;
-}
-
-.navbar-icons {
-  display: flex;
-  align-items: center;
 }
 
 .icon-link {
@@ -124,52 +127,68 @@
 }
 
 .btnn {
-  display: inline-block;
-  background-color: #3498db00; /* Blue background color */
-  color: rgb(54, 54, 54); /* White text color */
-  text-align: center;
-  padding: 10px 20px; /* Padding inside the button */
-  border: none; /* No border */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Cursor on hover */
-  text-decoration: none; /* No underline */
-  font-size: 16px; /* Font size */
-  transition: background-color 0.3s ease; /* Smooth color transition */
+  background-color: transparent;
+  color: rgb(54, 54, 54);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
-.btnn:hover{
+
+.btnn:hover {
   color: #4ba000;
 }
 
-.modal-backdrop.show {
-  opacity: 0.5; /* تنظیم شفافیت پس‌زمینه */
-  background-color: rgba(0, 0, 0, 0.5); /* رنگ مات برای پس‌زمینه */
+.navbar-toggler {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-/* اضافه کردن خاصیت blur به پس‌زمینه مدال‌های بوت‌استرپ */
-.modal-backdrop {
-  backdrop-filter: blur(5px); /* تنظیم مات بودن پس زمینه */
-  background-color: rgba(0, 0, 0, 0.5); /* تنظیم رنگ پس زمینه با شفافیت */
+@media (max-width: 991.98px) {
+  .navbar-links {
+    flex-direction: column;
+    align-items: flex-start;
+    display: none;
+    width: 100%;
+  }
+
+  .navbar-links.expanded {
+    display: flex;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-search {
+    display: none;
+  }
 }
 
-.textt:hover{
-  text-shadow: 0 0 9px #05ff05;
-  transition: text-shadow 0.5s ease;
-}
+@media (max-width: 767.98px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.size-icon-check:hover{
-  text-shadow: 0 0 7px #38c301;
-  color: #202020;
-  transition: color 0.3s ease; /* ترنزیشن بر روی r به مدت 0.3 ثانیه با حالت نرم (ease) */
-}
+  .navbar-logo {
+    justify-content: space-between;
+    width: 100%;
+  }
 
+  .navbar-search {
+    display: flex;
+    width: 100%;
+    margin: 10px 0;
+  }
 
-
-
-
-.custom-modal .modal-content { /* این مودال کانتنت باید دقیقا همین نام رو داشته باشه. در واقع برای بوت استرپه استفاده میشه برای محتوای داخلی مودال که
-  تغییر کنه همراه با تغییر کادر مودال*/
-  border: 4px solid #ececec; /* Example border style */
-  border-radius: 7px; /* Optional: Rounded corners */
-
-  
+  .navbar-search input {
+    width: calc(100% - 100px);
+    margin-left: 10px;
+  }
 }

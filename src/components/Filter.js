@@ -31,7 +31,7 @@ const Filter = ({ onFilterChange }) => {
   };
 
   return (
-    <div className="filter-container fontv">
+    <div className="filter-container fontv" dir='rtl'>
       <div className="filter-header">فیلتر محصولات</div>
       <div className="filter-input">
         <label className="filter-label">جستجو</label>

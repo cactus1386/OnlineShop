@@ -7,13 +7,9 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 120px;
-    /* تنظیم فاصله از بالا */
     right: 20px;
-    /* تنظیم فاصله از سمت راست */
     width: 300px;
-    /* عرض ثابت برای بخش فیلتر */
     z-index: 1000;
-    /* برای اطمینان از اینکه بالاتر از سایر عناصر نمایش داده شود */
 }
 
 .filter-header {
@@ -38,13 +34,11 @@
 
 .btn-primary {
     background-color: rgb(0, 126, 0) !important;
-    /* رنگ سبز برای دکمه */
     border-color: rgb(0, 126, 0) !important;
 }
 
 .btn-primary:hover {
     background-color: darkgreen !important;
-    /* تغییر رنگ دکمه در حالت هاور */
     border-color: darkgreen !important;
 }
 
@@ -56,4 +50,31 @@
 .btn-danger:hover {
     background-color: darkred !important;
     border-color: darkred !important;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 991.98px) {
+    .filter-container {
+        position: static;
+        width: 100%;
+        margin-bottom: 20px;
+        top: auto;
+        right: auto;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .filter-header {
+        font-size: 1.2rem;
+    }
+
+    .filter-label {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
 }
