@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from 'react'
-import Cart from './Cart'
+import Cart from './ProfileCart'
 import RPP from './RecentlyPurchasedPrdcts';
 
 const UserInfo  = () => {
