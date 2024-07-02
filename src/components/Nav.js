@@ -58,7 +58,7 @@ const ShoppingNavbar = () => {
 							<a href="#sale">تخفیف ها</a>
 						</div>
 					</div>
-					<a href="contact" className="icon-link">تماس با ما</a>
+					<a href="about" className="icon-link">درباره ما</a>
 				</div>
 				<div className="navbar-search">
 					<button>جستجو</button>

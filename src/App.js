@@ -12,6 +12,7 @@ import Profile from './components/UserInfo';
 import HCart from './components/HomeCart';
 import MainSlider from './components/MainSlider';
 import HomeProducts from './components/HomeProducts';
+import AboutUs from './components/AboutUs';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='/cart' element={<HCart />} />
           <Route path='/rpp' element={<RPP />} />
           <Route path='/user' element={<Profile />} />
+          <Route path='/about' element={<AboutUs />} />
         </Routes>
       </div>
     </Router>
