@@ -12,7 +12,7 @@ function ProductSlider() {
 					<div class="card card-custom col-md-9 " dir='rtl'>
 						<div class="card-header border-0 pt-2">
 							<h4 class="card-title align-items-center flex-column">
-								<span class="card-label font-weight-bolder text-dark">لیست سفارشات</span>
+								<span class="card-label font-weight-bolder text-dark pt-3">لیست سفارشات</span>
 							</h4>
 						</div>
 						<div class="card-body py-0">

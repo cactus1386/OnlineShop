@@ -9,8 +9,9 @@ import RPP from './components/RecentlyPurchasedPrdcts';
 import ShoppingNavbar from './components/Nav';
 import SignIn from './components/SignIn';
 import Profile from './components/UserInfo';
-import HCart from './components/HomeCart';
-import Home from './components/HomeProducts';
+import HCart from './components/HCart';
+import Home from './components/Home';
+
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
           <Route path='/cart' element={<HCart />} />
           <Route path='/rpp' element={<RPP />} />
           <Route path='/user' element={<Profile />} />
-          <Route path='/home' element={<Home />} />
+          <Route path='home' element={<Home />} />
         </Routes>
       </div>
     </Router>
