@@ -3,15 +3,15 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import ProductList from './components/ProductList';
-import Cart from './components/ProfileCart';
+import ProductSlider from './components/ProfileCart';
 import Login from './components/Login';
 import RPP from './components/RecentlyPurchasedPrdcts';
 import ShoppingNavbar from './components/Nav';
 import SignIn from './components/SignIn';
 import Profile from './components/UserInfo';
-import HCart from './components/HomeCart';
+import HCart from './components/HCart';
 import MainSlider from './components/MainSlider';
-import HomeProducts from './components/HomeProducts';
+import HomeProducts from './components/HProducts';
 import AboutUs from './components/AboutUs';
 
 function App() {
