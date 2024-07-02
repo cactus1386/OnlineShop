@@ -10,8 +10,8 @@ import SignIn from './components/SignIn';
 import Profile from './components/UserInfo';
 import HCart from './components/HCart';
 import MainSlider from './components/MainSlider';
-import HomeProducts from './components/HProducts';
 import AboutUs from './components/AboutUs';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
       <MainSlider />
       <div className="main-content">
         <Routes>
-          <Route path='/' element={<HomeProducts />} />
+          <Route path='/' element={<Home />} />
           <Route path='/product' element={<ProductList />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignIn />} />
