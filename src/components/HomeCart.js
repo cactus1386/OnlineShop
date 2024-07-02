@@ -25,7 +25,7 @@ function ProductSlider() {
                                 <div class="col-md-8 cart">
                                     <div class="title">
                                         <div class="row">
-                                            <div class="col border-bottom"><h4><b>سبد خرید</b></h4></div>
+                                            <div class="col border-bottom p-3"><h4><b>سبد خرید</b></h4></div>
 
                                         </div>
                                     </div>
