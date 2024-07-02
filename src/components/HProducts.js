@@ -37,34 +37,34 @@ function HomeProducts() {
   ]);
 
   const [Categories, setCategories] = useState([
-    { Name: 'الکترونیک', Products: Eproduct }, 
-    { Name: 'لوازم خانگی', Products: Sproduct }, 
-    { Name: 'لباس', Products: Cproduct }, 
+    { Name: 'الکترونیک', Products: Eproduct },
+    { Name: 'لوازم خانگی', Products: Sproduct },
+    { Name: 'لباس', Products: Cproduct },
   ]);
 
   return (
     <div className="container-xl fontv  " dir="rtl">
       {Categories.map(e =>
         <div class="pt-3">
-        <div className="row border shadow  bg-white rounded ">
-          <div className='crad-title border-bottom border-dark pt-3'>
-            <h2>{e.Name}</h2>
-          </div>
-          <div className="crad-title">
-            <div className="d-flex justify-content-end"><a className="btn hover" href="product">مشاهده همه</a></div>
-          </div>
-          {e.Products.map(c => ( // Removed unnecessary curly braces around e.Products
-            <div className="col card border-bottom-0 border-top-0" key={c.id}> {/* Added key prop to the outer div */}
-              <div className="product-list">
-                <div className="product-item">
-                  <img src={c.Image} alt={c.Name} className="product-image" />
-                  <h2 className="product-name">{c.Name}</h2>
-                  <p className="product-price">${c.Price}</p>
+          <div className="row border shadow  bg-white rounded ">
+            <div className='crad-title border-bottom border-dark pt-3'>
+              <h2>{e.Name}</h2>
+            </div>
+            <div className="crad-title">
+              <div className="d-flex justify-content-end"><a className="btn hover" href="product">مشاهده همه</a></div>
+            </div>
+            {e.Products.map(c => ( // Removed unnecessary curly braces around e.Products
+              <div className="col card border-bottom-0 border-top-0" key={c.id}> {/* Added key prop to the outer div */}
+                <div className="product-list">
+                  <div className="product-item">
+                    <img src={c.Image} alt={c.Name} className="product-image" />
+                    <h2 className="product-name">{c.Name}</h2>
+                    <p className="product-price">${c.Price}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
