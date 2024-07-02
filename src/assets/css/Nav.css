@@ -2,7 +2,6 @@
   background-color: #ffffff;
   color: #fff;
   padding: 15px 0;
-  position: fixed;
   width: 100%;
   top: 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -255,4 +254,23 @@
 
 .custom-modal .modal-content {
   border: 4px solid
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    justify-content: center; /* مرکز چین کردن اجزا در صفحات کوچکتر */
+  }
+
+  .navbar-links, .navbar-search, .mode-switch-container {
+    display: none; /* مخفی کردن لینک‌ها، جستجو و سوئیچ حالت در صفحات کوچکتر */
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-container {
+    justify-content: space-between; /* فضای بین اجزا در صفحات بزرگتر */
+  }
+
+
+
 }

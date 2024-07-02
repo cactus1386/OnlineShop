@@ -10,11 +10,13 @@ import ShoppingNavbar from './components/Nav';
 import SignIn from './components/SignIn';
 import Profile from './components/UserInfo';
 import HCart from './components/HomeCart';
+import MainSlider from './components/MainSlider';
 
 function App() {
   return (
     <Router>
       <ShoppingNavbar />
+      <MainSlider/>
       <div className="main-content">
         <Routes>
           <Route path='/product' element={<ProductList />} />
