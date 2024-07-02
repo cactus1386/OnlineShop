@@ -161,24 +161,15 @@
 .btnn {
   display: inline-block;
   background-color: #3498db00;
-  /* Blue background color */
   color: rgb(54, 54, 54);
-  /* White text color */
   text-align: center;
   padding: 10px 20px;
-  /* Padding inside the button */
   border: none;
-  /* No border */
   border-radius: 4px;
-  /* Rounded corners */
   cursor: pointer;
-  /* Cursor on hover */
   text-decoration: none;
-  /* No underline */
   font-size: 16px;
-  /* Font size */
   transition: background-color 0.3s ease;
-  /* Smooth color transition */
 }
 
 .btnn:hover {
@@ -227,17 +218,12 @@
 
 .modal-backdrop.show {
   opacity: 0.5;
-  /* تنظیم شفافیت پس‌زمینه */
   background-color: rgba(0, 0, 0, 0.5);
-  /* رنگ مات برای پس‌زمینه */
 }
 
-/* اضافه کردن خاصیت blur به پس‌زمینه مدال‌های بوت‌استرپ */
 .modal-backdrop {
   backdrop-filter: blur(5px);
-  /* تنظیم مات بودن پس زمینه */
   background-color: rgba(0, 0, 0, 0.5);
-  /* تنظیم رنگ پس زمینه با شفافیت */
 }
 
 .textt:hover {
@@ -249,28 +235,26 @@
   text-shadow: 0 0 7px #38c301;
   color: #202020;
   transition: color 0.3s ease;
-  /* ترنزیشن بر روی r به مدت 0.3 ثانیه با حالت نرم (ease) */
 }
 
 .custom-modal .modal-content {
-  border: 4px solid
+  border: 4px solid;
 }
 
 @media (max-width: 768px) {
   .navbar-container {
-    justify-content: center; /* مرکز چین کردن اجزا در صفحات کوچکتر */
+    justify-content: center;
   }
 
-  .navbar-links, .navbar-search, .mode-switch-container {
-    display: none; /* مخفی کردن لینک‌ها، جستجو و سوئیچ حالت در صفحات کوچکتر */
+  .navbar-links,
+  .navbar-search,
+  .mode-switch-container {
+    display: none;
   }
 }
 
 @media (min-width: 769px) {
   .navbar-container {
-    justify-content: space-between; /* فضای بین اجزا در صفحات بزرگتر */
+    justify-content: space-between;
   }
-
-
-
 }
