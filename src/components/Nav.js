@@ -33,7 +33,7 @@ const ShoppingNavbar = () => {
 					<span className="brand-name ml-7 dark mr-3">فروشگاه</span>
 				</div>
 				<div className="navbar-links">
-					<a href="home">خانه</a>
+					<a href="/">خانه</a>
 
 					<div className="dropdown">
 						<a className="btnn" href='product'>محصولات</a>

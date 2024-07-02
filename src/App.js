@@ -11,14 +11,16 @@ import SignIn from './components/SignIn';
 import Profile from './components/UserInfo';
 import HCart from './components/HomeCart';
 import MainSlider from './components/MainSlider';
+import HomeProducts from './components/HomeProducts';
 
 function App() {
   return (
     <Router>
       <ShoppingNavbar />
-      <MainSlider/>
+      <MainSlider />
       <div className="main-content">
         <Routes>
+          <Route path='/' element={<HomeProducts />} />
           <Route path='/product' element={<ProductList />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignIn />} />
