@@ -70,5 +70,6 @@ function HomeProducts() {
     </div>
   );
 }
+// ..
 
 export default HomeProducts;
