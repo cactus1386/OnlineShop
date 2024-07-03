@@ -1,7 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-function ProductSlider() {
+
+const Cart = () => {
+    const [state,setState]=useState([])
+
+function HCart() {
     const [counter, setCounter] = useState(0);
  
     const increase = () => {
@@ -10,12 +14,11 @@ function ProductSlider() {
     const decrease = () => {
         setCounter(counter - 1);
     };
-	const [state,setState]=useState([
-        {Category:'تیشرت',Name : "آدیداس سه خط", Price:'455,000تومان ' },
-        {Category:'تیشرت',Name : "آدیداس سه خط", Price:'455,000تومان ' },
-        {Category:'تیشرت',Name : "آدیداس سه خط", Price:'455,000تومان ' },
-        {Category:'تیشرت',Name : "آدیداس سه خط", Price:'455,000تومان ' },
-      ])
+
+
+
+
+    
         return (<>
             <div class="col-md-12">
                 <div class='d-flex justify-content-center '>
@@ -71,6 +74,7 @@ function ProductSlider() {
                 </>
         );
     }
+}
     
-    export default ProductSlider;
+export default HCart;
    
