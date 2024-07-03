@@ -3,7 +3,7 @@
   width: 50%;
   position: fixed;
   z-index: 1;
-  top: 0;
+  top: 15%;
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -21,19 +21,19 @@
 }
 .leftl {
   left: 0;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 /* Control the right side */
 .rightl {
   right: 0;
-  margin-top: 10%;
+  margin-top: 0%;
 }
 
 .img {
   max-width:50%;
   height: auto;
-  margin-top: 15%;
+  margin-top: 8%;
   margin-left: 25%;
   margin-right: 25%;
   filter: contrast(120%);

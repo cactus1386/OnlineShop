@@ -12,6 +12,7 @@ import Profile from './components/UserInfo';
 import HCart from './components/HCart';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -21,14 +22,15 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<AboutUs />} />
-          <Route path='/product' element={<ProductList />} />
+          <Route path='/products' element={<ProductList />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignIn />} />
           <Route path='/cart' element={<HCart />} />
           <Route path='/rpp' element={<RPP />} />
           <Route path='/user' element={<Profile />} />
-        </Routes>
+         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }

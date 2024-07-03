@@ -5,6 +5,7 @@ const Footer = () => {
   return (<>
 <div class="container-fluid fontv " dir="rtl">
   <footer class="row row-cols-md-5 py-5  border-top">
+    
     <div class="col mb-3 ">
         <h6 class="text-uppercase fw-bold mb-4">
             <i>🛒</i>فروشگاه اسمائیل
