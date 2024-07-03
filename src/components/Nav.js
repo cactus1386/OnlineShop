@@ -50,7 +50,7 @@ const ShoppingNavbar = () => {
 				<div className="navbar-links">
 					<a href="/">خانه</a>
 					<div className="dropdown">
-						<a className="btnn" href="product">محصولات</a>
+						<a href="product">محصولات</a>
 						<div className="dropdown-content">
 							<a href="#electronics">الکترونیک</a>
 							<a href="#clothing">لباس</a>
@@ -65,7 +65,7 @@ const ShoppingNavbar = () => {
 					<input type="text" placeholder="دنبال چه می گردید؟..." />
 				</div>
 				<div className="navbar-icons">
-					<a href="#account" className="icon-link" onClick={handleShow}>
+					<a href="login" className="icon-link" onClick={handleShow}>
 						<i className="icon">👤</i>حساب کاربری
 					</a>
 					<a href="cart" className="icon-link"><i className="icon">🛒</i> سبد خرید (0)</a>
