@@ -28,7 +28,7 @@ function SignIn() {
       body: raw,
       redirect: 'follow'
     };
-// ..
+    // ..
     fetch("http://94.183.74.154:1234/account/api/v1/registration/", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
@@ -42,7 +42,7 @@ function SignIn() {
   return (
     <>
       <div class='split right' style={{ backgroundColor: '#79c77e' }}>
-        <img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" class='img'/>
+        <img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" class='img' />
       </div>
       <div class=" py-40 split leftl">
         <div className="d-flex justify-content-center ">
@@ -52,7 +52,7 @@ function SignIn() {
                 <div class="card-body">
                   <div class="form-group row">
                     <div className="pb-3 pt-lg-0 pt-5">
-                      <h3 className="font-weight-bolder text-dark font-size-h4 font-size-h1-lg"dhugd>خوش آمدید</h3>
+                      <h3 className="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">خوش آمدید</h3>
                       <span className="text-muted font-weight-bold font-size-h4">اکانت ندارید؟
                         <a href="register" id="kt_login_signup" className="text-primary font-weight-bolder">یک اکانت بسازید </a></span>
                     </div>
@@ -85,10 +85,9 @@ function SignIn() {
           </div>
         </div>
       </div>
-      
+
     </>
 
   )
 }
-export default SignIn
-  ;
+export default SignIn;
