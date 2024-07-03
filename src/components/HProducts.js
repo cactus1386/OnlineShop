@@ -47,8 +47,8 @@ function HomeProducts() {
       {Categories.map(e =>
         <div class="pt-3">
         <div className="row border shadow  bg-white rounded ">
-          <div className='crad-title border-bottom border-dark pt-3'>
-            <h2>{e.Name}</h2>
+          <div className='crad-title border-bottom border-dark pt-3 '>
+            <h2 class ='fontv'>{e.Name}</h2>
           </div>
           <div className="crad-title">
             <div className="d-flex justify-content-end"><a className="btn hover" href="product">مشاهده همه</a></div>

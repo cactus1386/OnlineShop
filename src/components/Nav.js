@@ -50,7 +50,7 @@ const ShoppingNavbar = () => {
 				<div className="navbar-links">
 					<a href="/">خانه</a>
 					<div className="dropdown">
-						<a href="product">محصولات</a>
+						<a href="products">محصولات</a>
 						<div className="dropdown-content">
 							<a href="#electronics">الکترونیک</a>
 							<a href="#clothing">لباس</a>

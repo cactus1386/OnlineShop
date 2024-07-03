@@ -8,11 +8,11 @@ import image from '../assets/media/stock-600x400/img-3.jpg'
 
 const AboutUs = () => {
     return (
-        <div className="container mt-5 fontv" dir="rtl">
+        <div className="container mt-5  " dir="rtl">
             <div className="row">
                 <div className="col text-center">
-                    <h1 className="mb-4">درباره ما</h1>
-                    <p className="lead">
+                    <h1 className="mb-4 fontv">درباره ما</h1>
+                    <p className="lead fontv">
                         ما یک تیم پرشور از متخصصین هستیم که به ارائه بهترین خدمات به مشتریانمان افتخار می‌کنیم.
                         ما بر این باوریم که ارائه محصولات و خدمات با کیفیت بالا می‌تواند زندگی مشتریان ما را بهبود بخشد.
                     </p>
@@ -23,19 +23,19 @@ const AboutUs = () => {
                     <img src={image} alt="About Us" className="img-fluid" />
                 </div>
                 <div className="col-md-6">
-                    <h2>ماموریت ما</h2>
-                    <p>
+                    <h2 class="fontv">ماموریت ما</h2>
+                    <p class="fontv">
                         ماموریت ما ارائه بهترین محصولات با کیفیت بالا به مشتریان است. ما همیشه در حال بهبود و نوآوری هستیم تا نیازهای مشتریان را برآورده کنیم و به ایجاد یک تجربه خرید لذت‌بخش بپردازیم.
                     </p>
-                    <h2>تاریخچه ما</h2>
-                    <p>
+                    <h2 class="fontv">تاریخچه ما</h2>
+                    <p class="fontv">
                         شرکت ما در سال 2020 تاسیس شد و از آن زمان به ارائه خدمات و محصولات با کیفیت بالا به مشتریان پرداخته‌ایم. ما همیشه در تلاشیم تا با پیشرفت تکنولوژی و نیازهای مشتریان همگام باشیم.
                     </p>
                 </div>
             </div>
             <div className="row mt-5">
                 <div className="col text-center">
-                    <h2>تیم ما</h2>
+                    <h2 class="fontv">تیم ما</h2>
                 </div>
             </div>
             <div className="row mt-4">
