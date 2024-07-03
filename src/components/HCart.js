@@ -5,23 +5,20 @@ import 'bootstrap/dist/css/bootstrap.css';
 const Hcart = () => {
     const [state,setState]=useState([])
 
-
-const myHeaders = new Headers();
-myHeaders.append("accept", "application/json");
-myHeaders.append("X-CSRFToken", "qCdvOcutqzq4fiC46AUlncnkbeyh8L7WCj2Ydrn0Mz1GJlKEkPl106VJwf3PE67l");
-
-const requestOptions = {
-  method: "GET",
-  headers: myHeaders,
-  redirect: "follow"
-};
-
-fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
-  .then((response) => response.json())
-  .then((result) => setState(result.results))
-  .then((result) => console.log(result))
-  .catch((error) => console.error(error));
-
+    const myHeaders = new Headers();
+    myHeaders.append("accept", "application/json");
+    myHeaders.append("X-CSRFToken", "lxss7awPoMMsnxeSMqyoFxb8CqTHkOHgxehVwppmKMn4RAms0FZ4irJxXrofQ9HF");
+    
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow"
+    };
+    
+    fetch("http://94.183.74.154:1234/api/v1/carts/", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.error(error));
 
 
         
@@ -41,15 +38,15 @@ fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
 
                                         {state.map(c=><div class="row  ">
                                             <div class="row main align-items-center">
-                                                <div class="col-2"><img class="img-fluid" src={c.Image}/></div>
+                                                <div class="col-2"><img class="img-fluid" src={c.pic}/></div>
                                                 <div class="col">
-                                                    <div class="row text-muted">{c.Category}</div>
+                                                    <div class="row text-muted">{c.category}</div>
                                                     <div class="row">{c.name}</div>
                                                 </div>
                                                 <div class="col">
                                                 <button  class="btn btn-sm">-</button><a href="#" class="border">0</a><button class="btn btn-sm">+</button>
                                                 </div>
-                                                <div class="col"><a>{c.Price}</a></div>
+                                                <div class="col"><a>{c.price}</a></div>
                                             </div>
                                         </div>
                                         )}
