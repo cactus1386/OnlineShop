@@ -1,32 +1,31 @@
-import React from 'react'
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import React from "react";
+import { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.css';
+import { Carousel } from 'react-bootstrap';
+import img1 from '../assets/media/products/1.png'
+import img2 from '../assets/media/products/2.png'
+import img3 from '../assets/media/products/4.png'
+import img4 from '../assets/media/products/3.png'
 
 
-const Album = (props) => {
 
-    const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 3,
-            slidesToSlide: 3, // optional, default to 1.
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            slidesToSlide: 2 // optional, default to 1.
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-            slidesToSlide: 1 // optional, default to 1.
-        }
-    };
+function ImageSlider () {
+  const [state,setState]=useState([
+    {Image:img1},
+    {Image:img2},
+    {Image:img3},
+    {Image:img4},
+  ])
+  return (
+    <div class="container-xl">
+      <Carousel>
+      {state.map(c=><Carousel.Item>
+          <img className="d-block w-100" src={c.Image} alt="Third slide" />
+        </Carousel.Item>
+      )}
+      </Carousel>
+      </div>
+  );
+};
 
-    return (
-        <Carousel responsive={responsive}>
-            {props.items.map( c =><div className='col-md-3' > <img style={{width:'100px'}} src={c.img}/></div> )} 
-        </Carousel> )
-}
-
-export default Album;
+export default ImageSlider;

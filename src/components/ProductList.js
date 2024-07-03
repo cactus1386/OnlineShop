@@ -49,12 +49,12 @@ fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
   });
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-lg-9 col-md-9 col-sm-12 order-sm-2 order-md-1">
+    <div className="container-xl">
+      <div className="row" >
+        <div className="col-lg-9 col-md-9 col-sm-12 order-sm-2 order-md-1" dir="rtl">
           <div className="product-list">
             {filteredProducts.map((product) => (
-              <div key={product.id} className="product-item">
+              <div key={product.id} className="product-item col-md-3  ">
                 <img src={product.pic} alt={product.name} className="product-image" />
                 <h2 className="product-name">{product.name}</h2>
                 <p className="product-price">${product.price.toFixed(2)}</p>
