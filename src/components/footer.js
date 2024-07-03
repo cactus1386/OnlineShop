@@ -6,7 +6,7 @@ const Footer = () => {
     <div class="container-fluid fontv " dir="rtl">
       <footer class="row row-cols-md-5 py-5  border-top">
 
-        <div class="col mb-3 ">
+        <div class="col-md-2 mb-3 ">
           <h6 class="text-uppercase fw-bold mb-4">
             <i>🛒</i>فروشگاه اسمائیل
           </h6>
@@ -17,10 +17,10 @@ const Footer = () => {
           </p>
 
         </div>
-        <div class="col mb-3">
+        <div class="col-md-2 mb-3">
 
         </div>
-        <div class="col mb-3">
+        <div class="col-md-2 mb-3">
           <h5>دسترسی سریع</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-body-secondary">خانه</a></li>
@@ -28,12 +28,12 @@ const Footer = () => {
             <li class="nav-item mb-2"><a href="about" class="nav-link p-0 text-body-secondary">درباره ی ما</a></li>
           </ul>
         </div>
-        <div class="col mb-3">
+        <div class="col-md-1 mb-3">
 
         </div>
-    
+
         
-        <div class="col mb-3">
+        <div class="col-md-2 mb-3">
           <h5>ارتباط با ما</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">091902312343</a></li>

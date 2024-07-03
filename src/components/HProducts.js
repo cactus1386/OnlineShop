@@ -51,7 +51,7 @@ function HomeProducts() {
             <h2 class ='fontv'>{e.Name}</h2>
           </div>
           <div className="crad-title">
-            <div className="d-flex justify-content-end"><a className="btn hover" href="product">مشاهده همه</a></div>
+            <div className="d-flex justify-content-end"><a className="btn hover" href="products">مشاهده همه</a></div>
           </div>
           {e.Products.map(c => ( // Removed unnecessary curly braces around e.Products
             <div className="col card border-bottom-0 border-top-0" key={c.id}> {/* Added key prop to the outer div */}
