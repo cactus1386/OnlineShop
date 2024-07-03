@@ -38,7 +38,7 @@ const ShoppingNavbar = () => {
 
 	return (
 		<nav className="shopping-navbar fontv d-flex" dir="rtl">
-			<div className="navbar-container pb-5">
+			<div className="navbar-container ">
 				<div className="navbar-logo">
 					<img
 						src="https://www.svgrepo.com/show/217771/shopping-logo.svg"
