@@ -49,20 +49,22 @@ fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
   });
 
   return (
-    <div className="container-xl">
+    <div className="container-fluid">
       <div className="row" >
-        <div className="col-lg-9 col-md-9 col-sm-12 order-sm-2 order-md-1" dir="rtl">
-          <div className="product-list">
+        <div className="col-lg-9 col-md-10 col-sm-12 order-sm-2 order-md-1" >
+        <div class="col-md-12">
+          <div className="product-list p-5" dir="rtl">
             {filteredProducts.map((product) => (
-              <div key={product.id} className="product-item col-md-3  ">
+              <div key={product.id} className="product-item col-md-2 card ">
                 <img src={product.pic} alt={product.name} className="product-image" />
                 <h2 className="product-name">{product.name}</h2>
                 <p className="product-price">${product.price.toFixed(2)}</p>
               </div>
             ))}
+            </div>
           </div>
         </div>
-        <div className="col-lg-3 col-md-3 col-sm-12 order-sm-1 order-md-2">
+        <div className="col-lg-3 col-md-2 col-sm-12 order-sm-1 order-md-2">
           <Filter onFilterChange={handleFilterChange} />
         </div>
       </div>

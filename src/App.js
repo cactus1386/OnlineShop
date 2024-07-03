@@ -13,6 +13,8 @@ import HCart from './components/HCart';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import Footer from './components/footer';
+import PI from './components/ProductsInfo';
+import Test from './components/MultiItemSlider';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path='/cart' element={<HCart />} />
           <Route path='/rpp' element={<RPP />} />
           <Route path='/user' element={<Profile />} />
+          <Route path='/pi' element={<PI />} />
+          <Route path='/test' element={<Test />} />
          </Routes>
       </div>
       <Footer />
