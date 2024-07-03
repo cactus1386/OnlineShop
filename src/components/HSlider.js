@@ -9,22 +9,22 @@ import img4 from '../assets/media/slider/SM4.png'
 
 
 
-function ImageSlider () {
-  const [state,setState]=useState([
-    {Image:img1},
-    {Image:img2},
-    {Image:img3},
-    {Image:img4},
+function ImageSlider() {
+  const [state, setState] = useState([
+    { Image: img1 },
+    { Image: img2 },
+    { Image: img3 },
+    { Image: img4 },
   ])
   return (
-    <div class="container-xl">
+    <div class="container-fluid">
       <Carousel>
-      {state.map(c=><Carousel.Item>
+        {state.map(c => <Carousel.Item>
           <img className="d-block w-100" src={c.Image} alt="Third slide" />
         </Carousel.Item>
-      )}
+        )}
       </Carousel>
-      </div>
+    </div>
   );
 };
 
