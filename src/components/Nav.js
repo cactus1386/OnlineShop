@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, FormControl, FormGroup, FormLabel, Button, ModalFooter, Form } from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/Nav.css';
 import '../font/font.css';
 
-const ShoppingNavbar = () => {
+const ShoppingNavbar = ({ isLoggedIn, handleLogout }) => {
 	const [expanded, setExpanded] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(() => {
 		const savedTheme = localStorage.getItem('darkMode');
@@ -24,17 +24,6 @@ const ShoppingNavbar = () => {
 	const closeNav = () => setExpanded(false);
 	const handleModeSwitch = () => setIsDarkMode(!isDarkMode);
 
-	const [show, setShow] = useState(false);
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
-
-	const inputStyle = { height: '50px' };
-	const buttonn = {
-		height: '37px',
-		width: '100%',
-		marginBottom: '15px',
-		borderRadius: '1px'
-	};
 
 	return (
 		<nav className="shopping-navbar fontv d-flex" dir="rtl">
@@ -65,11 +54,23 @@ const ShoppingNavbar = () => {
 					<input type="text" placeholder="دنبال چه می گردید؟..." />
 				</div>
 				<div className="navbar-icons">
-					<a href="login" className="icon-link" onClick={handleShow}>
-						<i className="icon">👤</i>حساب کاربری
-					</a>
 					<a href="cart" className="icon-link"><i className="icon">🛒</i> سبد خرید (0)</a>
 				</div>
+				{isLoggedIn ? (
+					<div className='navbar-links'>
+						<div className="dropdown">
+							<button className='btnn'><i className="icon">👤</i>پروفایل</button>
+							<div className="dropdown-content">
+								<a href="user">مشخصات</a>
+								<button onClick={handleLogout} className='btn btn-outline-danger w-100'>خروج</button>
+							</div>
+						</div>
+					</div>
+				) : (
+					<a href="login" className="icon-link">
+						<i className="icon">👤</i>حساب کاربری
+					</a>
+				)}
 				<div className="mode-switch-container">
 					<span>{isDarkMode ? '🌙' : '☀️'}</span>
 					<input
