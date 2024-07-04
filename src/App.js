@@ -1,6 +1,5 @@
-// src/App.js
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import ProductList from './components/ProductList';
 import Cart from './components/ProfileCart';
@@ -12,13 +11,17 @@ import Profile from './components/UserInfo';
 import HCart from './components/HCart';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 import PI from './components/ProductsInfo';
 import Test from './components/MultiItemSlider';
 
-function App() {
+const AppContent = () => {
+  const location = useLocation();
+  const hideFooterPaths = ['/login', '/register'];
+  const showFooter = !hideFooterPaths.includes(location.pathname);
+
   return (
-    <Router>
+    <>
       <ShoppingNavbar />
       <div className="main-content">
         <Routes>
@@ -32,9 +35,17 @@ function App() {
           <Route path='/user' element={<Profile />} />
           <Route path='/pi' element={<PI />} />
           <Route path='/test' element={<Test />} />
-         </Routes>
+        </Routes>
       </div>
-      <Footer />
+      {showFooter && <Footer />}
+    </>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

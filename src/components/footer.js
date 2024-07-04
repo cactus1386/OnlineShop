@@ -4,52 +4,52 @@ import '../assets/css/Footer.css'
 const Footer = () => {
   return (
     <footer className="footer bg-$green-500 text-light py-1" dir='rtl'>
-      <div className="container">
+      <div className="container fontv">
         <div className="row ">
           <div className='flex-fill border-top  border-light h1 mb-5'></div>
           {/* Column 1 */}
           <div className="col-md-3 mb-4">
             <h5 className="mb-4">🛒فروشگاه اسمائیل </h5>
             <p>
-            <i class="bi bi-geo-alt-fill"></i> زنجان افغانستان آلمان پلاک 68
+              <i class="bi bi-geo-alt-fill"></i> زنجان افغانستان آلمان پلاک 68
             </p>
             <p className='mb-3'>
-            <i class="bi bi-telephone-fill"></i>  091902312343 
+              <i class="bi bi-telephone-fill"></i>  091902312343
             </p>
             <p>
-            <i class="bi bi-envelope-at-fill"></i> expample@example.com
+              <i class="bi bi-envelope-at-fill"></i> expample@example.com
             </p>
             <div className="input-group mb-3 " >
               <div dir='ltr'><button className="btn btn-ligh border-4" type="button" >
                 <i class="bi bi-envelope"></i>
-                </button></div> 
+              </button></div>
               <input type="text" className="form-control" placeholder="ایمیل خود را وارد کنید" aria-label="Email" />
               <div className="input-group-append">
-               
+
               </div>
             </div>
 
 
-           
+
 
 
           </div>
-          
+
           {/* Column 2 */}
           <div className="col-md-3 mb-4 hazf">
             <h5 className="mb-4">🎉​آخرین تخفیف ها</h5>
             <div>
               <img src="https://via.placeholder.com/100" className="img-fluid mb-2" alt="News" />
               <h6>ما خوبیم بسیار خفنیم همه چی میفروشیم
-            همه از ما میخرن ما پولدار میشیم
-            اندرو تیت</h6>
+                همه از ما میخرن ما پولدار میشیم
+                اندرو تیت</h6>
             </div>
             <div>
               <img src="https://via.placeholder.com/100" className="img-fluid mb-2" alt="News" />
               <h6>ما خوبیم بسیار خفنیم همه چی میفروشیم
-            همه از ما میخرن ما پولدار میشیم
-            اندرو تیت</h6>
-              
+                همه از ما میخرن ما پولدار میشیم
+                اندرو تیت</h6>
+
             </div>
           </div>
 
@@ -85,8 +85,8 @@ const Footer = () => {
         <div className='flex-fill border-bottom border-light h1 '></div>
       </div>
       <p className='text-center'>این وبسایت ساخته شده با️​ <i class="bi bi-balloon-heart"></i><i className="fas fa-heart text-danger"></i> توسط تیم-ما.کام
-      
-          / کپی رایت ©2024 همه چی متعلق به اسمائیله</p>
+
+        / کپی رایت ©2024 همه چی متعلق به اسمائیله</p>
     </footer>
   );
 };
