@@ -29,12 +29,15 @@ function App() {
           <Route path='/register' element={<SignIn />} />
           <Route path='/cart' element={<HCart />} />
           <Route path='/rpp' element={<RPP />} />
-          <Route path='/user' element={<Profile />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/pi' element={<PI />} />
           <Route path='/test' element={<Test />} />
          </Routes>
       </div>
       <Footer />
+        <Routes>
+          
+        </Routes>
     </Router>
   );
 }
