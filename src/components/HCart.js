@@ -3,11 +3,12 @@ import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 
 const Hcart = () => {
-    const [state,setState]=useState([])
-
+    const [Cart,setCart]=useState([])
+    
     const myHeaders = new Headers();
     myHeaders.append("accept", "application/json");
-    myHeaders.append("X-CSRFToken", "lxss7awPoMMsnxeSMqyoFxb8CqTHkOHgxehVwppmKMn4RAms0FZ4irJxXrofQ9HF");
+    myHeaders.append("authorization", "Basic YWRtaW5AYWRtaW4uY29tOjEyMw==");
+    myHeaders.append("X-CSRFToken", "B0ggc6ViDGhfiOn318IQMrrN5mdP5hlVv7CAtbQkhE2o863vPfwVmya1o31Qypr6");
     
     const requestOptions = {
       method: "GET",
@@ -15,11 +16,16 @@ const Hcart = () => {
       redirect: "follow"
     };
     
-    fetch("http://94.183.74.154:1234/api/v1/carts/", requestOptions)
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.error(error));
-
+    fetch("http://94.183.74.154:1234/cart/", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        const items = result.items;
+        items.forEach(item => {
+            const product = item.product;
+            setCart(product);
+            console.log(Cart);
+        });
+    })      .catch((error) => console.error(error));
 
         
             return (<>
@@ -35,13 +41,13 @@ const Hcart = () => {
 
                                             </div>
                                         </div>
-
-                                        {state.map(c=><div class="row  ">
+{/* 
+                                        {Cart.map(c=><div class="row  ">
                                             <div class="row main align-items-center">
                                                 <div class="col-2"><img class="img-fluid" src={c.pic}/></div>
                                                 <div class="col">
-                                                    <div class="row text-muted">{c.category}</div>
-                                                    <div class="row">{c.name}</div>
+                                                    <div class="row text-muted">{c.id}</div>
+                                                    <div class="row">name</div>
                                                 </div>
                                                 <div class="col">
                                                 <button  class="btn btn-sm">-</button><a href="#" class="border">0</a><button class="btn btn-sm">+</button>
@@ -49,7 +55,7 @@ const Hcart = () => {
                                                 <div class="col"><a>{c.price}</a></div>
                                             </div>
                                         </div>
-                                        )}
+                                        )} */}
 
                                     </div>
                                     <div class="col-md-4 summary pt-5">

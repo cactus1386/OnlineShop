@@ -61,7 +61,7 @@ function PI() {
         <div class="pb-5 col-md-5" dir="rtl">
             <div class="border-bottom p-2 ">
                     <h3>پکیج شادی آور</h3>
-                </div>
+                </div>  
                 <div className=' card bg-light' dir="rtl">
                         <Album />
                 </div>
