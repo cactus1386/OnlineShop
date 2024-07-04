@@ -1,5 +1,5 @@
 import React from 'react';
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
 import img1 from '../assets/media/products/13.png'
 import { Carousel } from 'react-bootstrap';
 

@@ -1,0 +1,36 @@
+.footer {
+    background-color: #38661e; 
+   
+  }
+  
+  .footer .col-md-3 h5 {
+    font-size: 1.25rem;
+  }
+  
+  .footer .col-md-3 p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer .input-group .btn {
+    background-color: #fff;
+    color: #2c2c2c;
+    
+    border-radius: none;
+  }
+  
+  .footer .input-group .btn:hover {
+    background-color: #989d93;
+  }
+  
+  .footer .fas.fa-star {
+    margin-right: 2px;
+  }
+  
+  .footer .fas.fa-heart {
+    color: #ff0000;
+  }
+  
+@media (max-width: 800px) {
+    .hazf {
+      display: none;
+    }}
