@@ -44,7 +44,7 @@ function SignIn() {
   return (
     <>
       <div class='split rightl' style={{ backgroundColor: '#79c77e' }}>
-        <img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" class='img'/>
+        <img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" class='imgw'/>
       </div>
       <div class=" py-40 split leftl">
         <div className="d-flex justify-content-center ">
