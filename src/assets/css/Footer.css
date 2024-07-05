@@ -1,7 +1,4 @@
-.footer {
-    background-color: #38661e; 
-   
-  }
+
   
   .footer .col-md-3 h5 {
     font-size: 1.25rem;
@@ -34,3 +31,11 @@
     .hazf {
       display: none;
     }}
+
+.brand-name{
+  text-shadow: 0 0 8px  #00f80c;
+}
+
+.text-size{
+  font-size: small;
+}
