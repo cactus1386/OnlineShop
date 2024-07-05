@@ -3,16 +3,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../assets/plugins/global/plugins.bundle.css';
 import '../assets/plugins/custom/prismjs/prismjs.bundle.css';
 import '../assets/css/style.bundle.css';
-import '../assets/font/font.css'
 
 
 import pic from '../assets/media/users/blank.png';
-import pic2 from '../assets/media/users/300_21.jpg';
 
 function Info() {
     return (
-        <div class=' d-flex justify-content-center'>
-        <div class="flex-row-fluid  col-md-8  fontv" dir='rtl'>
+        <div class=' d-flex justify-content-center col-md-12'>
+        <div class="flex-row-fluid  col-md-12  fontv" dir='rtl'>
             <div class="card card-custom card-stretch ">
                 <div class="card-header py-3">
                     <div class="card-title align-items-start flex-column">
@@ -30,7 +28,7 @@ function Info() {
                             <label class="col-xl-3 col-lg-3 col-form-label">آواتار:</label>
                             <div class="col-lg-9 col-xl-6">
                                 <div class="image-input image-input-outline" id="kt_profile_avatar" style={{ backgroundImage:  "url("+pic+")"}}  >
-                                    <div class="image-input-wrapper" style={{ backgroundImage:  "url("+pic2+")"}} ></div>
+                                    <div class="image-input-wrapper" style={{ backgroundImage:  "url("+pic+")"}} ></div>
                                     <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                                         <i class="fa fa-pen icon-sm text-muted"></i>
                                         <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg" />

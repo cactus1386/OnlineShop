@@ -2,16 +2,24 @@ import React, { useState, useEffect } from 'react';
 import img1 from '../assets/media/products/1.png';
 import "../font/font.css";
 import Album from './Album';
-import Test from './MultiItemSlider';
+import Comment from './CommentBox';
+import Mortabet from './MultiItemSlider';
 
 function PI() {
 
   return (
         
     <div className='users fontv'>
-        <div class=" row col-md-12" >
+        <div class=" row col-md-12" dir="rtl" >
+        <div class="pb-5 col-md-4" dir="rtl">
+            <div class="border-bottom p-2 h1">
+                    پکیج شادی آور
+                </div>  
+                <div className=' card bg-light' dir="rtl">
+                        <Album />
+                </div>
+        </div>
             <div class=" col-md-4 h-25 pt-5" >
-  
                 <div class="card" dir="rtl">
                     <div class="border-bottom p-3 col-md-12 card-title">
                         <h4>قیمت:</h4>
@@ -52,27 +60,20 @@ function PI() {
                             </label>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-outline-success  ذفد-ملcol-md-10 m-4"><h4>افزودن به سبد خرید </h4>     </button>
+                    <button type="button" class="btn btn-outline-success col-md-10 m-4"><h4>افزودن به سبد خرید </h4>     </button>
                 </div>
             </div>
-            
-
-    <div class="col-md-3"></div>
-        <div class="pb-5 col-md-5" dir="rtl">
-            <div class="border-bottom p-2 ">
-                    <h3>پکیج شادی آور</h3>
-                </div>  
-                <div className=' card bg-light' dir="rtl">
-                        <Album />
-                </div>
+        
+        <div class="col-md-4 pt-5">
+            <Comment />
         </div>
 
         <div className="col-md-12">
                 <div className="card card-custom gutter-b">
                     <div className="card-header">
                         <div className="card-title" dir='rtl'>
-                        <h3 className="card-label p-3">محصولات مرتبط</h3>
-                            <Test/>
+                        <div className="card-label p-3 h1">محصولات مرتبط</div>
+                            <Mortabet/>
                         </div>
                     </div>
                     {/* Other content */}
