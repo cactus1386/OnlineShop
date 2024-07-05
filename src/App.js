@@ -11,9 +11,9 @@ import Profile from './components/UserInfo';
 import HCart from './components/HCart';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
-import Footer from './components/Footer';
+import Footer from './components/footer';
 import PI from './components/ProductsInfo';
-import Test from './components/MultiItemSlider';
+import Test from './components/CommentBox';
 
 const AppContent = () => {
   const location = useLocation();

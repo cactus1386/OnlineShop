@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from 'react'
-import CommentOnchange from "./test";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../../src/assets/css/Comment.css';
 
@@ -14,7 +13,7 @@ const Comments = () => {
     show()
   }, []);
   function show() {
-    fetch("http://192.168.1.169:8000/comments/api/v1/post")
+    fetch("http://94.183.74.154:1234/comments/api/v1/post")
       .then(response => response.json())
       .then(result => setComments(result))
       .then(result => setLoading(false))
@@ -39,14 +38,15 @@ const Comments = () => {
       redirect: 'follow'
     };
 
-    fetch("http://192.168.1.169:8000/comments/api/v1/post", requestOptions)
+    fetch("http://94.183.74.154:1234/comments/api/v1/post", requestOptions)
       .then(response => response.text())
       .then(result => show())
       .catch(error => console.log('error', error));
   };
 
   return (
-    <div>
+    <div class="d-flex justify-content-center col-md-12">
+    <div class="col-md-12 card p-3" dir="rtl">
       {isLoading ? <div class='loadingPage'>
         <div class="spinner spinner-dark mr-15 text-center loadingCenter" ></div>
      
@@ -54,22 +54,27 @@ const Comments = () => {
       {Comments.map(c =>
         <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-left max-w-1500px">{c.content}</div>
       )}
-      <div class="d-flex align-items-center bg-light-success rounded p-5 mb-9">
-        <input id="1" onChange={e => setComment(e.target.value)} class="form-control form-control-solid form-control-lg" ></input>
-        <button onClick={sendToServer} class=" col-md-1 btn btn-success">submit</button>
+      <div class="d-flex align-items-center">
+      <div class=" col-md-8 rounded p-5 mb-9 d-flex align-items-center">
+        <input id="1" onChange={e => setComment(e.target.value)} class="form-control form-control-solid form-control-lg col-md-2" ></input>
+        <button onClick={sendToServer} class=" col-md-6 btn btn-primary font-weight-bold">ثبت</button>
+      </div>
       </div>
       </div> : 
       <div>
         
       {Comments.map(c =>
-        <div class="mt-2 rounded p-5 border text-dark-50 font-weight-bold font-size-lg text-left max-w-1500px">{c.content}</div>
+        <div class="mt-2 rounded p-5 border text-dark-50 font-weight-bold font-size-lg text-left max-w-1500px fontv">{c.content}</div>
       )}
-      <div class="d-flex align-items-center  rounded p-5 mb-9">
-        <input id="1" onChange={e => setComment(e.target.value)} class="form-control form-control-solid form-control-lg" ></input>
-        <button onClick={sendToServer} class=" col-md-1 btn btn-primary font-weight-bold">submit</button>
+      <div class="d-flex align-items-center">
+      <div class=" col-md-8 rounded p-5 mb-9 d-flex align-items-center">
+        <input id="1" onChange={e => setComment(e.target.value)} class="form-control form-control-solid form-control-lg col-md-2" ></input>
+        <button onClick={sendToServer} class=" col-md-6 btn btn-primary font-weight-bold fontv">ثبت</button>
+      </div>
       </div>
       </div>}
 
+    </div>
     </div>
   )
 

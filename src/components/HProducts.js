@@ -54,14 +54,16 @@ function HomeProducts() {
             <div className="d-flex justify-content-end"><a className="btn hover" href="products">مشاهده همه</a></div>
           </div>  
           {e.Products.map(c => ( // Removed unnecessary curly braces around e.Products
-            <div className="col card border-bottom-0 border-top-0" key={c.id}> {/* Added key prop to the outer div */}
-              <div className="product-list">
-                <div className="product-item">
-                  <img src={c.Image} alt={c.Name} className="product-image" />
-                  <h2 className="product-name">{c.Name}</h2>
-                  <p className="product-price">${c.Price}</p>
+            <div className="col card border-bottom-0 border-top-0" key={c.id} > {/* Added key prop to the outer div */}
+              <a href="/pi">
+                <div className="product-list">
+                  <div className="product-item">
+                    <img src={c.Image} alt={c.Name} className="product-image" />
+                    <h2 className="product-name">{c.Name}</h2>
+                    <p className="product-price">${c.Price}</p>
+                  </div>
                 </div>
-              </div>
+                </a>
             </div>
           ))}
         </div>

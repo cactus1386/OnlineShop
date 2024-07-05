@@ -60,7 +60,7 @@ function SignIn() {
                   <div class="form-group row">
                     <label for="example-search-input" class="col-md-3 col-sm-3 col-3 col-form-label">ایمیل:</label>
                     <div class="col-md-8 col-sm-8 col-8">
-                      <input class="form-control " onChange={e => setEmail(e.target.value)} type="name" id="example-email-input" />
+                      <input class="form-control " onChange={e => setEmail(e.target.value)} type="name" id="example-email-input" dir="ltr" />
                     </div>
                   </div>
                   <div class="form-group row pt-4">
