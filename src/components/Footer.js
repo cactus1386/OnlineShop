@@ -2,6 +2,7 @@ import React from 'react';
 import '../assets/css/Footer.css'
 
 const Footer = () => {
+  
 
   
   return (
@@ -41,12 +42,24 @@ const Footer = () => {
           </div>
 
           {/* Column 2 */}
-          <div className="col-md-3 mb-4 hazf">
+          <div className="col-md-3 mb-4 hazf ">
             <h5 className="mb-4">خدمات مشتریان</h5>
-            <div>
-              <p><a href='/about' className='text-dark'>درباره ی ما</a></p>
+            <div className='text-secondary'>
+              <p className='text-secondary'><a href='/about' className='text-secondary'>درباره ی ما</a></p>
               <p >پرسش های متداول</p>
               <p>حریم خصوصی</p>
+            </div>
+
+            <div className='pt-4'>
+            <button type="button" className="btn btn-success" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+            <i class="bi bi-instagram"></i>
+</button>
+<button type="button" className="btn btn-success " data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+<i class="bi bi-telegram"></i>
+</button>
+<button type="button" className="btn btn-success" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+<i class="bi bi-whatsapp"></i>
+</button>
             </div>
             {/* <div>
               <img src="https://via.placeholder.com/100" className="img-fluid mb-2" alt="News" />
@@ -67,7 +80,7 @@ const Footer = () => {
           <div className="col-md-3 mb-4 hazf">
             <h5 className="mb-4">🤩​پرفروش ترین </h5>
             <div>
-              <img src="https://via.placeholder.com/200" className="img-fluid mb-2" alt="Best Sellers" />
+              <img src="https://placehold.co/200" className="img-fluid mb-2" alt="Best Sellers" />
               <p>سیب زمینی با گوشت</p>
               <div className="text-warning">
                 {[...Array(5)].map((_, i) => (
@@ -84,7 +97,7 @@ const Footer = () => {
               {[...Array(4)].map((_, i) => (
                 <img
                   key={i}
-                  src="https://via.placeholder.com/100"
+                  src="https://placehold.co/100"
                   className="img-fluid m-1"
                   alt="Instagram"
                 />
@@ -92,7 +105,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className='flex-fill border-bottom border-success h1 '></div>
+        <div className='flex-fill border-bottom border-success border-2 h1 '></div>
       </div>
       <p className='text-center'>این وبسایت ساخته شده با️​ <i class="bi bi-balloon-heart"></i><i className="fas fa-heart text-danger"></i> توسط تیم-ما.کام
 

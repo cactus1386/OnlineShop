@@ -13,7 +13,7 @@ import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import PI from './components/ProductsInfo';
 import Test from './components/MultiItemSlider';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 
 const AppContent = ({ isLoggedIn, handleLogout }) => {
   const location = useLocation();
