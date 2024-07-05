@@ -11,9 +11,9 @@ import Profile from './components/UserInfo';
 import HCart from './components/HCart';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
-import Footer from './components/Footer';
 import PI from './components/ProductsInfo';
 import Test from './components/MultiItemSlider';
+import Footer from './components/footer';
 
 const AppContent = ({ isLoggedIn, handleLogout }) => {
   const location = useLocation();
@@ -37,7 +37,7 @@ const AppContent = ({ isLoggedIn, handleLogout }) => {
           <Route path='/test' element={<Test />} />
         </Routes>
       </div>
-      {showFooter && <Footer />}
+      {showFooter && <Footer/>}
     </>
   );
 };
