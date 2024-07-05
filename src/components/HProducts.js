@@ -52,6 +52,7 @@ const HomeProducts = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="container-xl fontv" dir="rtl">
       {categories.map(category => (
         <div className="pt-3" key={category.Name}>
@@ -63,6 +64,29 @@ const HomeProducts = () => {
               <div className="d-flex justify-content-end">
                 <a className="btn hover" href="products">مشاهده همه</a>
               </div>
+=======
+    <div className="container-xl fontv  " dir="rtl">
+      {Categories.map(e =>
+        <div class="pt-3">
+        <div className="row border shadow  bg-white rounded ">
+          <div className='crad-title border-bottom border-dark pt-3 '>
+            <h2 class ='fontv'>{e.Name}</h2>
+          </div>
+          <div className="crad-title">
+            <div className="d-flex justify-content-end"><a className="btn hover" href="products">مشاهده همه</a></div>
+          </div>  
+          {e.Products.map(c => ( // Removed unnecessary curly braces around e.Products
+            <div className="col card border-bottom-0 border-top-0" key={c.id} > {/* Added key prop to the outer div */}
+              <a href="/pi">
+                <div className="product-list">
+                  <div className="product-item">
+                    <img src={c.Image} alt={c.Name} className="product-image" />
+                    <h2 className="product-name">{c.Name}</h2>
+                    <p className="product-price">${c.Price}</p>
+                  </div>
+                </div>
+                </a>
+>>>>>>> 4e8afc580353213825dee7081f35fb3cd541c4fd
             </div>
             {category.Products.map(product => (
               <div className="col card border-bottom-0 border-top-0" key={product.id}>
