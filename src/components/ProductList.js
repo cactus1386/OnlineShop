@@ -61,7 +61,7 @@ const ProductList = () => {
   }, {});
 
   const displayedProducts = Object.values(groupedProducts).flatMap(products =>
-    products.slice(0, 5)
+    products
   );
 
   return (
