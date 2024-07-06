@@ -9,7 +9,7 @@ const HomeProducts = () => {
     const fetchProducts = async () => {
       const myHeaders = new Headers();
       myHeaders.append("accept", "application/json");
-      myHeaders.append("X-CSRFToken", "D49DG2Se4yJkKYaS0MtoOHpApCDvygadfKNuDeUJAqndhGVnxAs7YEtxHGqjS6H6");
+      myHeaders.append("X-CSRFToken", "AmrdKuP98ULWK4LXWttdeKR7sbq8MXasc254HGREEMpPhMwsthsWoHV4KfdW6NHl");
 
       const requestOptions = {
         method: "GET",
@@ -20,7 +20,7 @@ const HomeProducts = () => {
       try {
         const response = await fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions);
         const result = await response.json();
-        const sortedData = sortProductsByCategory(result.results);
+        const sortedData = sortProductsByCategory(result);
         setCategories(sortedData);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -57,10 +57,10 @@ const HomeProducts = () => {
       {categories.map(category => (
         <div className="pt-3" key={category.Name}>
           <div className="row border shadow bg-white rounded">
-            <div className='crad-title border-bottom border-dark pt-3'>
+            <div className='card-title border-bottom border-dark pt-3'>
               <h2 className="fontv">{category.Name}</h2>
             </div>
-            <div className="crad-title">
+            <div className="card-title">
               <div className="d-flex justify-content-end">
                 <a className="btn hover" href="products">مشاهده همه</a>
               </div>

@@ -1,45 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/ProductList.css';
 import '../assets/css/images.css';
 import Filter from './Filter';
 
-
 const ProductList = () => {
-  const [detail,setDetail]=useState([])
-
-
-const myHeaders = new Headers();
-myHeaders.append("accept", "application/json");
-myHeaders.append("X-CSRFToken", "qCdvOcutqzq4fiC46AUlncnkbeyh8L7WCj2Ydrn0Mz1GJlKEkPl106VJwf3PE67l");
-
-const requestOptions = {
-  method: "GET",
-  headers: myHeaders,
-  redirect: "follow"
-};
-
-fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
-  .then((response) => response.json())
-  .then((result) => setDetail(result.results))
-  .then((result) => console.log(result))
-  .catch((error) => console.error(error));
-
-
-
-
- 
+  const [detail, setDetail] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [category, setCategory] = useState('');
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const myHeaders = new Headers();
+      myHeaders.append("accept", "application/json");
+      myHeaders.append("X-CSRFToken", "AmrdKuP98ULWK4LXWttdeKR7sbq8MXasc254HGREEMpPhMwsthsWoHV4KfdW6NHl");
+
+      const requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow"
+      };
+
+      try {
+        const response = await fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions);
+        const result = await response.json();
+        setDetail(result);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleFilterChange = (filters) => {
     setSearchTerm(filters.searchTerm);
     setMinPrice(filters.minPrice);
     setMaxPrice(filters.maxPrice);
     setCategory(filters.category);
-
   };
 
   const filteredProducts = detail.filter((product) => {
@@ -50,22 +50,36 @@ fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
 
     return matchesSearchTerm && matchesMinPrice && matchesMaxPrice && matchesCategory;
   });
+
+  const groupedProducts = filteredProducts.reduce((acc, product) => {
+    const cat = product.category[0];
+    if (!acc[cat]) {
+      acc[cat] = [];
+    }
+    acc[cat].push(product);
+    return acc;
+  }, {});
+
+  const displayedProducts = Object.values(groupedProducts).flatMap(products =>
+    products.slice(0, 5)
+  );
+
   return (
     <div className="container-fluid">
-      <div className="row" >
-        <div className="col-lg-9 col-md-10 col-sm-12 order-sm-2 order-md-1" >
-        <div class="col-md-12">
-          <div className="row " dir="rtl">
-            {filteredProducts.map((product) => (
-              <div key={product.id} className="product-item col-md-3 pt-3  fontv ">
-                <div class="card">
-                  <img src={product.pic} alt={product.name} className="product-image imgs" />
-                  <div class="text-muted">{product.category}</div>
-                  <h2 className="product-name fontv">{product.name}</h2>
-                  <p className="product-price">${product.price.toFixed(2)}</p>
-              </div>
-              </div>
-            ))}
+      <div className="row">
+        <div className="col-lg-9 col-md-10 col-sm-12 order-sm-2 order-md-1">
+          <div className="col-md-12">
+            <div className="row" dir="rtl">
+              {displayedProducts.map((product) => (
+                <div key={product.id} className="product-item col-md-3 pt-3 fontv">
+                  <div className="card">
+                    <img src={product.pic} alt={product.name} className="product-image imgs" />
+                    <div className="text-muted">{product.category.join(', ')}</div>
+                    <h2 className="product-name fontv">{product.name}</h2>
+                    <p className="product-price">${product.price.toFixed(2)}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

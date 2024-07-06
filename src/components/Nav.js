@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/Nav.css';
 import '../font/font.css';
@@ -24,10 +23,14 @@ const ShoppingNavbar = ({ isLoggedIn, handleLogout }) => {
 	const closeNav = () => setExpanded(false);
 	const handleModeSwitch = () => setIsDarkMode(!isDarkMode);
 
+	// Add console log to check isLoggedIn prop
+	useEffect(() => {
+		console.log('isLoggedIn:', isLoggedIn);
+	}, [isLoggedIn]);
 
 	return (
 		<nav className="shopping-navbar fontv d-flex" dir="rtl">
-			<div className="navbar-container ">
+			<div className="navbar-container">
 				<div className="navbar-logo">
 					<img
 						src="https://www.svgrepo.com/show/217771/shopping-logo.svg"

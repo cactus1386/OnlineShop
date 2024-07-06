@@ -1,9 +1,8 @@
-import React from "react";
-import { useState } from 'react';
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../src/assets/css/loginsignin.css";
 
-function SignIn() {
+function Login({ setIsLoggedIn }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -31,6 +30,7 @@ function SignIn() {
 
       if (response.ok) {
         localStorage.setItem('token', result.token); // Store the token in local storage
+        setIsLoggedIn(true); // Set the isLoggedIn state to true
         navigate('/'); // Redirect to the main page
       } else {
         console.error(result); // Handle error response
@@ -44,7 +44,6 @@ function SignIn() {
     <>
       <div className='split right' style={{ backgroundColor: '#79c77e' }}>
         <img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" className='img' />
-
       </div>
       <div className="py-40 split leftl">
         <div className="d-flex justify-content-center">
@@ -97,4 +96,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Login;
