@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import ProductList from './components/ProductList';
@@ -15,20 +15,20 @@ import Footer from './components/Footer';
 import PI from './components/ProductsInfo';
 import Test from './components/CommentBox';
 
-const AppContent = () => {
+const AppContent = ({ isLoggedIn, handleLogout, setIsLoggedIn }) => {
   const location = useLocation();
   const hideFooterPaths = ['/login', '/register'];
   const showFooter = !hideFooterPaths.includes(location.pathname);
 
   return (
     <>
-      <ShoppingNavbar />
+      <ShoppingNavbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
       <div className="main-content">
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/products' element={<ProductList />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='/register' element={<SignIn />} />
           <Route path='/cart' element={<HCart />} />
           <Route path='/rpp' element={<RPP />} />
@@ -43,9 +43,16 @@ const AppContent = () => {
 };
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('token');
+  };
+
   return (
     <Router>
-      <AppContent />
+      <AppContent isLoggedIn={isLoggedIn} handleLogout={handleLogout} setIsLoggedIn={setIsLoggedIn} />
     </Router>
   );
 }
