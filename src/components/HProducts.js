@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import '../assets/css/images.css';
 
 const HomeProducts = () => {
   const [categories, setCategories] = useState([]);
@@ -32,7 +33,7 @@ const HomeProducts = () => {
   const sortProductsByCategory = (products) => {
     const categories = {
       't-shirt': [],
-      'pant': [],
+      'pants': [],
       'socks': [],
       'coat': []
     };
@@ -68,7 +69,7 @@ const HomeProducts = () => {
               <div className="col card border-bottom-0 border-top-0" key={product.id}>
                 <div className="product-list">
                   <div className="product-item">
-                    <img src={product.pic} alt={product.name} className="product-image" />
+                    <img src={product.pic} alt={product.name} className="product-image imgs"/>
                     <h2 className="product-name">{product.name}</h2>
                     <p className="product-price">${product.price}</p>
                   </div>
