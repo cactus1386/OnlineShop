@@ -46,7 +46,7 @@ const Comments = () => {
 
   return (
     <div class="d-flex justify-content-center col-md-12">
-    <div class="col-md-12 card p-3" dir="rtl">
+    <div class="col-md-12 card p-3 shadow" dir="rtl">
       {isLoading ? <div class='loadingPage'>
         <div class="spinner spinner-dark mr-15 text-center loadingCenter" ></div>
      
