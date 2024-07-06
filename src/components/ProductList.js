@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/ProductList.css';
+import '../assets/css/images.css';
 import Filter from './Filter';
 
 
@@ -27,6 +28,7 @@ fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
 
 
 
+ 
   const [searchTerm, setSearchTerm] = useState('');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
@@ -37,17 +39,17 @@ fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
     setMinPrice(filters.minPrice);
     setMaxPrice(filters.maxPrice);
     setCategory(filters.category);
+
   };
 
   const filteredProducts = detail.filter((product) => {
     const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesMinPrice = minPrice === '' || product.price >= parseFloat(minPrice);
     const matchesMaxPrice = maxPrice === '' || product.price <= parseFloat(maxPrice);
-    const matchesCategory = category === '' || product.category === category;
+    const matchesCategory = category === '' || product.category.includes(category);
 
     return matchesSearchTerm && matchesMinPrice && matchesMaxPrice && matchesCategory;
   });
-
   return (
     <div className="container-fluid">
       <div className="row" >
@@ -55,10 +57,11 @@ fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
         <div class="col-md-12">
           <div className="row " dir="rtl">
             {filteredProducts.map((product) => (
-              <div key={product.id} className="product-item col-md-3 pt-3   ">
+              <div key={product.id} className="product-item col-md-3 pt-3  fontv ">
                 <div class="card">
-                  <img src={product.pic} alt={product.name} className="product-image" />
-                  <h2 className="product-name">{product.name}</h2>
+                  <img src={product.pic} alt={product.name} className="product-image imgs" />
+                  <div class="text-muted">{product.category}</div>
+                  <h2 className="product-name fontv">{product.name}</h2>
                   <p className="product-price">${product.price.toFixed(2)}</p>
               </div>
               </div>

@@ -13,7 +13,8 @@ const Filter = ({ onFilterChange }) => {
       searchTerm,
       minPrice,
       maxPrice,
-      category
+      category,
+      
     });
   };
 
@@ -61,15 +62,16 @@ const Filter = ({ onFilterChange }) => {
         />
       </div>
       <div className="filter-input">
-        <label className="filter-label">دسته بندی</label>
+        <label className="filter-label ">دسته بندی</label>
         <select
           className="form-control"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="">انتخاب دسته بندی</option>
-          <option value="category1">دسته بندی ۱</option>
-          <option value="category2">دسته بندی ۲</option>
+          <option value="t-shirt">تی شرت</option>
+          <option value="socks">جوراب</option>
+          <option value="pants">شلوار</option>
         </select>
       </div>
       <button className="btn btn-primary w-100 mt-3" onClick={handleApplyFilter}>
