@@ -1,69 +1,89 @@
-import React from "react";
-import { useState, useEffect } from 'react'
-import Cart from './ProfileCart'
-import  '../assets/css/Profile.css'
+import React, { useState, useEffect } from "react";
+import Cart from './ProfileCart';
 import RPP from './RecentlyPurchasedPrdcts';
+import '../assets/css/Profile.css';
 
-const UserInfo  = () => {
-  const [Infos, setInfos] = useState([]);
-  const [isLoading, setLoading] = useState(true)
+const UserInfo = () => {
+  const [Infos, setInfos] = useState({});
+  const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
   useEffect(() => {
-    show()
+    fetchUserInfo();
   }, []);
-  function show() {
+
+  const fetchUserInfo = async () => {
     var myHeaders = new Headers();
     myHeaders.append("accept", "application/json");
-    myHeaders.append("authorization", "Basic YWRtaW5AYWRtaW4uY29tOjEyMw==");
-    myHeaders.append("X-CSRFToken", "n4hX5OH1K0qlLzPz8wZg0mqHgJFjoyZv8sr5fwi6kzYGFTsjUjQR2AsOyaXyxpWS");
-    
+
+    const token = localStorage.getItem('token');
+    if (!token) {
+      setError('User not authenticated');
+      return;
+    }
+
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("X-CSRFToken", "yxhMJ4faNaieiMiAJ4AMlUdZvX7afyuNadVDGghFj2W7Pu35gSzvvRhWN1UYzo1G");
+
     var requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
     };
-    
-    fetch("http://94.183.74.154:1234/account/api/v1/profile/", requestOptions)
-      .then(response => response.json())
-      .then(result => setInfos(result))
-      .catch(error => console.log('error', error));
 
+    try {
+      const response = await fetch("http://94.183.74.154:1234/account/api/v1/profile/", requestOptions);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const result = await response.json();
+      setInfos(result);
+    } catch (error) {
+      setError('Failed to fetch user info');
+      console.error('Error:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-    return (<>
-            <div class='col-md-12 '>
-            <div class="d-flex justify-content-center col-md-12">
-                <div className="col-md-9 bg-light border rounded border fontv" dir= "rtl">
-                    <div class=" pt-1 p-3 container">
-                        <div class=" col-md-12 inline">
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-                                <img src={Infos.image} alt="image" class="img "/>
+  if (error) {
+    return <div className="alert alert-danger" role="alert">{error}</div>;
+  }
 
-                                <a class="h3">{Infos.name}</a>
-                        </div>
-                            <div class="mb-7 ">
-                                <div class="d-flex justify-content-between align-items-center pt-2">
-                                    <span class="text-dark-75 font-weight-bolder mr-2">شماره همراه:</span>
-                                    <a href="#" class="text-muted text-hover-primary">{Infos.phone}</a>
-                                </div>
-
-                                <div class="d-flex justify-content-between align-items-center pt-3">
-                                    <span class="text-dark-75 font-weight-bolder mr-2">ایمیل:</span>
-                                    <a href="#" class="text-muted text-hover-primary">{Infos.phone}</a>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center pt-3 pb-3">
-                                    <span class="text-dark-75 font-weight-bolder mr-2">آدرس:</span>
-                                    <span class="text-muted font-weight-bold">{Infos.description}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <Cart />
-                <RPP/>
+  return (
+    <div className='col-md-12'>
+      <div className="d-flex justify-content-center col-md-12">
+        <div className="col-md-9 bg-light border rounded border fontv" dir="rtl">
+          <div className="pt-1 p-3 container">
+            <div className="col-md-12 inline">
+              <img src={Infos.image} alt="Profile" className="img" />
+              <a className="h3">{Infos.name}</a>
             </div>
-                
-                
-     {/* .. */}
-         </>
-  )}
+            <div className="mb-7">
+              <div className="d-flex justify-content-between align-items-center pt-2">
+                <span className="text-dark-75 font-weight-bolder mr-2">شماره همراه:</span>
+                <a href="#" className="text-muted text-hover-primary">{Infos.phone}</a>
+              </div>
+              <div className="d-flex justify-content-between align-items-center pt-3">
+                <span className="text-dark-75 font-weight-bolder mr-2">ایمیل:</span>
+                <a href="#" className="text-muted text-hover-primary">{Infos.email}</a>
+              </div>
+              <div className="d-flex justify-content-between align-items-center pt-3 pb-3">
+                <span className="text-dark-75 font-weight-bolder mr-2">آدرس:</span>
+                <span className="text-muted font-weight-bold">{Infos.description}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Cart />
+      <RPP />
+    </div>
+  );
+};
+
 export default UserInfo;
