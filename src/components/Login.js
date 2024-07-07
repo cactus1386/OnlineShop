@@ -5,10 +5,12 @@ import "../../src/assets/css/loginsignin.css";
 function Login({ setIsLoggedIn }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setError('');
 
     const myHeaders = new Headers();
     myHeaders.append("accept", "application/json");
@@ -29,13 +31,15 @@ function Login({ setIsLoggedIn }) {
       const result = await response.json();
 
       if (response.ok) {
-        localStorage.setItem('token', result.token); // Store the token in local storage
-        setIsLoggedIn(true); // Set the isLoggedIn state to true
+        localStorage.setItem('token', result.access || result.token); // Adjust based on your API response
+        setIsLoggedIn(true); // Update login state
         navigate('/'); // Redirect to the main page
       } else {
-        console.error(result); // Handle error response
+        setError(result.detail || 'Login failed'); // Display error message
+        console.error(result); // Log error response
       }
     } catch (error) {
+      setError('An unexpected error occurred');
       console.error(error);
     }
   };
@@ -43,7 +47,7 @@ function Login({ setIsLoggedIn }) {
   return (
     <>
       <div className='split right' style={{ backgroundColor: '#79c77e' }}>
-        <img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" className='img' />
+        <img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" className='img' alt="Logo" />
       </div>
       <div className="py-40 split leftl">
         <div className="d-flex justify-content-center">
@@ -83,6 +87,7 @@ function Login({ setIsLoggedIn }) {
                       />
                     </div>
                   </div>
+                  {error && <div className="alert alert-danger">{error}</div>}
                   <div className="col-md-12 col-sm-12 col-12 d-flex justify-content-center pt-4">
                     <button type="submit" className="btn btn-success col-10 col-sm-10 col-md-10">ورود</button>
                   </div>
