@@ -72,6 +72,7 @@ const Filter = ({ onFilterChange }) => {
           <option value="t-shirt">تی شرت</option>
           <option value="socks">جوراب</option>
           <option value="pants">شلوار</option>
+          <option value="coat">کت</option>
         </select>
       </div>
       <button className="btn btn-primary w-100 mt-3" onClick={handleApplyFilter}>

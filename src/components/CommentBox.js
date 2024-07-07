@@ -2,10 +2,11 @@ import React from "react";
 import { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import '../../src/assets/css/Comment.css';
+import { event } from "jquery";
 
 
 
-const Comments = () => {
+const Comments = (handleKeyPress) => {
   const [Comments, setComments] = useState([]);
   const [Comment, setComment] = useState('');
   const [isLoading, setLoading] = useState(true)
@@ -38,6 +39,7 @@ const Comments = () => {
       redirect: 'follow'
     };
 
+
     fetch("http://94.183.74.154:1234/comments/api/v1/post", requestOptions)
       .then(response => response.text())
       .then(result => show())
@@ -55,21 +57,20 @@ const Comments = () => {
         <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-left max-w-1500px">{c.content}</div>
       )}
       <div class="d-flex align-items-center">
-      <div class=" col-md-8 rounded p-5 mb-9 d-flex align-items-center">
-        <input id="1" onChange={e => setComment(e.target.value)} class="form-control form-control-solid form-control-lg col-md-2" ></input>
-        <button onClick={sendToServer} class=" col-md-6 btn btn-primary font-weight-bold">ثبت</button>
+      <div class=" col-md-10 rounded p-5 mb-9 d-flex align-items-center">
+        <input type='text' id="1" onChange={e => setComment(e.target.value)} class="form-control form-control-solid form-control-lg col-md-2" ></input>
+        <button onClick={sendToServer} class=" col-md-2 btn btn-primary font-weight-bold">ثبت</button>
       </div>
       </div>
       </div> : 
       <div>
-        
-      {Comments.map(c =>
+      <div class='contain'>{Comments.map(c =>
         <div class="mt-2 rounded p-5 border text-dark-50 font-weight-bold font-size-lg text-left max-w-1500px fontv">{c.content}</div>
-      )}
+      )}</div>
       <div class="d-flex align-items-center">
-      <div class=" col-md-8 rounded p-5 mb-9 d-flex align-items-center">
+      <div class=" col-md-10 rounded p-5 mb-9 d-flex align-items-center">
         <input id="1" onChange={e => setComment(e.target.value)} class="form-control form-control-solid form-control-lg col-md-2" ></input>
-        <button onClick={sendToServer} class=" col-md-6 btn btn-primary font-weight-bold fontv">ثبت</button>
+        <button onClick={sendToServer} class=" col-md-2 btn btn-lg btn-primary font-weight-bold fontv">ثبت</button>
       </div>
       </div>
       </div>}

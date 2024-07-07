@@ -69,14 +69,14 @@ const ProductList = () => {
       <div className="row">
         <div className="col-lg-9 col-md-10 col-sm-12 order-sm-2 order-md-1">
           <div className="col-md-12">
-            <div className="row" dir="rtl">
+            <div className="row " dir="rtl">
               {displayedProducts.map((product) => (
-                <div key={product.id} className="product-item col-md-3 pt-3 fontv">
-                  <div className="card">
-                    <img src={product.pic} alt={product.name} className="product-image imgs" />
+                <div key={product.id} className="product-item col-md-3 pt-3 fontv" >
+                  <div className="card ">
+                    <a className='link'href='/pi'><img src={product.pic} alt={product.name} className="product-image imgs" />
                     <div className="text-muted">{product.category.join(', ')}</div>
                     <h2 className="product-name fontv">{product.name}</h2>
-                    <p className="product-price">${product.price.toFixed(2)}</p>
+                    <p className="product-price">${product.price.toFixed(2)}</p></a>
                   </div>
                 </div>
               ))}

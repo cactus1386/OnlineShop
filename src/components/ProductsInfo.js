@@ -19,14 +19,14 @@ const requestOptions = {
 
 fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
   .then((response) => response.text())
-  .then((result) => console.log(result))
+//   .then((result) => console.log(result))
   .catch((error) => console.error(error));
 
   return (
         
     <div className='users fontv'>
         <div class=" row col-md-12" dir="rtl" >
-        <div class="pb-5 col-md-4" dir="rtl">
+        <div class="pb-5 col-md-6" dir="rtl">
             <div class="border-bottom p-2 h1">
                     پکیج شادی آور
                 </div>  
@@ -39,7 +39,7 @@ fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
                         </div>
                 </div>
         </div>
-            <div class=" col-md-4 h-25 pt-5" >
+            <div class=" col-md-6 h-25 pt-5" >
                 <div class="card shadow" dir="rtl">
                     <div class="border-bottom p-3 col-md-12 card-title">
                         <h4>قیمت:</h4>
@@ -98,11 +98,11 @@ fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
                             </label>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-outline-success col-md-10 m-4"><h4>افزودن به سبد خرید </h4>     </button>
+                    <div class="d-flex justify-content-center "><button type="button" class="btn btn-outline-success col-md-9 m-4"><h4>افزودن به سبد خرید </h4></button></div>
                 </div>
             </div>
         
-        <div class="col-md-4 pt-5">
+        <div class="col-md-12 pt-5">
             <Comment />
         </div>
 
