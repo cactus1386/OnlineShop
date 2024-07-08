@@ -37,6 +37,9 @@ const Filter = ({ onFilterChange }) => {
       <div className="filter-input">
         <label className="filter-label">جستجو</label>
         <input
+          onKeyDown={(e) => { 
+            if (e.key === "Enter")
+              handleApplyFilter();}}
           type="text"
           className="form-control"
           placeholder="کلمه مورد نظر را وارد نمایید"
@@ -47,6 +50,9 @@ const Filter = ({ onFilterChange }) => {
       <div className="filter-input">
         <label className="filter-label">قیمت</label>
         <input
+          onKeyDown={(e) => { 
+            if (e.key === "Enter")
+              handleApplyFilter();}}
           type="number"
           className="form-control"
           placeholder="کمترین قیمت مد نظر"
@@ -54,6 +60,9 @@ const Filter = ({ onFilterChange }) => {
           onChange={(e) => setMinPrice(e.target.value)}
         />
         <input
+          onKeyDown={(e) => { 
+            if (e.key === "Enter")
+              handleApplyFilter();}}
           type="number"
           className="form-control mt-2"
           placeholder="بیشترین قیمت مد نظر"
