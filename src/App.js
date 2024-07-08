@@ -33,7 +33,7 @@ const AppContent = ({ isLoggedIn, handleLogout, setIsLoggedIn }) => {
           <Route path='/cart' element={<HCart />} />
           <Route path='/rpp' element={<RPP />} />
           <Route path='/user' element={<Profile />} />
-          <Route path='/pi' element={<PI />} />
+          <Route path='/pi' element={<PI id={''}/>} />
           <Route path='/test' element={<Test />} />
         </Routes>
       </div>
