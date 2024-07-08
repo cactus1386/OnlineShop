@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/Nav.css';
 import '../font/font.css';
+import { AuthContext } from '../context/AuthContext';
 
-const ShoppingNavbar = ({ isLoggedIn, handleLogout }) => {
+const ShoppingNavbar = () => {
 	const [expanded, setExpanded] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(() => {
 		const savedTheme = localStorage.getItem('darkMode');
 		return savedTheme === 'true';
 	});
+
+	const { isLoggedIn, logout } = useContext(AuthContext);
 
 	useEffect(() => {
 		if (isDarkMode) {
@@ -22,11 +25,6 @@ const ShoppingNavbar = ({ isLoggedIn, handleLogout }) => {
 	const handleToggle = () => setExpanded(!expanded);
 	const closeNav = () => setExpanded(false);
 	const handleModeSwitch = () => setIsDarkMode(!isDarkMode);
-
-	// Add console log to check isLoggedIn prop
-	useEffect(() => {
-		console.log('isLoggedIn:', isLoggedIn);
-	}, [isLoggedIn]);
 
 	return (
 		<nav className="shopping-navbar fontv d-flex" dir="rtl">
@@ -65,7 +63,7 @@ const ShoppingNavbar = ({ isLoggedIn, handleLogout }) => {
 							<button className='btnn'><i className="icon">👤</i>پروفایل</button>
 							<div className="dropdown-content">
 								<a href="user">مشخصات</a>
-								<button onClick={handleLogout} className='btn btn-outline-danger w-100'>خروج</button>
+								<button onClick={logout} className='btn btn-outline-danger w-100'>خروج</button>
 							</div>
 						</div>
 					</div>
