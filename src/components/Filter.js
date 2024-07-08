@@ -13,7 +13,8 @@ const Filter = ({ onFilterChange }) => {
       searchTerm,
       minPrice,
       maxPrice,
-      category
+      category,
+      
     });
   };
 
@@ -36,6 +37,9 @@ const Filter = ({ onFilterChange }) => {
       <div className="filter-input">
         <label className="filter-label">جستجو</label>
         <input
+          onKeyDown={(e) => { 
+            if (e.key === "Enter")
+              handleApplyFilter();}}
           type="text"
           className="form-control"
           placeholder="کلمه مورد نظر را وارد نمایید"
@@ -46,6 +50,9 @@ const Filter = ({ onFilterChange }) => {
       <div className="filter-input">
         <label className="filter-label">قیمت</label>
         <input
+          onKeyDown={(e) => { 
+            if (e.key === "Enter")
+              handleApplyFilter();}}
           type="number"
           className="form-control"
           placeholder="کمترین قیمت مد نظر"
@@ -53,6 +60,9 @@ const Filter = ({ onFilterChange }) => {
           onChange={(e) => setMinPrice(e.target.value)}
         />
         <input
+          onKeyDown={(e) => { 
+            if (e.key === "Enter")
+              handleApplyFilter();}}
           type="number"
           className="form-control mt-2"
           placeholder="بیشترین قیمت مد نظر"
@@ -61,15 +71,17 @@ const Filter = ({ onFilterChange }) => {
         />
       </div>
       <div className="filter-input">
-        <label className="filter-label">دسته بندی</label>
+        <label className="filter-label ">دسته بندی</label>
         <select
           className="form-control"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="">انتخاب دسته بندی</option>
-          <option value="category1">دسته بندی ۱</option>
-          <option value="category2">دسته بندی ۲</option>
+          <option value="t-shirt">تی شرت</option>
+          <option value="socks">جوراب</option>
+          <option value="pants">شلوار</option>
+          <option value="coat">کت</option>
         </select>
       </div>
       <button className="btn btn-primary w-100 mt-3" onClick={handleApplyFilter}>

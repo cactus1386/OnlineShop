@@ -1,7 +1,7 @@
-import Slider from './HSlider.js';
-import Products from "./HProducts.js"
-function Home (){
-    return(
+import Slider from './HSlider';
+import Products from "./HProducts"
+function Home() {
+    return (
         <div class='col-md-12'>
             <Slider />
             <Products />

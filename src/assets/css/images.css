@@ -1,0 +1,9 @@
+.imgs {
+    height: 275px;
+    width: auto;
+    filter: contrast(120%);
+  }
+  .link {
+    color: #fff;
+    text-decoration: none;
+  }
