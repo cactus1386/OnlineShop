@@ -1,50 +1,96 @@
-import React, { useState } from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../assets/css/Nav.css';
+import '../font/font.css';
+import '../assets/css/images.css';
 
-const MobileNavbar = () => {
-  const [expanded, setExpanded] = useState(false);
+const ShoppingNavbar = ({ isLoggedIn, handleLogout }) => {
+	const [expanded, setExpanded] = useState(false);
+	const [isDarkMode, setIsDarkMode] = useState(() => {
+		const savedTheme = localStorage.getItem('darkMode');
+		return savedTheme === 'true';
+	});
 
-  return (
-    <Navbar expanded={expanded} expand="lg" bg="light" variant="light" className="mb-3">
-      <Navbar.Brand href="#">
-        <img
-          src="https://www.svgrepo.com/show/217771/shopping-logo.svg"
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-          alt="Logo"
-        />
-        فروشگاه
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : 'expanded')} />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
-          <Nav.Link href="#home">خانه</Nav.Link>
-          <NavDropdown title="محصولات" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#electronics">الکترونیک</NavDropdown.Item>
-            <NavDropdown.Item href="#clothing">لباس</NavDropdown.Item>
-            <NavDropdown.Item href="#home-appliances">لوازم خانگی</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#sale">تخفیف ها</NavDropdown.Item>
-          </NavDropdown>
-          <Nav.Link href="#about">درباره ما</Nav.Link>
-        </Nav>
-        <Form className="d-flex">
-          <FormControl type="search" placeholder="دنبال چه می گردید؟..." className="me-2" aria-label="Search" />
-          <Button variant="outline-success">جستجو</Button>
-        </Form>
-        <Nav>
-          <Nav.Link href="#cart"><i className="bi bi-cart"></i> سبد خرید (0)</Nav.Link>
-          <Nav.Link href="#account"><i className="bi bi-person"></i> حساب کاربری</Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  );
+	useEffect(() => {
+		if (isDarkMode) {
+			document.body.classList.add('dark-mode');
+		} else {
+			document.body.classList.remove('dark-mode');
+		}
+		localStorage.setItem('darkMode', isDarkMode);
+	}, [isDarkMode]);
+
+	const handleToggle = () => setExpanded(!expanded);
+	const closeNav = () => setExpanded(false);
+	const handleModeSwitch = () => setIsDarkMode(!isDarkMode);
+
+	// Add console log to check isLoggedIn prop
+	useEffect(() => {
+		console.log('isLoggedIn:', isLoggedIn);
+	}, [isLoggedIn]);
+
+	return (
+		<nav className="shopping-navbar fontv d-flex" dir="rtl">
+			<div className="navbar-container">
+				<a class="link" href='/'>
+					<div className="navbar-logo">
+						<img
+							src="https://www.svgrepo.com/show/217771/shopping-logo.svg"
+							alt="Logo"
+							className="logo-image"
+						/>
+						<span className="brand-name ml-7 dark mr-3">فروشگاه</span>
+					</div>
+				</a>
+				<div className="navbar-links">
+					<a href="/">خانه</a>
+					<div className="dropdown">
+						<a href="products">محصولات</a>
+						<div className="dropdown-content">
+							<a href="#electronics">الکترونیک</a>
+							<a href="#clothing">لباس</a>
+							<a href="#home-appliances">لوازم خانگی</a>
+							<a href="#sale">تخفیف ها</a>
+						</div>
+					</div>
+					<a href="about" className="icon-link">درباره ما</a>
+				</div>
+				<div className="navbar-search">
+					<button>جستجو</button>
+					<input type="text" placeholder="دنبال چه می گردید؟..." />
+				</div>
+				<div className="navbar-icons">
+					<a href="cart" className="icon-link"><i className="icon">🛒</i> سبد خرید (0)</a>
+				</div>
+				{isLoggedIn ? (
+					<div className='navbar-links'>
+						<div className="dropdown">
+							<button className='btnn'><i className="icon">👤</i>پروفایل</button>
+							<div className="dropdown-content">
+								<a href="user">مشخصات</a>
+								<button onClick={handleLogout} className='btn btn-outline-danger w-100'>خروج</button>
+							</div>
+						</div>
+					</div>
+				) : (
+					<a href="login" className="icon-link">
+						<i className="icon">👤</i>حساب کاربری
+					</a>
+				)}
+				<div className="mode-switch-container">
+					<span>{isDarkMode ? '🌙' : '☀️'}</span>
+					<input
+						type="checkbox"
+						className="mode-switch"
+						id="mode-switch"
+						checked={isDarkMode}
+						onChange={handleModeSwitch}
+					/>
+					<label htmlFor="mode-switch" className="mode-switch-label"></label>
+				</div>
+			</div>
+		</nav>
+	);
 };
 
-export default MobileNavbar;
-
-
-
-
+export default ShoppingNavbar;

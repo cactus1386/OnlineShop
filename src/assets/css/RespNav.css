@@ -1,84 +1,27 @@
-.shopping-navbar {
-    background-color: #ffffff;
-    color: #3e3e3e;
-    padding: 15px 0;
-    width: 100%;
-    top: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    height: 100px;
-  }
-  
-  .dark-mode .shopping-navbar {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    max-width: 1200px;
-    margin: auto;
-  }
-  
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-    color: #3e3e3e;
-    text-shadow: 0 0 11px #00ff0d;
-  }
-  
-  .dark-mode .navbar-logo {
-    color: #fff;
-    text-shadow: none;
-  }
-  
-  .logo-image {
-    height: 60px;
-    margin-right: -114px;
-  }
-  
-  .brand-name {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-left: 22px;
-  }
-  
-  .navbar-toggler {
-    display: none; /* ابتدا منوی همبرگر مخفی شود */
-  }
-  
-  @media (max-width: 768px) {
-    .navbar-container {
-      justify-content: space-between;
-    }
-  
-    .collapse.navbar-collapse {
-      display: none; /* ابتدا منوی همبرگر مخفی شود */
-    }
-  
-    .collapse.navbar-collapse.show {
-      display: block; /* وقتی که منوی همبرگر باز شود، نمایش داده شود */
-    }
-  
-    .navbar-toggler {
-      display: block;
-      margin-right: 15px; /* فاصله مناسب بین همبرگر منو و سایر عناصر */
-    }
-  
-    .navbar-toggler-icon {
-      display: inline-block;
-      width: 1.5em;
-      height: 1.5em;
-      vertical-align: middle;
-      content: "";
-      background-color: currentColor;
-      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-size: 100%;
-      cursor: pointer;
-    }
-  }
-  
+/* CustomNavbar.css */
+
+.navbar-brand img {
+  max-height: 40px;
+}
+
+.form-control {
+  width: 300px;
+}
+
+.navbar-nav .nav-link {
+  margin-left: 15px;
+  font-size: 1.1rem;
+}
+
+.nav-item .nav-link {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link svg {
+  margin-right: 5px;
+}
+
+.navbar-collapse {
+  justify-content: space-between;
+}

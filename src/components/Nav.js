@@ -1,93 +1,84 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../assets/css/Nav.css';
-import '../font/font.css';
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 
-const ShoppingNavbar = ({ isLoggedIn, handleLogout }) => {
-	const [expanded, setExpanded] = useState(false);
-	const [isDarkMode, setIsDarkMode] = useState(() => {
-		const savedTheme = localStorage.getItem('darkMode');
-		return savedTheme === 'true';
-	});
 
-	useEffect(() => {
-		if (isDarkMode) {
-			document.body.classList.add('dark-mode');
-		} else {
-			document.body.classList.remove('dark-mode');
-		}
-		localStorage.setItem('darkMode', isDarkMode);
-	}, [isDarkMode]);
+const ShoppingNavbar = () => {
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        const savedTheme = localStorage.getItem('darkMode');
+        return savedTheme === 'true';
+    });
 
-	const handleToggle = () => setExpanded(!expanded);
-	const closeNav = () => setExpanded(false);
-	const handleModeSwitch = () => setIsDarkMode(!isDarkMode);
+    const { isLoggedIn, logout } = useContext(AuthContext);
 
-	// Add console log to check isLoggedIn prop
-	useEffect(() => {
-		console.log('isLoggedIn:', isLoggedIn);
-	}, [isLoggedIn]);
+    useEffect(() => {
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+        localStorage.setItem('darkMode', isDarkMode);
+    }, [isDarkMode]);
 
-	return (
-		<nav className="shopping-navbar fontv d-flex" dir="rtl">
-			<div className="navbar-container">
-				<div className="navbar-logo">
-					<img
-						src="https://www.svgrepo.com/show/217771/shopping-logo.svg"
-						alt="Logo"
-						className="logo-image"
-					/>
-					<span className="brand-name ml-7 dark mr-3">فروشگاه</span>
-				</div>
-				<div className="navbar-links">
-					<a href="/">خانه</a>
-					<div className="dropdown">
-						<a href="products">محصولات</a>
-						<div className="dropdown-content">
-							<a href="#electronics">الکترونیک</a>
-							<a href="#clothing">لباس</a>
-							<a href="#home-appliances">لوازم خانگی</a>
-							<a href="#sale">تخفیف ها</a>
-						</div>
-					</div>
-					<a href="about" className="icon-link">درباره ما</a>
-				</div>
-				<div className="navbar-search">
-					<button>جستجو</button>
-					<input type="text" placeholder="دنبال چه می گردید؟..." />
-				</div>
-				<div className="navbar-icons">
-					<a href="cart" className="icon-link"><i className="icon">🛒</i> سبد خرید (0)</a>
-				</div>
-				{isLoggedIn ? (
-					<div className='navbar-links'>
-						<div className="dropdown">
-							<button className='btnn'><i className="icon">👤</i>پروفایل</button>
-							<div className="dropdown-content">
-								<a href="user">مشخصات</a>
-								<button onClick={handleLogout} className='btn btn-outline-danger w-100'>خروج</button>
-							</div>
-						</div>
-					</div>
-				) : (
-					<a href="login" className="icon-link">
-						<i className="icon">👤</i>حساب کاربری
-					</a>
-				)}
-				<div className="mode-switch-container">
-					<span>{isDarkMode ? '🌙' : '☀️'}</span>
-					<input
-						type="checkbox"
-						className="mode-switch"
-						id="mode-switch"
-						checked={isDarkMode}
-						onChange={handleModeSwitch}
-					/>
-					<label htmlFor="mode-switch" className="mode-switch-label"></label>
-				</div>
-			</div>
-		</nav>
-	);
+    const handleModeSwitch = () => setIsDarkMode(!isDarkMode);
+
+    return (
+        <Navbar expand="lg" className="shopping-navbar fontv" dir="rtl">
+            <Navbar.Brand href="#home">
+                <img
+                    src="https://www.svgrepo.com/show/217771/shopping-logo.svg"
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-top"
+                    alt="Logo"
+                />
+                <span className="brand-name ml-2 dark">فروشگاه</span>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                    <Nav.Link href="/">خانه</Nav.Link>
+                    <NavDropdown title="محصولات" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="#electronics">الکترونیک</NavDropdown.Item>
+                        <NavDropdown.Item href="#clothing">لباس</NavDropdown.Item>
+                        <NavDropdown.Item href="#home-appliances">لوازم خانگی</NavDropdown.Item>
+                        <NavDropdown.Item href="#sale">تخفیف ها</NavDropdown.Item>
+                    </NavDropdown>
+                    <Nav.Link href="about" className="icon-link">درباره ما</Nav.Link>
+                </Nav>
+                <Form inline className="navbar-search">
+                    <FormControl type="text" placeholder="دنبال چه می گردید؟..." className="mr-sm-2" />
+                    <Button variant="outline-success">جستجو</Button>
+                </Form>
+                <Nav className="ml-auto navbar-icons">
+                    <Nav.Link href="cart" className="icon-link">
+                        <i className="icon">🛒</i> سبد خرید (0)
+                    </Nav.Link>
+                    {isLoggedIn ? (
+                        <NavDropdown title={<><i className="icon">👤</i> پروفایل</>} id="basic-nav-dropdown">
+                            <NavDropdown.Item href="user">مشخصات</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item onClick={logout} className='btn btn-outline-danger w-100'>خروج</NavDropdown.Item>
+                        </NavDropdown>
+                    ) : (
+                        <Nav.Link href="login" className="icon-link">
+                            <i className="icon">👤</i> حساب کاربری
+                        </Nav.Link>
+                    )}
+                </Nav>
+                <div className="mode-switch-container">
+                    <span>{isDarkMode ? '🌙' : '☀️'}</span>
+                    <Form.Check
+                        type="switch"
+                        id="custom-switch"
+                        label=""
+                        checked={isDarkMode}
+                        onChange={handleModeSwitch}
+                    />
+                </div>
+            </Navbar.Collapse>
+        </Navbar>
+    );
 };
 
 export default ShoppingNavbar;
