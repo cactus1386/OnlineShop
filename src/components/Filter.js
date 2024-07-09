@@ -78,10 +78,10 @@ const Filter = ({ onFilterChange }) => {
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="">انتخاب دسته بندی</option>
-          <option value="t-shirt">تی شرت</option>
-          <option value="socks">جوراب</option>
-          <option value="pants">شلوار</option>
-          <option value="coat">کت</option>
+          <option value="تی شرت">تی شرت</option>
+          <option value="جوراب">جوراب</option>
+          <option value="شلوار">شلوار</option>
+          <option value="کت">کت</option>
         </select>
       </div>
       <button className="btn btn-primary w-100 mt-3" onClick={handleApplyFilter}>

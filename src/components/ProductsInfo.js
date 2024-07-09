@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import img1 from '../assets/media/products/1.png';
+import { Carousel } from 'react-bootstrap';
+
+import '../assets/css/ProductInfo.css';
 import "../font/font.css";
 import Album from './Album';
 import Comment from './CommentBox';
 import Mortabet from './MultiItemSlider';
+import img1 from '../assets/media/products/1.png'
+import img2 from '../assets/media/products/2.png'
+import img3 from '../assets/media/products/4.png'
+import img4 from '../assets/media/products/3.png'
 
 function PI() {
+    const [list, setlist] = useState([
+        {img:img1},
+        {img:img2},
+        {img:img3},
+        {img:img4},
+    ])
     const [product, setProduct] = useState({colors:[]});      
     const location = useLocation();
     const [id, setId] = useState('');
@@ -22,13 +34,9 @@ function PI() {
       redirect: "follow"
     };
     
-   
-
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const paramId = searchParams.get('id');
-    console.log("222")
-    console.log(paramId)
     if (paramId) {
       setId(paramId);
     }
@@ -38,7 +46,7 @@ function PI() {
     fetch("http://94.183.74.154:1234/api/v1/products/"+id, requestOptions)
     .then((response) => response.json())
     .then((result) =>{ 
-      setProduct(result); console.log(result) 
+      setProduct(result)
        })
     .catch((error) => console.error(error));
   }, [id]);
@@ -48,7 +56,14 @@ function PI() {
         
     <div className='users fontv'>
         <div class=" row col-md-12" dir="rtl" >
-        <div class="pb-5 col-md-6" dir="rtl">
+        <div class="col-md-1 d-flex justify-content-end pt-5  ">
+            <div class="sideImgContainer">
+            {list.map(w=>
+                <img src={w.img} class='sideImg border-bottom border-top'/>
+            )}  
+            </div>
+        </div>
+        <div class="pb-5 col-md-5" dir="rtl">
             <div class="border-bottom p-2 h1">
                 {product.name}
                 </div>  
@@ -57,12 +72,21 @@ function PI() {
                             <div class="d-flex justify-content-end">
                                 <a class=' border border-danger text-danger rounded-circle p-2'>5%</a>
                             </div>
-                            <Album />
+                            <div>
+                                <div class="container-xl">
+                                    <Carousel>
+                                    {list.map(c=><Carousel.Item>
+                                        <img className="d-block w-100" src={c.img} alt={product.name}/>
+                                        </Carousel.Item>
+                                    )}
+                                    </Carousel>
+                                </div>
+                            </div>
                         </div>
                 </div>
         </div>
-            <div class=" col-md-6 h-25 pt-5" >
-                <div class="card shadow" dir="rtl">
+            <div class=" col-md-6 pt-5" >
+                <div class="" dir="rtl">
                     <div class="border-bottom p-3 col-md-12 card-title">
                         <h4>قیمت:</h4>
                     </div>

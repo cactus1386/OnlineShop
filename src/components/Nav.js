@@ -1,17 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/Nav.css';
 import '../font/font.css';
-import { AuthContext } from '../context/AuthContext';
+import '../assets/css/images.css';
 
-const ShoppingNavbar = () => {
+const ShoppingNavbar = ({ isLoggedIn, handleLogout }) => {
 	const [expanded, setExpanded] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(() => {
 		const savedTheme = localStorage.getItem('darkMode');
 		return savedTheme === 'true';
 	});
-
-	const { isLoggedIn, logout } = useContext(AuthContext);
 
 	useEffect(() => {
 		if (isDarkMode) {
@@ -26,17 +24,24 @@ const ShoppingNavbar = () => {
 	const closeNav = () => setExpanded(false);
 	const handleModeSwitch = () => setIsDarkMode(!isDarkMode);
 
+	// Add console log to check isLoggedIn prop
+	useEffect(() => {
+		console.log('isLoggedIn:', isLoggedIn);
+	}, [isLoggedIn]);
+
 	return (
 		<nav className="shopping-navbar fontv d-flex" dir="rtl">
 			<div className="navbar-container">
-				<div className="navbar-logo">
-					<img
-						src="https://www.svgrepo.com/show/217771/shopping-logo.svg"
-						alt="Logo"
-						className="logo-image"
-					/>
-					<span className="brand-name ml-7 dark mr-3">فروشگاه</span>
-				</div>
+				<a class="link"href='/'>
+					<div className="navbar-logo">
+						<img
+							src="https://www.svgrepo.com/show/217771/shopping-logo.svg"
+							alt="Logo"
+							className="logo-image"
+						/>
+						<span className="brand-name ml-7 dark mr-3">فروشگاه</span>
+					</div>
+				</a>
 				<div className="navbar-links">
 					<a href="/">خانه</a>
 					<div className="dropdown">
@@ -63,7 +68,7 @@ const ShoppingNavbar = () => {
 							<button className='btnn'><i className="icon">👤</i>پروفایل</button>
 							<div className="dropdown-content">
 								<a href="user">مشخصات</a>
-								<button onClick={logout} className='btn btn-outline-danger w-100'>خروج</button>
+								<button onClick={handleLogout} className='btn btn-outline-danger w-100'>خروج</button>
 							</div>
 						</div>
 					</div>

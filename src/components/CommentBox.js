@@ -50,20 +50,20 @@ const Comments = (handleKeyPress) => {
 
   return (
     <div class="d-flex justify-content-center col-md-12">
-    <div class="col-md-12 card p-3 shadow" dir="rtl">
+    <div class="col-md-12  p-3 " dir="rtl">
       {isLoading ? <div class='loadingPage'>
         <div class="spinner spinner-dark mr-15 text-center loadingCenter" ></div>
      
       <div class='contain'>
       {Comments.map(c =><div>
-          <div class="mt-2 rounded p-5 border text-dark-50 font-weight-bold font-size-lg text-left max-w-1500px fontv">
+          <div class="mt-2 text-dark-50 font-weight-bold font-size-lg text-left max-w-1500px fontv">
               <div class="text-muted ">{c.name}:</div>
               <div class='h4'>{c.content}</div>
           </div>
         </div>
       )}</div>
       <div class="d-flex align-items-center">
-      <div class=" col-md-10 rounded p-5 mb-9 d-flex align-items-center">
+      <div class=" col-md-10  p-5 mb-9 d-flex align-items-center">
         <input type='text' id="1" onChange={e => setComment(e.target.value)} class="form-control form-control-solid form-control-lg col-md-2" ></input>
         <button onClick={sendToServer} class=" col-md-2 btn btn-primary font-weight-bold">ثبت</button>
       </div>
@@ -72,7 +72,7 @@ const Comments = (handleKeyPress) => {
       <div>
       <div class='contain'>{Comments.map(c =>
         <div>
-          <div class="mt-2 rounded p-5 border text-dark-50 font-weight-bold font-size-lg text-left max-w-1500px fontv">
+          <div class="mt-2   border text-dark-50 font-weight-bold font-size-lg text-left max-w-1500px fontv">
               <div class="text-muted ">{c.name}:</div>
               <div class='h4'>{c.content}</div>
           </div>
@@ -80,9 +80,9 @@ const Comments = (handleKeyPress) => {
       )}</div>
         <div class="pt-4 ">
           <div class="pt-2 border-top border-dark">
-            <div class='card '>
+            <div class=' '>
               <div class="d-flex justify-content-start ">
-                <div class=" col-md-10 rounded p-3 d-flex align-items-center">
+                <div class=" col-md-10  p-3 d-flex align-items-center">
                   <input id="1" onChange={e => setName(e.target.value)} class="form-control form-control-solid form-control-lg col-md-2" placeholder="نام ونام خانوادگی:"/>
                 </div>
               </div>
