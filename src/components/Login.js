@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+// src/components/Login.js
+
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import "../../src/assets/css/loginsignin.css";
 
-function Login({ setIsLoggedIn }) {
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -31,8 +35,7 @@ function Login({ setIsLoggedIn }) {
       const result = await response.json();
 
       if (response.ok) {
-        localStorage.setItem('token', result.access || result.token); // Adjust based on your API response
-        setIsLoggedIn(true); // Update login state
+        login(result.access || result.token); // Store the token and update login state
         navigate('/'); // Redirect to the main page
       } else {
         setError(result.detail || 'Login failed'); // Display error message
