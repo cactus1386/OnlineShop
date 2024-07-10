@@ -73,7 +73,7 @@ const ProductList = () => {
               {displayedProducts.map((product) => (
                 <div key={product.id} className="product-item col-md-3 pt-3 fontv" >
                   <div className="card ">
-                    <a className='link'href='/pi'><img src={product.pic} alt={product.name} className="product-image imgs" />
+                    <a className='link' href={'pi?id=' + product.id}><img src={product.pic} alt={product.name} className="product-image imgs" />
                     <div className="text-muted">{product.category.join(', ')}</div>
                     <h2 className="product-name fontv">{product.name}</h2>
                     <p className="product-price">${product.price.toFixed(2)}</p></a>

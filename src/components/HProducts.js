@@ -32,10 +32,10 @@ const HomeProducts = () => {
 
   const sortProductsByCategory = (products) => {
     const categories = {
-      't-shirt': [],
-      'pants': [],
-      'socks': [],
-      'coat': []
+      'تی شرت': [],
+      'شلوار': [],
+      'جوراب': [],
+      'کت': []
     };
 
     products.forEach(product => {
@@ -53,10 +53,10 @@ const HomeProducts = () => {
   };
 
   return (
-    <div className="container-xl fontv" dir="rtl">
+    <div className=" col-md-12 fontv" dir="rtl">
       {categories.map(category => (
         <div className="pt-3" key={category.Name}>
-          <div className="row border shadow bg-white rounded">
+          <div className="row  bg-white ">
             <div className='card-title border-bottom border-dark pt-3'>
               <h2 className="fontv">{category.Name}</h2>
             </div>
@@ -66,9 +66,9 @@ const HomeProducts = () => {
               </div>
             </div>
             {category.Products.map(product => (
-              <div className="col card border-bottom-0 border-top-0" key={product.id}>
+              <div className="col " key={product.id}>
                 <div className="product-list">
-                  <div className="product-item">
+                  <div className="product-item ">
                     <img src={product.pic} alt={product.name} className="product-image imgs"/>
                     <h2 className="product-name fontv">{product.name}</h2>
                     <p className="product-price">${product.price}</p>

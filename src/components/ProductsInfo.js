@@ -1,102 +1,135 @@
 import React, { useState, useEffect } from 'react';
-import img1 from '../assets/media/products/1.png';
+import { useLocation } from 'react-router-dom';
+import { Carousel } from 'react-bootstrap';
+
+import '../assets/css/ProductInfo.css';
 import "../font/font.css";
 import Album from './Album';
 import Comment from './CommentBox';
 import Mortabet from './MultiItemSlider';
+import img1 from '../assets/media/products/1.png'
+import img2 from '../assets/media/products/2.png'
+import img3 from '../assets/media/products/4.png'
+import img4 from '../assets/media/products/3.png'
 
 function PI() {
+    const [list, setlist] = useState([
+        {img:img1},
+        {img:img2},
+        {img:img3},
+        {img:img4},
+    ])
+    const [product, setProduct] = useState({colors:[]});      
+    const location = useLocation();
+    const [id, setId] = useState('');
+
     const myHeaders = new Headers();
-myHeaders.append("accept", "application/json");
-myHeaders.append("authorization", "Basic YWRtaW5AYWRtaW4uY29tOjEyMw==");
-myHeaders.append("X-CSRFToken", "kQUzMRoLN87V3DlfnJ468d39mueB1HHzeXgT3WjNr6S4TV1HbQSbIkMnFb2CuPNK");
+    myHeaders.append("accept", "application/json");
+    myHeaders.append("authorization", "Basic YWRtaW5AYWRtaW4uY29tOjEyMw==");
+    myHeaders.append("X-CSRFToken", "tc6gv0BlCSEVzaDY2DEUFDyvHxAouuuWnjsAM5wngQp4psjqQKsZfKhJ0eopXCA7");
+    
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow"
+    };
+    
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const paramId = searchParams.get('id');
+    if (paramId) {
+      setId(paramId);
+    }
+  }, [location.search]);
+ 
+  useEffect(() => {
+    fetch("http://94.183.74.154:1234/api/v1/products/"+id, requestOptions)
+    .then((response) => response.json())
+    .then((result) =>{ 
+      setProduct(result)
+       })
+    .catch((error) => console.error(error));
+  }, [id]);
 
-const requestOptions = {
-  method: "GET",
-  headers: myHeaders,
-  redirect: "follow"
-};
-
-fetch("http://94.183.74.154:1234/api/v1/products/", requestOptions)
-  .then((response) => response.text())
-//   .then((result) => console.log(result))
-  .catch((error) => console.error(error));
 
   return (
         
     <div className='users fontv'>
         <div class=" row col-md-12" dir="rtl" >
-        <div class="pb-5 col-md-6" dir="rtl">
+        <div class="col-md-1 d-flex justify-content-end pt-5  ">
+            <div class="sideImgContainer">
+            {list.map(w=>
+                <img src={w.img} class='sideImg border-bottom border-top'/>
+            )}  
+            </div>
+        </div>
+        <div class="pb-5 col-md-5" dir="rtl">
             <div class="border-bottom p-2 h1">
-                    پکیج شادی آور
+                {product.name}
                 </div>  
                 <div className=' card bg-light' dir="rtl">
                         <div>
                             <div class="d-flex justify-content-end">
                                 <a class=' border border-danger text-danger rounded-circle p-2'>5%</a>
                             </div>
-                            <Album />
+                            <div>
+                                <div class="container-xl">
+                                    <Carousel>
+                                    {list.map(c=><Carousel.Item>
+                                        <img className="d-block w-100" src={c.img} alt={product.name}/>
+                                        </Carousel.Item>
+                                    )}
+                                    </Carousel>
+                                </div>
+                            </div>
                         </div>
                 </div>
         </div>
-            <div class=" col-md-6 h-25 pt-5" >
-                <div class="card shadow" dir="rtl">
+            <div class=" col-md-6 pt-5" >
+                <div class="" dir="rtl">
                     <div class="border-bottom p-3 col-md-12 card-title">
                         <h4>قیمت:</h4>
                     </div>
                     <div class="card-body d-flex justify-content-end ">
-                            <h5>15644$</h5>
+                            <h5>{product.price}</h5>
                     </div>
                     <div class="border-bottom p-3 col-md-12 card-title">
                         <h4>برند:</h4>
                     </div>
                     <div class="card-body d-flex justify-content-end ">
-                            <h5>نایک</h5>
+                            <h5>{product.brand}</h5>
                     </div>
                     <div class="border-bottom p-3 col-md-12 card-title">
                         <h4>موجودی:</h4>
                     </div>
                     <div class="card-body d-flex justify-content-end ">
-                            <h5>10</h5>
+                            <h5>{product.count}</h5>
                     </div>
                     <div class="border-bottom p-3 col-md-12 card-title">
                         <h4>سایز ها:</h4>
                     </div>
                     <div class="card-body d-flex justify-content-end ">
-                            <h5>S,M,L,X,XL,XXL</h5>
+                            <h5>{product.size}</h5>
                     </div>
                     <div class="border-bottom p-3 col-md-12 card-title">
                         <h4>توضیحات:</h4>
                     </div>
                     <div class="card-body d-flex justify-content-end ">
-                            <h5>فالانی</h5>
+                            <h5>{product.description}</h5>
                     </div>
                     <div class="border-bottom p-3 col-md-12 card-title">
                         <h4>رنگ:</h4>
                     </div>
                     <div class="card-body d-flex justify-content-end "> 
+                      {product.colors?.map(c => (
                         <div class="radio-inline">
-                            <label class="radio radio-outline radio-outline-2x radio-primary">
-                                <input type="radio" name="radios16"/>
-                                <span></span>
-                                سفید
-                            </label>
-                            <label class="radio radio-outline radio-outline-2x radio-primary">
-                                <input type="radio" name="radios16"/>
-                                <span></span>
-                                سیاه
-                            </label>
-                            <label class="radio radio-outline radio-outline-2x radio-primary">
-                                <input type="radio" name="radios16"/>
-                                <span></span>
-                                نقره ای
-                            </label>
-                            <label class="radio radio-outline radio-outline-2x radio-primary">
-                                <input type="radio" name="radios16"/>
-                                <span></span>
-                                بنفش
-                            </label>
+                        <label class="radio radio-outline radio-outline-2x radio-primary">
+                            <input type="radio" name="radios16"/>
+                            <span></span>
+                             {c.color} 
+                        </label>
                         </div>
+                            ))} 
                     </div>
                     <div class="d-flex justify-content-center "><button type="button" class="btn btn-outline-success col-md-9 m-4"><h4>افزودن به سبد خرید </h4></button></div>
                 </div>
