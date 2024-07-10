@@ -72,7 +72,7 @@ const ProductList = () => {
             <div className="row " dir="rtl">
               {displayedProducts.map((product) => (
                 <div key={product.id} className="product-item col-md-3 pt-3 fontv" >
-                  <div className="card ">
+                  <div className="">
                     <a className='link' href={'pi?id=' + product.id}><img src={product.pic} alt={product.name} className="product-image imgs" />
                     <div className="text-muted">{product.category.join(', ')}</div>
                     <h2 className="product-name fontv">{product.name}</h2>

@@ -88,7 +88,7 @@ function PI() {
             <div class=" col-md-6 pt-5" >
                 <div class="" dir="rtl">
                     <div class="border-bottom p-3 col-md-12 card-title">
-                        <h4>قیمت:</h4>
+                        <h4>قیمت:</h4><h5 class="text-muted">(تومان)</h5>
                     </div>
                     <div class="card-body d-flex justify-content-end ">
                             <h5>{product.price}</h5>

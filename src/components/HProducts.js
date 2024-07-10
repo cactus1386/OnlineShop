@@ -67,13 +67,15 @@ const HomeProducts = () => {
             </div>
             {category.Products.map(product => (
               <div className="col " key={product.id}>
-                <div className="product-list">
-                  <div className="product-item ">
-                    <img src={product.pic} alt={product.name} className="product-image imgs"/>
-                    <h2 className="product-name fontv">{product.name}</h2>
-                    <p className="product-price">${product.price}</p>
+                <a class="link" href={'pi?id=' + product.id}>
+                  <div className="product-list">
+                    <div className="product-item ">
+                      <img src={product.pic} alt={product.name} className="product-image imgs"/>
+                      <h2 className="product-name fontv">{product.name}</h2>
+                      <p className="product-price">${product.price}</p>
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
             ))}
           </div>
