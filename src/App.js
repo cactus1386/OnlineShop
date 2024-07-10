@@ -15,6 +15,7 @@ import PI from './components/ProductsInfo';
 import Test from './components/CommentBox';
 import AuthProvider from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import Sidebar from './components/SideBarM';
 
 const AppContent = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const AppContent = () => {
 
   return (
     <>
+    <Sidebar/>
       <ShoppingNavbar />
       <div className="main-content">
         <Routes>
