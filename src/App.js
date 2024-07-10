@@ -16,10 +16,11 @@ import Test from './components/CommentBox';
 import AuthProvider from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Sidebar from './components/SideBarM';
+import NotFoundPage from './components/NotFoundPage';
 
 const AppContent = () => {
   const location = useLocation();
-  const hideFooterPaths = ['/login', '/register'];
+  const hideFooterPaths = ['/login', '/register','/404'];
   const showFooter = !hideFooterPaths.includes(location.pathname);
 
   return (
@@ -28,6 +29,7 @@ const AppContent = () => {
       <ShoppingNavbar />
       <div className="main-content">
         <Routes>
+          <Route path='/404' element={<NotFoundPage/>}/>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/products' element={<ProductList />} />

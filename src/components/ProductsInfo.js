@@ -72,7 +72,7 @@ function PI() {
                                 <a className='border border-danger text-danger rounded-circle p-2'>5%</a>
                             </div>
                             <div>
-                                <div className="container-xl">
+                                <div className="container-xxl">
                                     <Carousel>
                                         {list.map((c, index) => (
                                             <Carousel.Item key={index}>
@@ -88,7 +88,7 @@ function PI() {
                 <div className="col-md-6 pt-5">
                     <div className="" dir="rtl">
                         <div className="border-bottom p-3 col-md-12 card-title">
-                            <h4>قیمت:</h4>
+                            <h4>قیمت:</h4><h6 class="text-muted">(تومان)</h6>
                         </div>
                         <div className="card-body d-flex justify-content-end">
                             <h5>{product.price}</h5>

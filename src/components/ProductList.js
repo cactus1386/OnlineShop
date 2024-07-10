@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/ProductList.css';
-import '../assets/css/images.css';
+import '../assets/css/General.css';
 import Filter from './Filter';
 
 const ProductList = () => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../assets/css/images.css';
+import '../assets/css/General.css';
 
 const HomeProducts = () => {
   const [categories, setCategories] = useState([]);

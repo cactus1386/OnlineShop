@@ -7,7 +7,7 @@ import img2 from '../assets/media/slider/SM2.jpg'
 import img3 from '../assets/media/slider/SM3.jpg'
 import img4 from '../assets/media/slider/SM4.png'
 import img5 from '../assets/media/slider/banner.jpg'
-import '../assets/css/images.css';
+import '../assets/css/General.css';
 
 
 
