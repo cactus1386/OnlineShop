@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
-
 import '../assets/css/ProductInfo.css';
 import "../font/font.css";
 import Album from './Album';
-import Comment from './CommentBox';
+import Comment from './CommentBox'; // Ensure this is pointing to the correct Comments component
 import Mortabet from './MultiItemSlider';
-import img1 from '../assets/media/products/1.png'
-import img2 from '../assets/media/products/2.png'
-import img3 from '../assets/media/products/4.png'
-import img4 from '../assets/media/products/3.png'
+import img1 from '../assets/media/products/1.png';
+import img2 from '../assets/media/products/2.png';
+import img3 from '../assets/media/products/4.png';
+import img4 from '../assets/media/products/3.png';
 
 function PI() {
     const [list, setlist] = useState([
-        {img:img1},
-        {img:img2},
-        {img:img3},
-        {img:img4},
-    ])
-    const [product, setProduct] = useState({colors:[]});      
+        { img: img1 },
+        { img: img2 },
+        { img: img3 },
+        { img: img4 },
+    ]);
+    const [product, setProduct] = useState({ colors: [] });
     const location = useLocation();
     const [id, setId] = useState('');
 
@@ -27,132 +26,134 @@ function PI() {
     myHeaders.append("accept", "application/json");
     myHeaders.append("authorization", "Basic YWRtaW5AYWRtaW4uY29tOjEyMw==");
     myHeaders.append("X-CSRFToken", "tc6gv0BlCSEVzaDY2DEUFDyvHxAouuuWnjsAM5wngQp4psjqQKsZfKhJ0eopXCA7");
-    
+
     const requestOptions = {
-      method: "GET",
-      headers: myHeaders,
-      redirect: "follow"
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow"
     };
-    
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const paramId = searchParams.get('id');
-    if (paramId) {
-      setId(paramId);
-    }
-  }, [location.search]);
- 
-  useEffect(() => {
-    fetch("http://94.183.74.154:1234/api/v1/products/"+id, requestOptions)
-    .then((response) => response.json())
-    .then((result) =>{ 
-      setProduct(result)
-       })
-    .catch((error) => console.error(error));
-  }, [id]);
 
+    useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const paramId = searchParams.get('id');
+        if (paramId) {
+            setId(paramId);
+        }
+    }, [location.search]);
 
-  return (
-        
-    <div className='users fontv'>
-        <div class=" row col-md-12" dir="rtl" >
-        <div class="col-md-1 d-flex justify-content-end pt-5  ">
-            <div class="sideImgContainer">
-            {list.map(w=>
-                <img src={w.img} class='sideImg border-bottom border-top'/>
-            )}  
-            </div>
-        </div>
-        <div class="pb-5 col-md-5" dir="rtl">
-            <div class="border-bottom p-2 h1">
-                {product.name}
-                </div>  
-                <div className=' card bg-light' dir="rtl">
+    useEffect(() => {
+        if (id) {
+            fetch("http://94.183.74.154:1234/api/v1/products/" + id, requestOptions)
+                .then((response) => response.json())
+                .then((result) => {
+                    setProduct(result);
+                })
+                .catch((error) => console.error(error));
+        }
+    }, [id]);
+
+    return (
+        <div className='users fontv'>
+            <div className="row col-md-12" dir="rtl">
+                <div className="col-md-1 d-flex justify-content-end pt-5">
+                    <div className="sideImgContainer">
+                        {list.map((w, index) => (
+                            <img key={index} src={w.img} className='sideImg border-bottom border-top' />
+                        ))}
+                    </div>
+                </div>
+                <div className="pb-5 col-md-5" dir="rtl">
+                    <div className="border-bottom p-2 h1">
+                        {product.name}
+                    </div>
+                    <div className='card bg-light' dir="rtl">
                         <div>
-                            <div class="d-flex justify-content-end">
-                                <a class=' border border-danger text-danger rounded-circle p-2'>5%</a>
+                            <div className="d-flex justify-content-end">
+                                <a className='border border-danger text-danger rounded-circle p-2'>5%</a>
                             </div>
                             <div>
-                                <div class="container-xl">
+                                <div className="container-xl">
                                     <Carousel>
-                                    {list.map(c=><Carousel.Item>
-                                        <img className="d-block w-100" src={c.img} alt={product.name}/>
-                                        </Carousel.Item>
-                                    )}
+                                        {list.map((c, index) => (
+                                            <Carousel.Item key={index}>
+                                                <img className="d-block w-100" src={c.img} alt={product.name} />
+                                            </Carousel.Item>
+                                        ))}
                                     </Carousel>
                                 </div>
                             </div>
                         </div>
-                </div>
-        </div>
-            <div class=" col-md-6 pt-5" >
-                <div class="" dir="rtl">
-                    <div class="border-bottom p-3 col-md-12 card-title">
-                        <h4>قیمت:</h4><h5 class="text-muted">(تومان)</h5>
                     </div>
-                    <div class="card-body d-flex justify-content-end ">
+                </div>
+                <div className="col-md-6 pt-5">
+                    <div className="" dir="rtl">
+                        <div className="border-bottom p-3 col-md-12 card-title">
+                            <h4>قیمت:</h4>
+                        </div>
+                        <div className="card-body d-flex justify-content-end">
                             <h5>{product.price}</h5>
-                    </div>
-                    <div class="border-bottom p-3 col-md-12 card-title">
-                        <h4>برند:</h4>
-                    </div>
-                    <div class="card-body d-flex justify-content-end ">
+                        </div>
+                        <div className="border-bottom p-3 col-md-12 card-title">
+                            <h4>برند:</h4>
+                        </div>
+                        <div className="card-body d-flex justify-content-end">
                             <h5>{product.brand}</h5>
-                    </div>
-                    <div class="border-bottom p-3 col-md-12 card-title">
-                        <h4>موجودی:</h4>
-                    </div>
-                    <div class="card-body d-flex justify-content-end ">
+                        </div>
+                        <div className="border-bottom p-3 col-md-12 card-title">
+                            <h4>موجودی:</h4>
+                        </div>
+                        <div className="card-body d-flex justify-content-end">
                             <h5>{product.count}</h5>
-                    </div>
-                    <div class="border-bottom p-3 col-md-12 card-title">
-                        <h4>سایز ها:</h4>
-                    </div>
-                    <div class="card-body d-flex justify-content-end ">
+                        </div>
+                        <div className="border-bottom p-3 col-md-12 card-title">
+                            <h4>سایز ها:</h4>
+                        </div>
+                        <div className="card-body d-flex justify-content-end">
                             <h5>{product.size}</h5>
-                    </div>
-                    <div class="border-bottom p-3 col-md-12 card-title">
-                        <h4>توضیحات:</h4>
-                    </div>
-                    <div class="card-body d-flex justify-content-end ">
+                        </div>
+                        <div className="border-bottom p-3 col-md-12 card-title">
+                            <h4>توضیحات:</h4>
+                        </div>
+                        <div className="card-body d-flex justify-content-end">
                             <h5>{product.description}</h5>
-                    </div>
-                    <div class="border-bottom p-3 col-md-12 card-title">
-                        <h4>رنگ:</h4>
-                    </div>
-                    <div class="card-body d-flex justify-content-end "> 
-                      {product.colors?.map(c => (
-                        <div class="radio-inline">
-                        <label class="radio radio-outline radio-outline-2x radio-primary">
-                            <input type="radio" name="radios16"/>
-                            <span></span>
-                             {c.color} 
-                        </label>
                         </div>
-                            ))} 
-                    </div>
-                    <div class="d-flex justify-content-center "><button type="button" class="btn btn-outline-success col-md-9 m-4"><h4>افزودن به سبد خرید </h4></button></div>
-                </div>
-            </div>
-        
-        <div class="col-md-12 pt-5">
-            <Comment />
-        </div>
-
-        <div className="col-md-12">
-                <div className="card card-custom gutter-b">
-                    <div className="card-header">
-                        <div className="card-title" dir='rtl'>
-                        <div className="card-label p-3 h1">محصولات مرتبط</div>
-                            <Mortabet/>
+                        <div className="border-bottom p-3 col-md-12 card-title">
+                            <h4>رنگ:</h4>
+                        </div>
+                        <div className="card-body d-flex justify-content-end">
+                            {product.colors.map((c, index) => (
+                                <div key={index} className="radio-inline">
+                                    <label className="radio radio-outline radio-outline-2x radio-primary">
+                                        <input type="radio" name="radios16" />
+                                        <span></span>
+                                        {c.color}
+                                    </label>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="d-flex justify-content-center">
+                            <button type="button" className="btn btn-outline-success col-md-9 m-4">
+                                <h4>افزودن به سبد خرید</h4>
+                            </button>
                         </div>
                     </div>
-                    {/* Other content */}
+                </div>
+                <div className="col-md-12 pt-5">
+                    <Comment productId={product.id} />
+                </div>
+                <div className="col-md-12">
+                    <div className="card card-custom gutter-b">
+                        <div className="card-header">
+                            <div className="card-title" dir='rtl'>
+                                <div className="card-label p-3 h1">محصولات مرتبط</div>
+                                <Mortabet />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-  );
+    );
 }
 
 export default PI;

@@ -14,8 +14,7 @@ import Footer from './components/Footer';
 import PI from './components/ProductsInfo';
 import Test from './components/CommentBox';
 import AuthProvider from './context/AuthContext';
-// import ProtectedRoute from './components/ProtectedRoute';
-import Sidebar from './components/SideBarM';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const AppContent = () => {
   const location = useLocation();
@@ -24,7 +23,6 @@ const AppContent = () => {
 
   return (
     <>
-    <Sidebar/>
       <ShoppingNavbar />
       <div className="main-content">
         <Routes>
@@ -36,9 +34,9 @@ const AppContent = () => {
           <Route path='/cart' element={<HCart />} />
           <Route path='/rpp' element={<RPP />} />
           <Route path='/user' element={
-            // <ProtectedRoute>
+            <ProtectedRoute>
               <Profile />
-            // </ProtectedRoute>
+            </ProtectedRoute>
           } />
           <Route path='/pi' element={<PI />} />
           <Route path='/test' element={<Test />} />
