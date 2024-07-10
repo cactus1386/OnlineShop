@@ -1,21 +1,39 @@
-// این ساید بار قراره این جوری باشه که تو توی نوبار رو محصولات که زدی
-// مثلا محصولات الکترونیک رو که زدی, توی ساید بار گزینه های محصولات الکترونیک نمایش داده بشه
-
-import React from 'react';
-import { Accordion, ListGroup } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Offcanvas } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import { Accordion, ListGroup } from 'react-bootstrap';
 import '../assets/css/SideBar.css'
 import '../font/font.css'
 
-
 const Sidebar = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+
+  };
+  const handleShow = () => {
+    setShow(true);
+
+  };
+
   return (
-    <div className="sidebar d-flex flex-column p-3 bg-light">
-      <h2 className="mb-4">لیست محصولات</h2>
-      <Accordion >
+    <div dir='rtl'>
+      <Button variant="success" onClick={handleShow} dir='rtl' className='fontv'>
+        لیست محصولات
+      </Button>
+
+      <Offcanvas show={show} onHide={handleClose} placement='end' backdropClassName='blur' >
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Sidebar</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          {/* Add your sidebar content here */}
+          <div className="sidebar d-flex flex-column p-3 bg-light">
+      <h2 className="mb-4 fontv">لیست محصولات</h2>
+      <Accordion className='fontv'>
         <Accordion.Item eventKey="0">
-          <Accordion.Header>
+          <Accordion.Header className='fontv'>
             <i className="bi bi-gender-female me-2"></i> زنانه
           </Accordion.Header>
           <Accordion.Body>
@@ -27,8 +45,8 @@ const Sidebar = () => {
             </ListGroup>
           </Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item eventKey="1">
-          <Accordion.Header>
+        <Accordion.Item eventKey="1" >
+          <Accordion.Header className='fontv'>
             <i className="bi bi-gender-male me-2"></i> مردانه
           </Accordion.Header>
           <Accordion.Body>
@@ -40,8 +58,8 @@ const Sidebar = () => {
             </ListGroup>
           </Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item eventKey="2">
-          <Accordion.Header>
+        <Accordion.Item eventKey="2" >
+          <Accordion.Header className='fontv'>
             <i className="bi bi-people me-2"></i> بچگانه
           </Accordion.Header>
           <Accordion.Body>
@@ -53,8 +71,8 @@ const Sidebar = () => {
             </ListGroup>
           </Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item eventKey="3">
-          <Accordion.Header>
+        <Accordion.Item eventKey="3" >
+          <Accordion.Header className='fontv'>
             <i className="bi bi-sunglasses me-2"></i> اکسسوری
           </Accordion.Header>
           <Accordion.Body>
@@ -67,6 +85,9 @@ const Sidebar = () => {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+    </div>
+        </Offcanvas.Body>
+      </Offcanvas>
     </div>
   );
 };

@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'; import './App.css';
 import ProductList from './components/ProductList';
 import Cart from './components/ProfileCart';
 import Login from './components/Login';
@@ -14,25 +13,33 @@ import AboutUs from './components/AboutUs';
 import Footer from './components/Footer';
 import PI from './components/ProductsInfo';
 import Test from './components/CommentBox';
+import AuthProvider from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Sidebar from './components/SideBarM';
 
-const AppContent = ({ isLoggedIn, handleLogout, setIsLoggedIn }) => {
+const AppContent = () => {
   const location = useLocation();
   const hideFooterPaths = ['/login', '/register'];
   const showFooter = !hideFooterPaths.includes(location.pathname);
 
   return (
     <>
-      <ShoppingNavbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+    <Sidebar/>
+      <ShoppingNavbar />
       <div className="main-content">
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/products' element={<ProductList />} />
-          <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignIn />} />
           <Route path='/cart' element={<HCart />} />
           <Route path='/rpp' element={<RPP />} />
-          <Route path='/user' element={<Profile />} />
+          <Route path='/user' element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } />
           <Route path='/pi' element={<PI />} />
           <Route path='/test' element={<Test />} />
         </Routes>
@@ -43,17 +50,12 @@ const AppContent = ({ isLoggedIn, handleLogout, setIsLoggedIn }) => {
 };
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    localStorage.removeItem('token');
-  };
-
   return (
-    <Router>
-      <AppContent isLoggedIn={isLoggedIn} handleLogout={handleLogout} setIsLoggedIn={setIsLoggedIn} />
-    </Router>
+    <AuthProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </AuthProvider>
   );
 }
 
