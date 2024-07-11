@@ -61,19 +61,6 @@ const Footer = () => {
 <i class="bi bi-whatsapp"></i>
 </button>
             </div>
-            {/* <div>
-              <img src="https://via.placeholder.com/100" className="img-fluid mb-2" alt="News" />
-              <h6>ما خوبیم بسیار خفنیم همه چی میفروشیم
-                همه از ما میخرن ما پولدار میشیم
-                اندرو تیت</h6>
-            </div>
-            <div>
-              <img src="https://via.placeholder.com/100" className="img-fluid mb-2" alt="News" />
-              <h6>ما خوبیم بسیار خفنیم همه چی میفروشیم
-                همه از ما میخرن ما پولدار میشیم
-                اندرو تیت</h6>
-
-            </div> */}
           </div>
 
           {/* Column 3 */}
@@ -107,7 +94,7 @@ const Footer = () => {
         </div>
         <div className='flex-fill border-bottom border-success border-2 h1 '></div>
       </div>
-      <p className='text-center'>این وبسایت ساخته شده با️​ <i class="bi bi-balloon-heart"></i><i className="fas fa-heart text-danger"></i> توسط تیم-ما.کام
+      <p className='text-center fontv'>ساخته شده​<i className="fas fa-heart text-danger"></i> توسط تیم-ما.کام
 
         / کپی رایت ©2024 همه چی متعلق به اسمائیله</p>
 
