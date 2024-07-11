@@ -12,7 +12,7 @@ import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import Footer from './components/Footer';
 import PI from './components/ProductsInfo';
-// import Test from './components/ZoomIn';
+// import Test from './components/FullScreenAlbum';
 import AuthProvider from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Sidebar from './components/SideBarM';
