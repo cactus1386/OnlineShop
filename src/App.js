@@ -20,16 +20,15 @@ import NotFoundPage from './components/NotFoundPage';
 
 const AppContent = () => {
   const location = useLocation();
-  const hideFooterPaths = ['/login', '/register','/404'];
+  const hideFooterPaths = ['/login', '/register','*'];
   const showFooter = !hideFooterPaths.includes(location.pathname);
 
   return (
     <>
-    <Sidebar/>
       <ShoppingNavbar />
       <div className="main-content">
         <Routes>
-          <Route path='/404' element={<NotFoundPage/>}/>
+          <Route path='*' element={<NotFoundPage/>}/>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/products' element={<ProductList />} />
