@@ -6,8 +6,8 @@ const Footer = () => {
 
   
   return (
-    <footer className="footer border border-2 text-light py-1 text-dark shadow bg-white" dir='rtl'>
-      <div className="container fontv">
+    <footer className="footer text-light py-1 text-dark shadow bg-white" dir='rtl'>
+      <div className="container-fluid fontv">
         <div className="row ">
           <div className='flex-fill border-top border-2 border-success  mb-5 h1'></div>
           {/* Column 1 */}

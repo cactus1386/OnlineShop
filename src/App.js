@@ -12,7 +12,7 @@ import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import Footer from './components/Footer';
 import PI from './components/ProductsInfo';
-import Test from './components/CommentBox';
+// import Test from './components/ZoomIn';
 import AuthProvider from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Sidebar from './components/SideBarM';
@@ -42,7 +42,7 @@ const AppContent = () => {
             </ProtectedRoute>
           } />
           <Route path='/pi' element={<PI />} />
-          <Route path='/test' element={<Test />} />
+          {/* <Route path='/test' element={<Test />} /> */}
         </Routes>
       </div>
       {showFooter && <Footer />}

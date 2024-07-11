@@ -70,7 +70,7 @@ const HomeProducts = () => {
                 <a class="link" href={'pi?id=' + product.id}>
                   <div className="product-list">
                     <div className="product-item ">
-                      <img src={product.pic} alt={product.name} className="product-image imgs"/>
+                      <img src={product.pic} alt={product.name} className="product-image imgs contrast"/>
                       <h2 className="product-name fontv">{product.name}</h2>
                       <p className="product-price">${product.price}</p>
                     </div>

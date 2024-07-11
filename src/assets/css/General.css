@@ -1,6 +1,8 @@
 .imgs {
     height: 275px;
     width: auto;
+  }
+  .contrast{
     filter: contrast(120%);
   }
   .link {
@@ -10,3 +12,6 @@
   .et{
     font-size:500%;
   }
+  .gallery{
+    position: absolute;
+  } 

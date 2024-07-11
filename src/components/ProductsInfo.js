@@ -3,8 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
 import '../assets/css/ProductInfo.css';
 import "../font/font.css";
-import Album from './Album';
-import Comment from './CommentBox'; // Ensure this is pointing to the correct Comments component
+import '../assets/css/General.css';
+import FullScreenAlbum from './FullScreenAlbum';
+import Comment from './CommentBox'; 
 import Mortabet from './MultiItemSlider';
 import img1 from '../assets/media/products/1.png';
 import img2 from '../assets/media/products/2.png';
@@ -12,15 +13,11 @@ import img3 from '../assets/media/products/4.png';
 import img4 from '../assets/media/products/3.png';
 
 function PI() {
-    const [list, setlist] = useState([
-        { img: img1 },
-        { img: img2 },
-        { img: img3 },
-        { img: img4 },
-    ]);
+    const [IMG, setIMG] = useState([]);
     const [product, setProduct] = useState({ colors: [] });
     const location = useLocation();
     const [id, setId] = useState('');
+    const [isChecked, setIsChecked] = React.useState(false);
 
     const myHeaders = new Headers();
     myHeaders.append("accept", "application/json");
@@ -46,7 +43,7 @@ function PI() {
             fetch("http://94.183.74.154:1234/api/v1/products/" + id, requestOptions)
                 .then((response) => response.json())
                 .then((result) => {
-                    setProduct(result);
+                    setProduct(result);setIMG(result.images);console.log(IMG);
                 })
                 .catch((error) => console.error(error));
         }
@@ -57,8 +54,8 @@ function PI() {
             <div className="row col-md-12" dir="rtl">
                 <div className="col-md-1 d-flex justify-content-end pt-5">
                     <div className="sideImgContainer">
-                        {list.map((w, index) => (
-                            <img key={index} src={w.img} className='sideImg border-bottom border-top' />
+                        {IMG.map((w, index) => (
+                            <img key={index} src={w.image} className='sideImg border-bottom border-top' />
                         ))}
                     </div>
                 </div>
@@ -69,14 +66,14 @@ function PI() {
                     <div className='card bg-light' dir="rtl">
                         <div>
                             <div className="d-flex justify-content-end">
-                                <a className='border border-danger text-danger rounded-circle p-2'>5%</a>
+                                <a className='border border-danger text-danger rounded-circle p-2'>{product.discount}%</a>
                             </div>
                             <div>
                                 <div className="container-xxl">
                                     <Carousel>
-                                        {list.map((c, index) => (
+                                        {IMG.map((c, index) => (
                                             <Carousel.Item key={index}>
-                                                <img className="d-block w-100" src={c.img} alt={product.name} />
+                                                <a class="link"><img class="d-block w-100 contrast" src={c.image} alt={product.name} /></a>
                                             </Carousel.Item>
                                         ))}
                                     </Carousel>
