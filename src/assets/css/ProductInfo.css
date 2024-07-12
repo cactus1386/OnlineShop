@@ -1,11 +1,17 @@
+.sliderImg{
+    height: 570px;
 
+}
 
 .sideImg{
     height: 90px;
     display: inline;
+    filter: contrast(130%);
+
 
 }
 .sideImgContainer{
     display: grid-0;
     padding-top: 10%;
+    justify-content: start;
 }

@@ -31,9 +31,9 @@ fetch("http://94.183.74.154:1234/sliders/slider/", requestOptions)
 
 
   return (<div class="col-md-12 inline">
-    <div class="container-fluid">
-      <img class="w-100" src={img5}/>
-    </div>
+      <div class="container-fluid">
+        <img class="w-100" src={img5}/>
+      </div>  
     <div class="container-fluid pt-4">
       <Carousel>
       {SliderPic.map(Pic=>

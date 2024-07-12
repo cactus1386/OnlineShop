@@ -87,9 +87,9 @@ const Filter = ({ onFilterChange }) => {
       <button className="btn btn-primary w-100 mt-3" onClick={handleApplyFilter}>
         اعمال فیلتر
       </button>
-      <button className="btn btn-danger w-100 mt-2" onClick={handleClearFilter}>
-        حذف فیلترها
-      </button>
+        <button className="btn btn-danger w-100 mt-2" onClick={handleClearFilter}>
+          حذف فیلترها
+        </button>
     </div>
   );
 };

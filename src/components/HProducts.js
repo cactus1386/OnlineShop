@@ -62,7 +62,7 @@ const HomeProducts = () => {
             </div>
             <div className="card-title">
               <div className="d-flex justify-content-end">
-                <a className="btn hover" href="products">مشاهده همه</a>
+                <a className="btn hover" href={'/products?category=' + category.Name}>مشاهده همه</a>
               </div>
             </div>
             {category.Products.map(product => (

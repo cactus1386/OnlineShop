@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/ProductList.css';
 import '../assets/css/General.css';
@@ -10,6 +11,17 @@ const ProductList = () => {
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [category, setCategory] = useState('');
+  const location = useLocation();
+  const [Cat, setCat] = useState('');
+  
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const paramId = searchParams.get('category');
+    if (paramId) {
+        setCategory(paramId);
+
+    }
+}, [location.search]);
 
   useEffect(() => {
     const fetchProducts = async () => {
