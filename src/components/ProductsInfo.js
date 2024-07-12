@@ -73,7 +73,7 @@ function PI() {
                                     <Carousel>
                                         {IMG.map((c, index) => (
                                             <Carousel.Item key={index}>
-                                                <a class="link"><img class="d-block w-100 contrast" src={c.image} alt={product.name} /></a>
+                                                <a class="link"><img class="d-block w-100 sliderImg contrast" src={c.image} alt={product.name} /></a>
                                             </Carousel.Item>
                                         ))}
                                     </Carousel>
