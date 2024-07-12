@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../assets/css/images.css';
+import '../assets/css/General.css';
 
 const HomeProducts = () => {
   const [categories, setCategories] = useState([]);
@@ -66,9 +66,9 @@ const HomeProducts = () => {
               </div>
             </div>
             {category.Products.map(product => (
-              <div className="col " key={product.id}>
+              <div className="col card border-bottom-0 border-top-0" key={product.id}>
                 <div className="product-list">
-                  <div className="product-item ">
+                  <div className="product-item">
                     <img src={product.pic} alt={product.name} className="product-image imgs"/>
                     <h2 className="product-name fontv">{product.name}</h2>
                     <p className="product-price">${product.price}</p>

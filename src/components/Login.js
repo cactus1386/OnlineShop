@@ -50,7 +50,6 @@ function Login() {
   return (
     <>
       <div className='split right' style={{ backgroundColor: '#79c77e' }}>
-        <img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" className='img' alt="Logo" />
       </div>
       <div className="py-40 split leftl">
         <div className="d-flex justify-content-center">

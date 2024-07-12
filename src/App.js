@@ -12,22 +12,23 @@ import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import Footer from './components/Footer';
 import PI from './components/ProductsInfo';
-import Test from './components/CommentBox';
+// import Test from './components/FullScreenAlbum';
 import AuthProvider from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Sidebar from './components/SideBarM';
+import NotFoundPage from './components/NotFoundPage';
 
 const AppContent = () => {
   const location = useLocation();
-  const hideFooterPaths = ['/login', '/register'];
+  const hideFooterPaths = ['/login', '/register','*'];
   const showFooter = !hideFooterPaths.includes(location.pathname);
 
   return (
     <>
-    <Sidebar/>
       <ShoppingNavbar />
       <div className="main-content">
         <Routes>
+          <Route path='*' element={<NotFoundPage/>}/>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/products' element={<ProductList />} />
@@ -41,7 +42,7 @@ const AppContent = () => {
             </ProtectedRoute>
           } />
           <Route path='/pi' element={<PI />} />
-          <Route path='/test' element={<Test />} />
+          {/* <Route path='/test' element={<Test />} /> */}
         </Routes>
       </div>
       {showFooter && <Footer />}
