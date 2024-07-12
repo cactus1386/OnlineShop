@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/Nav.css'; // Keep this for dark mode specific styles
 import { AuthContext } from '../context/AuthContext';
 import { Navbar, Nav, Container, Form, FormControl, Button, NavDropdown } from 'react-bootstrap';
+import Sidebar from './SideBarM';
+import '../font/font.css'
 
 const ShoppingNavbar = () => {
   const [expanded, setExpanded] = useState(false);
@@ -47,14 +49,9 @@ const ShoppingNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">خانه</Nav.Link>
-            <NavDropdown title="محصولات" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#electronics">الکترونیک</NavDropdown.Item>
-              <NavDropdown.Item href="#clothing">لباس</NavDropdown.Item>
-              <NavDropdown.Item href="#home-appliances">لوازم خانگی</NavDropdown.Item>
-              <NavDropdown.Item href="#sale">تخفیف ها</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="about">درباره ما</Nav.Link>
+            <Nav.Link href="/" className=' mt-2'>خانه</Nav.Link>
+            <Nav.Link title='محصولات' ><Sidebar/></Nav.Link>
+            <Nav.Link href="about" className=' mt-2'>درباره ما</Nav.Link>
           </Nav>
           <Form className="d-flex me-auto">
 

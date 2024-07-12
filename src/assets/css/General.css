@@ -1,17 +1,9 @@
 .imgs {
     height: 275px;
     width: auto;
-  }
-  .contrast{
     filter: contrast(120%);
   }
   .link {
     color: #fff;
     text-decoration: none;
   }
-  .et{
-    font-size:500%;
-  }
-  .gallery{
-    position: absolute;
-  } 

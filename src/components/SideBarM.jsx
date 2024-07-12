@@ -3,7 +3,8 @@ import { Button, Offcanvas } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Accordion, ListGroup } from 'react-bootstrap';
 import '../assets/css/SideBar.css'
-import '../font/font.css'
+
+import { Nav } from 'react-bootstrap';
 
 const Sidebar = () => {
   const [show, setShow] = useState(false);
@@ -19,18 +20,19 @@ const Sidebar = () => {
 
   return (
     <div dir='rtl'>
-      <Button variant="success" onClick={handleShow} dir='rtl' className='fontv'>
-        لیست محصولات
-      </Button>
+     
+      <Nav.Link variant="success" onClick={handleShow}  >
+        لیست محصولات<i class="bi bi-caret-down"></i>
+      </Nav.Link>
 
-      <Offcanvas show={show} onHide={handleClose} placement='end' backdropClassName='blur' >
+      <Offcanvas show={show} onHide={handleClose} placement='end' backdropClassName='blur frame'>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Sidebar</Offcanvas.Title>
+          <Offcanvas.Title className='text1' ><i class="bi bi-search-heart"></i > دنبال چه هستید؟ </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           {/* Add your sidebar content here */}
           <div className="sidebar d-flex flex-column p-3 bg-light">
-      <h2 className="mb-4 fontv">لیست محصولات</h2>
+      <h2 className="mb-4 fontv text" dir='rtl'>لیست محصولات</h2>
       <Accordion className='fontv'>
         <Accordion.Item eventKey="0">
           <Accordion.Header className='fontv'>

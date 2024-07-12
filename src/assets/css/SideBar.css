@@ -6,4 +6,15 @@
     backdrop-filter: blur(1px);
   }
   
+.frame{
+  border-left: 5px solid  rgba(19, 129, 13, 0.69);
+}
 
+.text{
+  text-shadow: 2px 2px 3px #04aa1d;
+}
+
+.text1{
+ 
+  color: rgba(74, 85, 85, 0.764);
+}

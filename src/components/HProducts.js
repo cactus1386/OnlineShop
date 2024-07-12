@@ -66,16 +66,14 @@ const HomeProducts = () => {
               </div>
             </div>
             {category.Products.map(product => (
-              <div className="col " key={product.id}>
-                <a class="link" href={'pi?id=' + product.id}>
-                  <div className="product-list">
-                    <div className="product-item ">
-                      <img src={product.pic} alt={product.name} className="product-image imgs contrast"/>
-                      <h2 className="product-name fontv">{product.name}</h2>
-                      <p className="product-price">${product.price}</p>
-                    </div>
+              <div className="col card border-bottom-0 border-top-0" key={product.id}>
+                <div className="product-list">
+                  <div className="product-item">
+                    <img src={product.pic} alt={product.name} className="product-image imgs"/>
+                    <h2 className="product-name fontv">{product.name}</h2>
+                    <p className="product-price">${product.price}</p>
                   </div>
-                </a>
+                </div>
               </div>
             ))}
           </div>
