@@ -1,4 +1,4 @@
-//سبد.خرید.قراره.بنویسی.
+
 
 import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';

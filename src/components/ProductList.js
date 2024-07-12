@@ -12,7 +12,7 @@ const ProductList = () => {
   const [maxPrice, setMaxPrice] = useState('');
   const [category, setCategory] = useState('');
   const location = useLocation();
-  const [Cat, setCat] = useState('');
+
   
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -22,6 +22,14 @@ const ProductList = () => {
 
     }
 }, [location.search]);
+useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const paramId = searchParams.get('search');
+    if (paramId) {
+      setSearchTerm(paramId);
+
+    }
+    }, [location.search]);
 
   useEffect(() => {
     const fetchProducts = async () => {

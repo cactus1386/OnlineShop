@@ -7,6 +7,7 @@ import Sidebar from './SideBarM';
 import '../font/font.css'
 
 const ShoppingNavbar = () => {
+  const [search,setSearch] = useState();
   const [expanded, setExpanded] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('darkMode');
@@ -32,7 +33,7 @@ const ShoppingNavbar = () => {
     <Navbar
       expand="lg"
       expanded={expanded}
-      className="shopping-navbar"
+      className="shopping-navbar fontv"
       dir="rtl"
       onToggle={handleToggle}
     >
@@ -55,12 +56,13 @@ const ShoppingNavbar = () => {
           </Nav>
           <Form className="d-flex me-auto">
 
-			<Button variant="outline-success btn-success  text-light">جستجو</Button>
+			<a href={'/products?search=' + search}><Button variant="outline-success btn-success  text-light">جستجو</Button></a>
             <FormControl
               type="search"
               placeholder="دنبال چه می گردید؟..."
               className="me-2"
               aria-label="Search"
+              onChange={e => setSearch(e.target.value)}
             />
             
           </Form>
