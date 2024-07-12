@@ -27,7 +27,7 @@ const Sidebar = () => {
 
       <Offcanvas show={show} onHide={handleClose} placement='end' backdropClassName='blur frame'>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title className='text1' >   <i class="bi bi-search-heart"></i > دنبال چه هستید؟ </Offcanvas.Title>
+          <Offcanvas.Title className='text1' ><i class="bi bi-search-heart"></i > دنبال چه هستید؟ </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           {/* Add your sidebar content here */}
