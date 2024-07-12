@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/ProductList.css';
-import '../assets/css/images.css';
+import '../assets/css/General.css';
 import Filter from './Filter';
 
 const ProductList = () => {
@@ -72,8 +72,8 @@ const ProductList = () => {
             <div className="row " dir="rtl">
               {displayedProducts.map((product) => (
                 <div key={product.id} className="product-item col-md-3 pt-3 fontv" >
-                  <div className="card ">
-                    <a className='link'href='/pi'><img src={product.pic} alt={product.name} className="product-image imgs" />
+                  <div className="">
+                    <a className='link' href={'pi?id=' + product.id}><img src={product.pic} alt={product.name} className="product-image imgs" />
                     <div className="text-muted">{product.category.join(', ')}</div>
                     <h2 className="product-name fontv">{product.name}</h2>
                     <p className="product-price">${product.price.toFixed(2)}</p></a>
