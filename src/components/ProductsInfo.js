@@ -73,7 +73,7 @@ function PI() {
                                     <Carousel>
                                         {IMG.map((c, index) => (
                                             <Carousel.Item key={index}>
-                                                <a class="link"><img class="d-block w-100 sliderImg contrast" src={c.image} alt={product.name} /></a>
+                                                <a class="link"><img class="d-block w-100 contrast sliderImg" src={c.image} alt={product.name} /></a>
                                             </Carousel.Item>
                                         ))}
                                     </Carousel>
@@ -91,28 +91,10 @@ function PI() {
                             <h5>{product.price}</h5>
                         </div>
                         <div className="border-bottom p-3 col-md-12 card-title">
-                            <h4>برند:</h4>
-                        </div>
-                        <div className="card-body d-flex justify-content-end">
-                            <h5>{product.brand}</h5>
-                        </div>
-                        <div className="border-bottom p-3 col-md-12 card-title">
-                            <h4>موجودی:</h4>
-                        </div>
-                        <div className="card-body d-flex justify-content-end">
-                            <h5>{product.count}</h5>
-                        </div>
-                        <div className="border-bottom p-3 col-md-12 card-title">
                             <h4>سایز ها:</h4>
                         </div>
                         <div className="card-body d-flex justify-content-end">
                             <h5>{product.size}</h5>
-                        </div>
-                        <div className="border-bottom p-3 col-md-12 card-title">
-                            <h4>توضیحات:</h4>
-                        </div>
-                        <div className="card-body d-flex justify-content-end">
-                            <h5>{product.description}</h5>
                         </div>
                         <div className="border-bottom p-3 col-md-12 card-title">
                             <h4>رنگ:</h4>
@@ -127,6 +109,30 @@ function PI() {
                                     </label>
                                 </div>
                             ))}
+                        </div>
+                        <div className="border-bottom p-3 col-md-12 card-title">
+                            <h4>جنس:</h4>
+                        </div>
+                        <div className="card-body d-flex justify-content-end">
+                            <h5>{product.material}</h5>
+                        </div>
+                        <div className="border-bottom p-3 col-md-12 card-title">
+                            <h4>توضیحات:</h4>
+                        </div>
+                        <div className="card-body d-flex justify-content-end">
+                            <h5>{product.description}</h5>
+                        </div>
+                        <div className="border-bottom p-3 col-md-12 card-title">
+                            <h4>برند:</h4>
+                        </div>
+                        <div className="card-body d-flex justify-content-end">
+                            <h5>{product.brand}</h5>
+                        </div>
+                        <div className="border-bottom p-3 col-md-12 card-title">
+                            <h4>موجودی:</h4>
+                        </div>
+                        <div className="card-body d-flex justify-content-end">
+                            <h5>{product.count}</h5>
                         </div>
                         <div className="d-flex justify-content-center">
                             <button type="button" className="btn btn-outline-success col-md-9 m-4">
