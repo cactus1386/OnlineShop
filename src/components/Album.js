@@ -10,12 +10,8 @@ import img4 from '../assets/media/products/3.png'
 
 
 function ImageSlider () {
-  const [state,setState]=useState([
-    {Image:img1},
-    {Image:img2},
-    {Image:img3},
-    {Image:img4},
-  ])
+  const [state,setState]=useState([])
+
   return (
     <div class="container-xl">
       <Carousel>
