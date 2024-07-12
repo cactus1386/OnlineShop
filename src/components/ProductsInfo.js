@@ -55,7 +55,7 @@ function PI() {
                 <div className="col-md-1 d-flex justify-content-end pt-5">
                     <div className="sideImgContainer">
                         {IMG.map((w, index) => (
-                            <img key={index} src={w.image} className='sideImg border-bottom border-top' />
+                            <img key={index} src={w.image} className='sideImg border-dark border-bottom ' />
                         ))}
                     </div>
                 </div>
