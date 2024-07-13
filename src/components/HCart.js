@@ -1,14 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
+import '../assets/css/General.css';
+
 
 const Hcart = () => {
-    const [Cart,setCart]=useState([])
+    const [CartItems,setCart]=useState([])
+    const [TP,setTP]=useState([])
     
     const myHeaders = new Headers();
     myHeaders.append("accept", "application/json");
     myHeaders.append("authorization", "Basic YWRtaW5AYWRtaW4uY29tOjEyMw==");
-    myHeaders.append("X-CSRFToken", "B0ggc6ViDGhfiOn318IQMrrN5mdP5hlVv7CAtbQkhE2o863vPfwVmya1o31Qypr6");
+    myHeaders.append("X-CSRFToken", "Ii19oqugJx0mioW5pAC1NBskRy7YHyEzCpntFvpinvLv8GCxdHq6nIbyafVZaGKK");
     
     const requestOptions = {
       method: "GET",
@@ -18,65 +21,60 @@ const Hcart = () => {
     
     fetch("http://94.183.74.154:1234/cart/", requestOptions)
       .then((response) => response.json())
-      .then((result) => {
-        const items = result.items;
-        items.forEach(item => {
-            const product = item.product;
-            setCart(product);
-            console.log(Cart);
-        });
-    })      .catch((error) => console.error(error));
+      .then((result) => { setCart(result.items); setTP(result)})
 
+      .catch((error) => console.error(error));
         
             return (<>
-                    <div class="container mt-5">
+                    <div class="col-md-112 mt-5">
                         <div class="row justify-content-center">
-                            <div class="col-md-8 fontv border rounded" dir="rtl">
-                                <div class="">
+                            <div class="col-md-8 fontv card" dir="rtl">
+                                <div class="p-3">
                                     <div class="row">
-                                        <div class="col-md-8 cart">
+                                        <div class="col-md-8 cart ">
                                             <div class="title">
                                                 <div class="row">
-                                                    <div class="col border-bottom p-3"><h4><b>سبد خرید</b></h4></div>
+                                                    <div class="col border-bottom p-3 fontv"><h4><b>سبد خرید</b></h4></div>
                                                 </div>
                                             </div>
                                                 <div class="row">
-                                                    <div class="row main align-items-center">
-                                                        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"/></div>
-                                                        <div class="col">
-                                                            <div class="row text-muted">1</div>
-                                                            <div class="row">name</div>
+                                                        {CartItems.map(c => (
+                                                        <div class="row main align-items-center border-bottom p-3">
+                                                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"/></div>
+                                                            <div class="col">
+                                                                <div class="row">{c.product.name}</div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <a class="linkd">{c.quantity}</a> 
+                                                            </div>
+                                                            <div class="col"><a>248$</a></div>
                                                         </div>
-                                                        <div class="col">
-                                                            <button class="btn btn-sm">-</button><a href="#" class="border">0</a><button class="btn btn-sm">+</button>
-                                                        </div>
-                                                        <div class="col"><a>248$</a></div>
-                                                    </div>
+                                                        ))}
                                                 </div>
                                         </div>
 
                                         <div class="col-md-4 summary pt-5">
                                             <div class="row">
                                                 <div class="col-md-8">قیمت کل محصولات:</div>
-                                                <div class="col text-right py-1">6,788,000تومان</div>
+                                                <div class="col text-right py-2">{TP.total_price},000  (تومان)</div>
                                             </div>
 
                                             <form>
                                                 <a>انتخاب نحوه ارسال:</a>
-                                                <div class="col-md-10 pt-1">
+                                                <div class="col-md-10 pt-2">
                                                     <select class="form-select">
-                                                        <option class="text-muted">پست معمولی 5,000 تومان</option>
+                                                        <option class="text-muted" value={"5000"}>پست معمولی 5,000 تومان</option>
                                                         <option class="text-muted">پست پیشتاز 10,000 تومان</option>
                                                     </select>
                                                 </div>
                                             </form>
 
-                                            <div class="row pt-3">
+                                            <div class="row pt-4">
                                                 <div class="col">قیمت کل:</div>
-                                                <div class="col text-right">7,000,000تومان</div>
+                                                <div class="col text-right">{TP.total_price},000  (تومان)</div>
                                             </div>
 
-                                            <div class="pt-3 d-flex justify-content-center">
+                                            <div class="pt-4 d-flex justify-content-center">
                                                 <button class="btn col-md-10 btn-success">پرداخت</button>
                                             </div>
                                         </div>
