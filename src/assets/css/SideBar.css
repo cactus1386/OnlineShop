@@ -1,20 +1,59 @@
-
-
-.blur{
-
-    background: rgba(89, 87, 87, 0.5);
-    backdrop-filter: blur(1px);
-  }
-  
-.frame{
-  border-left: 5px solid  rgba(19, 129, 13, 0.69);
+.blur {
+  background: rgba(89, 87, 87, 0.5);
+  backdrop-filter: blur(1px);
 }
 
-.text{
+.frame {
+  border-left: 5px solid rgba(19, 129, 13, 0.69);
+}
+
+.text {
   text-shadow: 2px 2px 3px #04aa1d;
 }
 
-.text1{
- 
+.text1 {
   color: rgba(74, 85, 85, 0.764);
+}
+
+.sidebar-container {
+  position: relative;
+}
+
+.mega-menu-content {
+  display: none; /* به‌طور پیش‌فرض مخفی است */
+  position: absolute;
+  top:0;
+  left: -100%;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  padding: 20px;
+}
+
+.accordion-item {
+  position: relative; /* برای اطمینان از اینکه محتوا در نسبت به آن قرار بگیرد */
+}
+
+
+.accordion-item:hover .mega-menu-content,
+.mega-menu-content:hover {
+  display: block; /* نمایش در زمان hover روی آکاردیون یا محتوا */
+}
+
+.accordion-item {
+  position: relative; /* برای استفاده از absolute در mega-menu */
+}
+
+.accordion-item:hover .mega-menu-content {
+  display: block; /* نمایش در زمان hover */
+}
+
+.dropdown-header {
+  font-weight: bold;
+}
+
+.dropdown-item {
+  padding: 5px 0;
 }
