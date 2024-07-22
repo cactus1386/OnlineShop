@@ -10,9 +10,8 @@ const Sidebar = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleItemClick = (item) => {
-    alert(`شما ${item} را انتخاب کردید!`);
-    handleClose(); // بستن sidebar بعد از انتخاب
+  const handleItemHover = (category) => {
+    setHoveredItem(category);
   };
 
   return (
@@ -32,25 +31,25 @@ const Sidebar = () => {
             <h2 className="mb-4 fontv text" dir='rtl'>لیست محصولات</h2>
             <Accordion className='fontv'>
               {['زنانه', 'مردانه', 'بچگانه', 'اکسسوری'].map((category, index) => (
-                <Accordion.Item eventKey={index.toString()} key={index}>
+                <Accordion.Item eventKey={index.toString()} key={index} className="accordion-item">
                   <Accordion.Header
-                    onMouseEnter={() => setHoveredItem(category)}
+                    onMouseEnter={() => handleItemHover(category)}
                     onMouseLeave={() => setHoveredItem(null)}
                   >
                     <i className={`bi bi-gender-${category === 'زنانه' ? 'female' : category === 'مردانه' ? 'male' : 'people'} me-2`}></i>
                     {category}
                   </Accordion.Header>
-                  {hoveredItem === category && (
-                    <div className="mega-menu-content" onMouseEnter={() => setHoveredItem(category)} onMouseLeave={() => setHoveredItem(null)}>
-                      <div className="row">
-                        <div className="col-md-4">
-                          <h6 className="dropdown-header">Category {index + 1}</h6>
+                  <div className={`mega-menu-content ${hoveredItem === category ? '' : 'hidden'}`}>
+                    <div className="row">
+                      <div className="col-md-12">
+                        <h6 className="dropdown-header">Category {index + 1}</h6>
+                        <div className="content">
                           {['Item 1', 'Item 2', 'Item 3', 'Item 4'].map(item => (
                             <a
                               key={item}
                               className="dropdown-item"
                               href="#"
-                              onClick={() => handleItemClick(item)}
+                              onClick={() => alert(`شما ${item} را انتخاب کردید!`)}
                             >
                               {item}
                             </a>
@@ -58,7 +57,7 @@ const Sidebar = () => {
                         </div>
                       </div>
                     </div>
-                  )}
+                  </div>
                 </Accordion.Item>
               ))}
             </Accordion>

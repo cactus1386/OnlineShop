@@ -1,12 +1,48 @@
-.blur {
-  background: rgba(89, 87, 87, 0.5);
-  backdrop-filter: blur(1px);
+/* استایل برای نوار کناری */
+.sidebar-container {
+  position: relative;
 }
 
-.frame {
-  border-left: 5px solid rgba(19, 129, 13, 0.69);
+/* استایل کادر بزرگ */
+.mega-menu-content {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 300px; /* پهنای مناسب */
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  padding: 20px;
+  transition: opacity 0.3s ease; /* انیمیشن نرم برای تغییر نمایش */
 }
 
+/* استایل برای پنهان کردن کادر بزرگ به‌طور پیش‌فرض */
+.mega-menu-content.hidden {
+  display: none;
+}
+
+/* استایل برای نمایش محتوای انتخاب‌شده */
+.mega-menu-content .content {
+  display: none; /* پنهان کردن تمام محتواها به‌طور پیش‌فرض */
+}
+
+/* نمایش محتوای مرتبط با آیتم انتخاب‌شده */
+.mega-menu-content .content.active {
+  display: block;
+}
+
+/* استایل برای آیتم‌های منو */
+.dropdown-item {
+  padding: 5px 0;
+}
+
+/* استایل برای هدر‌های منو */
+.dropdown-header {
+  font-weight: bold;
+}
+
+/* استایل برای متن‌ها */
 .text {
   text-shadow: 2px 2px 3px #04aa1d;
 }
@@ -15,45 +51,13 @@
   color: rgba(74, 85, 85, 0.764);
 }
 
-.sidebar-container {
-  position: relative;
+/* استایل برای کادر کنار */
+.frame {
+  border-left: 5px solid rgba(19, 129, 13, 0.69);
 }
 
-.mega-menu-content {
-  display: none; /* به‌طور پیش‌فرض مخفی است */
-  position: absolute;
-  top:0;
-  left: -100%;
-  width: 100%;
-  background-color: white;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 2000;
-  padding: 20px;
-}
-
-.accordion-item {
-  position: relative; /* برای اطمینان از اینکه محتوا در نسبت به آن قرار بگیرد */
-}
-
-
-.accordion-item:hover .mega-menu-content,
-.mega-menu-content:hover {
-  display: block; /* نمایش در زمان hover روی آکاردیون یا محتوا */
-}
-
-.accordion-item {
-  position: relative; /* برای استفاده از absolute در mega-menu */
-}
-
-.accordion-item:hover .mega-menu-content {
-  display: block; /* نمایش در زمان hover */
-}
-
-.dropdown-header {
-  font-weight: bold;
-}
-
-.dropdown-item {
-  padding: 5px 0;
+/* استایل برای محو کردن پس‌زمینه */
+.blur {
+  background: rgba(89, 87, 87, 0.5);
+  backdrop-filter: blur(1px);
 }
