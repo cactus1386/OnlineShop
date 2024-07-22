@@ -81,17 +81,6 @@ const ShoppingNavbar = () => {
               </Nav.Link>
             )}
           </Nav>
-          <div className="mode-switch-container ms-3">
-            <span>{isDarkMode ? '🌙' : '☀️'}</span>
-            <input
-              type="checkbox"
-              className="mode-switch"
-              id="mode-switch"
-              checked={isDarkMode}
-              onChange={handleModeSwitch}
-            />
-            <label htmlFor="mode-switch" className="mode-switch-label"></label>
-          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
