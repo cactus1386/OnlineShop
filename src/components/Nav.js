@@ -9,7 +9,7 @@ import '../font/font.css'
 const ShoppingNavbar = () => {
   const [search,setSearch] = useState();
   const [expanded, setExpanded] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(() => {
+  const [ isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('darkMode');
     return savedTheme === 'true';
   });
@@ -76,7 +76,7 @@ const ShoppingNavbar = () => {
                 <NavDropdown.Item onClick={logout}>خروج</NavDropdown.Item>
               </NavDropdown>
             ) : (
-              <Nav.Link href="login">
+              <Nav.Link href="user">
                 <i className="icon">👤</i> حساب کاربری
               </Nav.Link>
             )}

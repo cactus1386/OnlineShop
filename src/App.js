@@ -37,7 +37,7 @@ const AppContent = () => {
           <Route path='/cart' element={<HCart />} />
           <Route path='/rpp' element={<RPP />} />
           <Route path='/user' element={
-            <ProtectedRoute>
+            <ProtectedRoute>  
               <Profile />
             </ProtectedRoute>
           } />

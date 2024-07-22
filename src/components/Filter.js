@@ -70,7 +70,7 @@ const Filter = ({ onFilterChange }) => {
           onChange={(e) => setMaxPrice(e.target.value)}
         />
       </div>
-      <div className="filter-input">
+      <div className="filter-inpu fontv">
         <label className="filter-label ">دسته بندی</label>
         <select
           className="form-control"
