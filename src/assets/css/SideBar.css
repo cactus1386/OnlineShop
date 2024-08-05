@@ -6,30 +6,20 @@
 /* استایل کادر بزرگ */
 .mega-menu-content {
   position: absolute;
-  top: 0;
-  right: 100%;
+  top: 0; /* مکان باز شدن کادر */
+  right: 100%; /* تغییر مکان کادر */
   width: 300px; /* پهنای مناسب */
   background-color: white;
   border: 1px solid #ddd;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 2000;
   padding: 20px;
-  transition: opacity 0.3s ease; /* انیمیشن نرم برای تغییر نمایش */
+  display: none; /* پیش‌فرض پنهان */
 }
 
-/* استایل برای پنهان کردن کادر بزرگ به‌طور پیش‌فرض */
-.mega-menu-content.hidden {
-  display: none;
-}
-
-/* استایل برای نمایش محتوای انتخاب‌شده */
-.mega-menu-content .content {
-  display: none; /* پنهان کردن تمام محتواها به‌طور پیش‌فرض */
-}
-
-/* نمایش محتوای مرتبط با آیتم انتخاب‌شده */
-.mega-menu-content .content.active {
-  display: block;
+/* استایل برای نمایش کادر بزرگ */
+.mega-menu-content.visible {
+  display: block; /* نمایش */
 }
 
 /* استایل برای آیتم‌های منو */

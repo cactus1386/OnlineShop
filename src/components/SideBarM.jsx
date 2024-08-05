@@ -14,6 +14,10 @@ const Sidebar = () => {
     setHoveredItem(category);
   };
 
+  const handleItemLeave = () => {
+    setHoveredItem(null);
+  };
+
   return (
     <div dir='rtl' className="sidebar-container">
       <Nav.Link variant="success" onClick={handleShow}>
@@ -34,12 +38,16 @@ const Sidebar = () => {
                 <Accordion.Item eventKey={index.toString()} key={index} className="accordion-item">
                   <Accordion.Header
                     onMouseEnter={() => handleItemHover(category)}
-                    onMouseLeave={() => setHoveredItem(null)}
+                    onMouseLeave={() => handleItemLeave()}
                   >
                     <i className={`bi bi-gender-${category === 'زنانه' ? 'female' : category === 'مردانه' ? 'male' : 'people'} me-2`}></i>
                     {category}
                   </Accordion.Header>
-                  <div className={`mega-menu-content ${hoveredItem === category ? '' : 'hidden'}`}>
+                  <div 
+                    className={`mega-menu-content ${hoveredItem === category ? 'visible' : ''}`} 
+                    onMouseEnter={() => handleItemHover(category)}
+                    onMouseLeave={() => handleItemLeave()}
+                  >
                     <div className="row">
                       <div className="col-md-12">
                         <h6 className="dropdown-header">Category {index + 1}</h6>
