@@ -1,9 +1,4 @@
-/* استایل برای نوار کناری */
-.sidebar-container {
-  position: relative;
-}
-
-/* استایل کادر بزرگ */
+/* استایل برای کادر بزرگ */
 .mega-menu-content {
   position: absolute;
   top: 0; /* مکان باز شدن کادر */
@@ -15,39 +10,20 @@
   z-index: 2000;
   padding: 20px;
   display: none; /* پیش‌فرض پنهان */
+  transition: opacity 0.3s ease; /* اضافه کردن انیمیشن برای نرمی نمایش */
+  opacity: 0; /* پیش‌فرض پنهان */
+
 }
 
 /* استایل برای نمایش کادر بزرگ */
 .mega-menu-content.visible {
-  display: block; /* نمایش */
+  display: inline-block ; /* نمایش */
+  opacity: 1; 
+  position: absolute;/* اطمینان از اینکه منو قابل مشاهده است */
 }
 
-/* استایل برای آیتم‌های منو */
-.dropdown-item {
-  padding: 5px 0;
-}
-
-/* استایل برای هدر‌های منو */
-.dropdown-header {
-  font-weight: bold;
-}
-
-/* استایل برای متن‌ها */
-.text {
-  text-shadow: 2px 2px 3px #04aa1d;
-}
-
-.text1 {
-  color: rgba(74, 85, 85, 0.764);
-}
-
-/* استایل برای کادر کنار */
-.frame {
-  border-left: 5px solid rgba(19, 129, 13, 0.69);
-}
-
-/* استایل برای محو کردن پس‌زمینه */
-.blur {
-  background: rgba(89, 87, 87, 0.5);
-  backdrop-filter: blur(1px);
+/* اطمینان از تعامل با آیتم‌های منو */
+.mega-menu-content a {
+  display: block; /* اطمینان از اینکه آیتم‌ها به درستی نمایش داده شوند */
+  padding: 5px 10px;
 }
