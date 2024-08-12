@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Offcanvas, Nav, Accordion, ListGroup, Button} from 'react-bootstrap';
+import { Offcanvas, Nav, Accordion, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/SideBar.css';
 import { MenuItem } from 'react-pro-sidebar';
+import ListGroup from 'react-bootstrap/ListGroup';
+
 
 const Sidebar = () => {
   const [show, setShow] = useState(false);
@@ -42,10 +44,23 @@ const Sidebar = () => {
           </Accordion.Header>
           <Accordion.Body>
             <ListGroup variant="flush">
-            <Button>jhgb</Button>
-              <ListGroup.Item>شلوارک</ListGroup.Item>
-              <ListGroup.Item>پیراهن</ListGroup.Item>
-              <ListGroup.Item>اکسسوری</ListGroup.Item>
+            
+            <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" >
+      شلوارک
+    </button>
+  </li>
+  <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" onClick={() => console.log('شلوارک کلیک شد')}>
+      اکسسوری
+    </button>
+  </li>
+  <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" onClick={() => console.log('شلوارک کلیک شد')}>
+      پیراهن
+    </button>
+  </li>
+        
             </ListGroup>
           </Accordion.Body>
         </Accordion.Item>
@@ -55,10 +70,28 @@ const Sidebar = () => {
           </Accordion.Header>
           <Accordion.Body>
             <ListGroup variant="flush">
-              <ListGroup.Item>تی شرت</ListGroup.Item>
-              <ListGroup.Item>شلوار</ListGroup.Item>
-              <ListGroup.Item>ژاکت</ListGroup.Item>
-              <ListGroup.Item>کت</ListGroup.Item>
+              
+            
+              <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" >
+      تی شرت
+    </button>
+  </li>
+  <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" onClick={() => console.log('شلوارک کلیک شد')}>
+    شلوار
+    </button>
+  </li>
+  <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" onClick={() => console.log('شلوارک کلیک شد')}>
+    کت
+    </button>
+  </li>
+  <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" onClick={() => console.log('شلوارک کلیک شد')}>
+    ژاکت
+    </button>
+  </li>
             </ListGroup>
           </Accordion.Body>
         </Accordion.Item>
@@ -68,10 +101,26 @@ const Sidebar = () => {
           </Accordion.Header>
           <Accordion.Body>
             <ListGroup variant="flush">
-              <ListGroup.Item>تاپ</ListGroup.Item>
-              <ListGroup.Item>شلوارک</ListGroup.Item>
-              <ListGroup.Item>کفش</ListGroup.Item>
-              <ListGroup.Item>پیراهن</ListGroup.Item>
+              <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" >
+    تاپ
+    </button>
+  </li>
+  <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" onClick={() => console.log('شلوارک کلیک شد')}>
+    شلوارک
+    </button>
+  </li>
+  <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" onClick={() => console.log('شلوارک کلیک شد')}>
+    کفش
+    </button>
+  </li>
+  <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" onClick={() => console.log('شلوارک کلیک شد')}>
+    پیراهن
+    </button>
+  </li>
             </ListGroup>
           </Accordion.Body>
         </Accordion.Item>
@@ -81,10 +130,26 @@ const Sidebar = () => {
           </Accordion.Header>
           <Accordion.Body>
             <ListGroup variant="flush">
-              <ListGroup.Item>کیف</ListGroup.Item>
-              <ListGroup.Item>جواهرات</ListGroup.Item>
-              <ListGroup.Item>ساعت</ListGroup.Item>
-              <ListGroup.Item>عینک</ListGroup.Item>
+              <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" >
+    کیف
+    </button>
+  </li>
+  <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" onClick={() => console.log('شلوارک کلیک شد')}>
+    جواهرات
+    </button>
+  </li>
+  <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" onClick={() => console.log('شلوارک کلیک شد')}>
+    ساعت
+    </button>
+  </li>
+  <li className="list-group-item">
+    <button className="btn btn-link p-0 m-0 border-0 text-decoration-none" onClick={() => console.log('شلوارک کلیک شد')}>
+    عینک
+    </button>
+  </li>
             </ListGroup>
           </Accordion.Body>
         </Accordion.Item>
