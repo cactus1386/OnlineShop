@@ -72,7 +72,7 @@ const ShoppingNavbar = () => {
             </Nav.Link>
             {isLoggedIn ? (
               <NavDropdown title={<span><i className="icon">👤</i> پروفایل</span>} id="user-dropdown">
-                <NavDropdown.Item href="user">مشخصات</NavDropdown.Item>
+                <NavDropdown.Item href="/userinfo">مشخصات</NavDropdown.Item>
                 <NavDropdown.Item onClick={logout}>خروج</NavDropdown.Item>
               </NavDropdown>
             ) : (

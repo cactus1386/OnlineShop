@@ -13,7 +13,7 @@ const Comments = ({ productId }) => {
   }, [productId]);
 
   function show() {
-    fetch(`http://94.183.74.154:1234/comments/api/v1/post?product=${productId}`)
+    fetch(`http://94.183.74.154:1234/comments/api/v1/post?pst=${productId}`)
       .then(response => response.json())
       .then(result => {
         setComments(result);
@@ -23,24 +23,22 @@ const Comments = ({ productId }) => {
   }
 
   function sendToServer() {
-    setLoading(true);
     const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4MzE3NTAyLCJpYXQiOjE3MDgzMTE1MDIsImp0aSI6ImJjNzc1ODhmNTdkZjRjNmE5ZWJiYzQ3MzVlZjc1YzdjIiwidXNlcl9pZCI6MX0.mOLSO9XWA1q57tzaAG2LyxYpnSn1TQp4S0oOcp9iyCM");
-
-    const raw = JSON.stringify({
-      "content": comment,
-      "name": name,
-      "post": productId
-    });
-
-    const requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-    };
-
+      myHeaders.append("accept", "application/json");
+      myHeaders.append("authorization", "Basic YWRtaW5AYWRtaW4uY29tOjEyMw==");
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("X-CSRFToken", "a4gVs4LKoK9qpwBtyktdTabLGKkDTjtt0aSC8gxZdbs3aTs15Xp16uXl7nRL3uLI");
+      const raw = JSON.stringify({
+        "post": productId,
+        "name": name,
+        "content": comment
+      });
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+      };
     fetch("http://94.183.74.154:1234/comments/api/v1/post", requestOptions)
       .then(response => {
         if (!response.ok) {

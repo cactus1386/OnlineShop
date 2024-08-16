@@ -4,7 +4,6 @@ import { Carousel } from 'react-bootstrap';
 import '../assets/css/ProductInfo.css';
 import "../font/font.css";
 import '../assets/css/General.css';
-import FullScreenAlbum from './FullScreenAlbum';
 import Comment from './CommentBox'; 
 import Mortabet from './MultiItemSlider';
 import img1 from '../assets/media/products/1.png';

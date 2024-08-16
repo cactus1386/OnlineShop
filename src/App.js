@@ -5,6 +5,7 @@ import Cart from './components/ProfileCart';
 import Login from './components/Login';
 import RPP from './components/RecentlyPurchasedPrdcts';
 import ShoppingNavbar from './components/Nav';
+import EditUserInfo from './components/editUserInfo';
 import SignIn from './components/SignIn';
 import Profile from './components/UserInfo';
 import HCart from './components/HCart';
@@ -32,10 +33,12 @@ const AppContent = () => {
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/products' element={<ProductList />} />
+          <Route path='/edit' element={<EditUserInfo />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignIn />} />
           <Route path='/cart' element={<HCart />} />
           <Route path='/rpp' element={<RPP />} />
+          <Route path='/userinfo' element={<Profile />} />
           <Route path='/user' element={
             <ProtectedRoute>  
               <Profile />

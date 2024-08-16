@@ -2,10 +2,22 @@ import React from "react";
 import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 function ProductSlider() {
-	const [state,setState]=useState([
-        {Id:'1',Name : "نیکه ترو بالانث", Price:'455,000' ,Amount : '69',Date: "05/28/2020", PaymentStatus:'پرداخت شده',PriceSum :'959,934,000'},
-		{Id:'1',Name : "زد ایکس آینده دار", Price:'65,000' ,Amount : '1',Date: "05/8/2024", PaymentStatus:'در انتظار پرداخت',PriceSum :'544,787,000'},
-      ])
+    const [CartItems,setCart]=useState([])
+	const myHeaders = new Headers();
+	myHeaders.append("accept", "application/json");
+	myHeaders.append("authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzMzk3OTg0LCJpYXQiOjE3MjMzOTE5ODQsImp0aSI6ImZmZTY3ZDFkNmJjYzQyMGY5ZGY0Y2ZkMGQ0Zjc1MjRmIiwidXNlcl9pZCI6MX0.izIW47xPJQ6ImDKVhnmRrzhgtJWWh_WMUVShIWe65Nw");
+	myHeaders.append("X-CSRFToken", "a4gVs4LKoK9qpwBtyktdTabLGKkDTjtt0aSC8gxZdbs3aTs15Xp16uXl7nRL3uLI");
+	
+	const requestOptions = {
+	method: "GET",
+	headers: myHeaders,
+	redirect: "follow"
+	};
+
+	fetch("http://94.183.74.154:1234/cart/", requestOptions)
+	.then((response) => response.json())
+	.then((result) => setCart(result.items))
+	.catch((error) => console.error(error));
         return (  
                 <>
 				<div class='d-flex justify-content-center pt-5 fontv'>
@@ -28,34 +40,30 @@ function ProductSlider() {
 											<th style={{'min-width':110+"px"}}>
 												<span class="text">تاریخ</span>
 											</th>
-											<th style={{"min-width": 120+'px'}}>وضعیت پرداخت</th>
 											<th style={{"min-width": 120+'px'}}>قیمت کل</th>
 										</tr>
 									</thead>
 									<tbody>
-									{state.map(c=>
+									{CartItems?.map(c=>
 										<tr>
 											<td class="pl-0 py-6">
-												<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{c.Id}</span>
+												<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{c.product.Id}</span>
 											</td>
 											<td class="pl-0">
-												<a href="product" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{c.Name}</a>
+												<a href="product" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{c.product.Name}</a>
 											</td>
 											<td>
-												<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{c.Price}</span>
-												<span class="text-muted font-weight-bold">تومان</span>
+												<span class="text-dark-75 font-weight-bolder d-block font-size-lg p-2">{c.product.Price}(تومان)</span>
 											</td>
 											<td>
-												<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{c.Amount}</span>
+												<span class="text-dark-75 font-weight-bolder d-block font-size-lg p-2">{c.product.Amount}</span>
 											</td>
 											<td>
-												<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{c.Date}</span>
+												<span class="text-dark-75 font-weight-bolder d-block font-size-lg p-2">{c.product.Date}</span>
 											</td>
+				
 											<td>
-												<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{c.PaymentStatus}</span>
-											</td>
-											<td>
-												<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{c.PriceSum}</span>
+												<span class="text-dark-75 font-weight-bolder d-block font-size-lg p-2">{c.product.PriceSum}</span>
 											</td>
 											<td class="pr-0 text-right">
 												<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
